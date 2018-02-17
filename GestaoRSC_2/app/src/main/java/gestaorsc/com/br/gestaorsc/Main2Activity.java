@@ -13,21 +13,22 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     private Button btn_salvar;
     private EditText edt_idade;
     private TextView txt_sexo, txt_idade, txt_escola, txt_questao;
-    private TextView txt_q1,txt_q2,txt_q3,txt_q4,txt_q5,txt_q6,txt_q7;
-    private RadioButton rb_q1_a,rb_q1_b, rb_q1_c, rb_q1_d, rb_q1_e;
+    private TextView txt_q1, txt_q2, txt_q3, txt_q4, txt_q5, txt_q6, txt_q7;
+    private RadioButton rb_q1_a, rb_q1_b, rb_q1_c, rb_q1_d, rb_q1_e;
     private RadioButton rb_q2_a, rb_q2_b;
     private RadioButton rb_q3_a, rb_q3_b;
-    private RadioButton rb_q4_a,rb_q4_b,rb_q4_c,rb_q4_d;
-    private RadioButton rb_q5_a,rb_q5_b,rb_q5_c,rb_q5_d,rb_q5_e;
-    private RadioButton rb_q6_a,rb_q6_b,rb_q6_c,rb_q6_d,rb_q6_e,rb_q6_f;
-    private RadioButton rb_m, rb_f, rb_anal, rb_efi,rb_efc,rb_emi,rb_emc,rb_esi,rb_esc;
+    private RadioButton rb_q4_a, rb_q4_b, rb_q4_c, rb_q4_d;
+    private RadioButton rb_q5_a, rb_q5_b, rb_q5_c, rb_q5_d, rb_q5_e;
+    private RadioButton rb_q6_a, rb_q6_b, rb_q6_c, rb_q6_d, rb_q6_e, rb_q6_f;
+    private RadioButton rb_m, rb_f, rb_anal, rb_efi, rb_efc, rb_emi, rb_emc, rb_esi, rb_esc;
     private RadioButton rb_q7_a, rb_q7_b;
-    String q1,q2,q3,q4,q5,q6,q7;
+    String q1, q2, q3, q4, q5, q6, q7;
     String sexo;
     int idade;
-    int quantidade,quantidade2, quantidade3;
+    int quantidade, quantidade2;
+    double quantidade_total, quantidade3;
     String escolaridade;
-
+    String idade2;
 
     Database db = new Database(this);
 
@@ -123,6 +124,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         }
 
          idade = Integer.parseInt(edt_idade.getText().toString());
+        idade2 = String.valueOf(idade);
 
 
         if (rb_anal.isChecked()) {
@@ -224,23 +226,20 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         } else if (rb_q7_b.isChecked()) {
             q7 = "b";
         }
-        if(sexo == null){
+        if (sexo == null) {
             AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
             msg.setTitle("Alerta!!!");
-            msg.setMessage("Campo sexo não selecionado");
+            msg.setMessage("Selecione um sexo");
             msg.setIcon(android.R.drawable.ic_dialog_alert);
             msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    rb_m.requestFocus();
-
                 }
             });
             msg.show();
         }else
-
-        if( idade > 120) {
+        if (idade <= 15 || idade > 120 || idade == 0 ) {
             AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
             msg.setTitle("Alerta!!!");
@@ -249,9 +248,11 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
+
                 }
             });
             msg.show();
+
         }else
             if(escolaridade == null) {
 
@@ -283,47 +284,14 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
             }else
                 {
+                    db.addDados(new Dados(sexo, idade, escolaridade, quantidade_total, quantidade, quantidade2, quantidade3, q1, q2, q3, q4, q5, q6, q7));
+                    Toast.makeText(Main2Activity.this, "Salvo com Sucesso", Toast.LENGTH_LONG).show();
 
-            db.addDados(new Dados(sexo, idade, escolaridade, quantidade,quantidade2,quantidade3, q1, q2, q3, q4, q5, q6, q7));
-
-            Toast.makeText(Main2Activity.this, "Salvo com Sucesso", Toast.LENGTH_LONG).show();
-
-            finish();
-            Intent it = new Intent(this, MainActivity.class);
-            startActivity(it);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
         }
     }
-    /*public void pegaPosição(){
-       if(rb_m.isChecked()){
-            AlertDialog.Builder msg = new AlertDialog.Builder(this);
-
-            msg.setTitle("Alerta!!!");
-            msg.setMessage("Idade não permitida");
-            msg.setIcon(android.R.drawable.ic_menu_delete);
-            msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    txt_sexo.requestLayout();
-                }
-            });
-            msg.show();
-        }else
-            if(rb_anal.equals(false) || rb_efi.equals(null) || rb_efc.equals(null) || rb_emi.equals(null) || rb_emc.equals(null) || rb_esi.equals(null) || rb_esc.equals(null)){
-
-                AlertDialog.Builder msg = new AlertDialog.Builder(this);
-
-                msg.setTitle("Alerta!!!");
-                msg.setMessage("Idade não permitida");
-                msg.setIcon(android.R.drawable.ic_menu_delete);
-                msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        txt_escola.requestLayout();
-                    }
-                });
-                msg.show();
-        }
-    }*/
 
     @Override
     public void onClick(View view) {

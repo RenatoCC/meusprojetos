@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.*;
 import android.view.*;
 import android.content.*;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
 
+    double res, qtt;
     Database db = new Database(this);
 
     @Override
@@ -32,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_limpatela = (Button) findViewById(R.id.btn_limpatela);
         lst_resultado = (ListView) findViewById(R.id.lst_resultado);
         btn_relatorio = (Button) findViewById(R.id.btn_relatorio);
-        btn_apaga = (Button)findViewById(R.id.btn_apaga);
 
 
         btn_tabela.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 List<Dados> dados = db.mostrarTabela();
                 list = new ArrayList<String>();
                 adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
-
                 lst_resultado.setAdapter(adapter);
                 for (Dados d : dados) {
                     list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
@@ -64,51 +65,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
 
-                if(adapter.isEmpty()){
+                try{
+                    if (adapter.isEmpty()) {
 
-                }else
-                    {
+                    }else{
                         adapter.clear();
                     }
+                }	catch(NullPointerException ex){
+
+                }
         }});
 
        btn_relatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               List<Dados> dados = db.consulta2();
-                /* List<Dados> dados = db.consulta();
+                List<Dados> dados1 = db.consulta();
+                List<Dados> dados2 = db.consulta2();
+                List<Dados> dados3 = db.consulta3();
+                List<Dados> dados4 = db.consulta4();
+
                 list = new ArrayList<String>();
 
                 adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
 
                 lst_resultado.setAdapter(adapter);
-                for(Dados t : dados){
+                for (Dados d : dados4){
+                    DecimalFormat df = new DecimalFormat("0");
+                    qtt = d.getQuantidade_total();
+                    String dx = df.format(qtt);
+                    list.add(String.valueOf("TOTAL DE PESSOAS PESQUISADAS E: " + dx));
+                }
+                for(Dados t : dados1){
                     list.add(String.valueOf("A QUANTIDADE DE PESSOAS QUE RESPONDERAM A LETRA (A) DA QUESTÃO 1 E LETRA (B) DA QUESTÃO 2 É: " + t.getQuantidade()));
-                }*/
-                list = new ArrayList<String>();
-
-                adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
-
-                lst_resultado.setAdapter(adapter);
-                for (Dados b : dados ){
+                }
+                for (Dados b : dados2 ){
                     list.add(String.valueOf("A QUANTIDDE DE PESSOA COM ESCOLARIDADE ANALFABETO É " + b.getQuantidade2()));
+                }
+                for (Dados c : dados3) {
+                    for (Dados d : dados4) {
+                        DecimalFormat df = new DecimalFormat("0.00");
+                        res = c.getQuantidade3() / 100 * d.getQuantidade_total();
+                        String dx = df.format(res);
+                        list.add((dx + "% " + "-> " + " ACHAM QUE O LIXO PREJUDICA O MEIO AMBIENTE"));
+
+                    }
                 }
             }
         });
-       btn_apaga.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
 
-               confimação();
-           }
-       });
     }
     public void onClick(View view) {
 
         Intent it = new Intent(this, Main2Activity.class);
         startActivity(it);
     }
-    public void confimação(){
+    public void excluiPesquisa(){
+        final List<Dados> dados4 = db.consulta4();
         AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
         msg.setTitle("Alerta!!!");
@@ -117,7 +129,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msg.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                db.deleta();
+
+                try {
+                    for (Dados h : dados4) {
+                        if (h.getQuantidade_total() == 0) {
+                            Toast.makeText(MainActivity.this, "NÃO EXISTE PESQUISA CADASTRADA", Toast.LENGTH_LONG).show();
+                        } else {
+                            db.deleta();
+                            adapter.clear();
+                            Toast.makeText(MainActivity.this, "PESQUISA APAGADA", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }catch (NullPointerException ex) {
+                    for (Dados h : dados4) {
+                        if (h.getQuantidade_total() > 0) {
+                            db.deleta();
+                            Toast.makeText(MainActivity.this, "PESQUISA APAGADA", Toast.LENGTH_LONG).show();
+                        } else {
+                            adapter.clear();
+                            Toast.makeText(MainActivity.this, "NÃO EXISTE PESQUISA CADASTRADA", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
             }
         });
         msg.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -129,5 +162,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msg.show();
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
 
-}
+        if(id == R.id.action_settings){
+            excluiPesquisa();
+
+        }
+        if(id == R.id.sair){
+            finish();
+        }
+        return true;
+    }
+
+    }
+

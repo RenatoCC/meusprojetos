@@ -28,45 +28,34 @@
 
             <Button
                 android:id="@+id/btn_iniciar"
-                android:layout_width="400dp"
+                android:layout_width="250dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/btn_iniciar"
                 android:textSize="11pt" />
 
             <Button
                 android:id="@+id/btn_limpatela"
-                android:layout_width="400dp"
+                android:layout_width="250dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
                 android:text="@string/btn_limpatela"
                 android:textSize="11pt" />
 
             <Button
-                android:id="@+id/btn_apaga"
-                android:layout_width="400dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/btn_apaga"
-                android:textSize="11pt" />
-
-            <Button
                 android:id="@+id/btn_tabela"
-                android:layout_width="400dp"
+                android:layout_width="250dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
                 android:text="@string/btn_tabela"
                 android:textSize="11pt" />
 
             <Button
                 android:id="@+id/btn_relatorio"
-                android:layout_width="400dp"
+                android:layout_width="250dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
                 android:text="@string/btn_relatorio"
                 android:textSize="11pt" />
 

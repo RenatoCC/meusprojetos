@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-	private Button btn_iniciar, btn_salvar, btn_pesquisa,btn_limpatela, btn_relatorio, btn_apaga;
+	private Button btn_iniciar, btn_pesquisa,btn_limpatela, btn_relatorio;
 	private ListView lst_resultado;
 	private ArrayList<String> list;
 	private ArrayAdapter<String> adapter;
@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 
 		btn_iniciar = (Button) findViewById(R.id.btn_iniciar);
-		btn_salvar = (Button) findViewById(R.id.btn_salvar);
 		btn_pesquisa = (Button) findViewById(R.id.btn_pesquisa);
 		btn_limpatela = (Button) findViewById(R.id.btn_limpatela);
 		lst_resultado = (ListView) findViewById(R.id.lst_resultado);
@@ -44,31 +43,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			public void onClick(View view) {
 
 				List<Dados> dados = db.mostrarTabela();
-				List<Dados> dados4 = db.consulta4();
 				list = new ArrayList<String>();
 				adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
-//CORRIGIR BOTÃO PESQUISA
 				lst_resultado.setAdapter(adapter);
-				for (Dados d4 : dados4) {
-					for (Dados d : dados) {
 
-						if (d4.getQuantidade_total() == 0) {
-
-							Toast.makeText(MainActivity.this, "AINDA NÃO EXISTE PESQUISA CADASTRADA", Toast.LENGTH_LONG).show();
-						} else
-
-							list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
-									+ " SEXO: " + d.getSexo() + " " + "\n "
-									+ "IDADE: " + d.getIdade() + " " + "Anos" + "\n"
-									+ " ESCOLARIDADE: " + d.getEscolaridade() + " " + "\n "
-									+ "Q_1 = " + d.q1 + " " + "\n "
-									+ "Q_2 = " + d.q2 + " " + "\n "
-									+ "Q_3 = " + d.q3 + " " + "\n "
-									+ "Q_4 = " + d.q4 + " " + "\n "
-									+ "Q_5 = " + d.q5 + " " + "\n "
-									+ "Q_6 = " + d.q6 + " " + "\n "
-									+ "Q_7 = " + d.q7 + "\n");
-					}
+				for (Dados d : dados) {
+					list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
+							+ " SEXO: " + d.getSexo() + " " + "\n "
+							+ "IDADE: " + d.getIdade() + " " + "Anos" + "\n"
+							+ " ESCOLARIDADE: " + d.getEscolaridade() + " " + "\n "
+							+ "Q_1 = " + d.q1 + " " + "\n "
+							+ "Q_2 = " + d.q2 + " " + "\n "
+							+ "Q_3 = " + d.q3 + " " + "\n "
+							+ "Q_4 = " + d.q4 + " " + "\n "
+							+ "Q_5 = " + d.q5 + " " + "\n "
+							+ "Q_6 = " + d.q6 + " " + "\n "
+							+ "Q_7 = " + d.q7 + "\n");
 				}
 			}
 		});
@@ -76,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		btn_limpatela.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-
 				try{
 					if (adapter.isEmpty()) {
 
@@ -156,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 							Toast.makeText(MainActivity.this, "PESQUISA APAGADA", Toast.LENGTH_LONG).show();
 						}
 					}
-				}catch (NullPointerException ex){
+				}catch (NullPointerException ex) {
 					for (Dados h : dados4) {
 						if (h.getQuantidade_total() > 0) {
 							db.deleta();

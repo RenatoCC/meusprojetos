@@ -288,7 +288,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 
-           /* finish();
+            /*finish();
             Intent it = new Intent(this, MainActivity.class);
             startActivity(it);*/
         }

@@ -89,7 +89,7 @@
                 android:cursorVisible="false"
                 android:ems="10"
                 android:inputType="number"
-                android:text="@string/edt_idade" />
+                android:text="0" />
 
             <TextView
                 android:id="@+id/txt_escola"

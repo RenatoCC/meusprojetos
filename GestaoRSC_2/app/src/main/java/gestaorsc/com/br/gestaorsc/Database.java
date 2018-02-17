@@ -72,6 +72,21 @@ public class Database extends SQLiteOpenHelper {
         db.insert(TABELA_PESSOA, null, values);
         db.close();
     }
+    public List<Dados>consulta4(){
+        List<Dados> consulta4 = new ArrayList<Dados>();
+        String QUERY_CONSULTA4 = "SELECT COUNT (id) FROM " + TABELA_PESSOA ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor b = db.rawQuery(QUERY_CONSULTA4, null);
+        if(b.moveToFirst()){
+            do{
+                Dados dados = new Dados();
+                dados.setQuantidade_total(Integer.parseInt(b.getString(0)));
+                consulta4.add(dados);
+            }while (b.moveToNext());
+        }
+        return consulta4;
+    }
     public List<Dados> consulta(){
         List<Dados> consulta = new ArrayList<Dados>();
 
@@ -156,7 +171,6 @@ public class Database extends SQLiteOpenHelper {
         db.delete(TABELA_PESSOA,null,null);
 
         String QUERY_DELETA = "DELETE FROM " + TABELA_PESSOA;
-
         db.execSQL(QUERY_DELETA);
         db.close();
     }

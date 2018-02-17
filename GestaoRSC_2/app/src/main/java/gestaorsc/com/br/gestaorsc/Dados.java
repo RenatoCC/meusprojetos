@@ -3,47 +3,45 @@ package gestaorsc.com.br.gestaorsc;
 public class Dados {
 
     int id_pessoa, id_escolaridade;
-    int idade,quantidade,quantidade2,quantidade3;
-   String sexo, escolaridade;
-   String q1,q2,q3,q4,q5,q6,q7;
+    int quantidade,quantidade2;
+    double quantidade_total;
+    double quantidade3;
+    String sexo, escolaridade;
+    String q1,q2,q3,q4,q5,q6,q7;
+    int idade;
 
    public Dados(){
 
    }
+    public Dados(String sexo, int idade, String escolaridade, double quantidade_total,int quantidade, int quantidade2,double quantidade3, String q1, String q2, String q3,
+                 String q4, String q5, String q6, String q7){
 
-
-    public Dados(String sexo, int idade, String escolaridade,int quantidade3, int quantidade,int quantidade2, String q1, String q2, String q3,
-                 String q4, String q5, String q6, String q7) {
-
-       this.sexo = sexo;
-       this.idade = idade;
-       this.escolaridade = escolaridade;
-       this.quantidade = quantidade;
-       this.quantidade2 = quantidade2;
-       this.quantidade3 = quantidade3;
-       this.q1 = q1;
-       this.q2 = q2;
-       this.q3 = q3;
-       this.q4 = q4;
-       this.q5 = q5;
-       this.q6 = q6;
-       this.q7 = q7;
-    }
-
-    public int getQuantidade3() {
-        return quantidade3;
-    }
-
-    public void setQuantidade3(int quantidade3) {
-        this.quantidade3 = quantidade3;
-    }
-
-    public int getQuantidade2() {
-        return quantidade2;
-    }
-
-    public void setQuantidade2(int quantidade2) {
+        this.sexo = sexo;
+        this.idade = idade;
+        this.escolaridade = escolaridade;
+        this.quantidade = quantidade;
         this.quantidade2 = quantidade2;
+        this.quantidade3 = quantidade3;
+        this.quantidade_total = quantidade_total;
+        this.q1 = q1;
+        this.q2 = q2;
+        this.q3 = q3;
+        this.q4 = q4;
+        this.q5 = q5;
+        this.q6 = q6;
+        this.q7 = q7;
+    }
+
+    public int getId_pessoa() {
+        return id_pessoa;
+    }
+
+    public void setId_pessoa(int id_pessoa) {
+        this.id_pessoa = id_pessoa;
+    }
+
+    public int getId_escolaridade() {
+        return id_escolaridade;
     }
 
     public void setId_escolaridade(int id_escolaridade) {
@@ -58,28 +56,28 @@ public class Dados {
         this.quantidade = quantidade;
     }
 
-    public int getId_pessoa() {
-        return id_pessoa;
+    public int getQuantidade2() {
+        return quantidade2;
     }
 
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+    public void setQuantidade2(int quantidade2) {
+        this.quantidade2 = quantidade2;
     }
 
-    public int getIdade() {
-        return idade;
+    public double getQuantidade_total() {
+        return quantidade_total;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setQuantidade_total(double quantidade_total) {
+        this.quantidade_total = quantidade_total;
     }
 
-    public String getEscolaridade() {
-        return escolaridade;
+    public double getQuantidade3() {
+        return quantidade3;
     }
 
-    public void setEscolaridade(String escolaridade) {
-        this.escolaridade = escolaridade;
+    public void setQuantidade3(double quantidade3) {
+        this.quantidade3 = quantidade3;
     }
 
     public String getSexo() {
@@ -88,6 +86,14 @@ public class Dados {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public String getEscolaridade() {
+        return escolaridade;
+    }
+
+    public void setEscolaridade(String escolaridade) {
+        this.escolaridade = escolaridade;
     }
 
     public String getQ1() {
@@ -146,9 +152,13 @@ public class Dados {
         this.q7 = q7;
     }
 
+    public int getIdade() {
+        return idade;
+    }
 
-
-
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 }
 
 

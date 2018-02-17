@@ -57,7 +57,9 @@
     <string name="txt_pesquisa">Gerenciamento de Residuos</string>
     <string name="btn_tabela">Pesquisa</string>
     <string name="btn_limpatela">Limpar Tela</string>
-    <string name="btn_apaga">Excluir pesquisa</string>
+    <string name="action_settings">Excluir pesquisa</string>
+    <string name="sair">sair</string>
+    <string name="Sair">Sair</string>
 
 
 </resources>
