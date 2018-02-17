@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
 
+    String qq;
     double res, qtt;
     Database db = new Database(this);
 
@@ -28,37 +29,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 
-        btn_iniciar = (Button) findViewById(R.id.btn_iniciar);
+        btn_iniciar = findViewById(R.id.btn_iniciar);
         btn_iniciar.setOnClickListener(this);
-        btn_salvar = (Button) findViewById(R.id.btn_salvar);
-        btn_tabela = (Button) findViewById(R.id.btn_tabela);
-        btn_limpatela = (Button) findViewById(R.id.btn_limpatela);
-        lst_resultado = (ListView) findViewById(R.id.lst_resultado);
-        btn_relatorio = (Button) findViewById(R.id.btn_relatorio);
+        btn_salvar = findViewById(R.id.btn_salvar);
+        btn_tabela = findViewById(R.id.btn_tabela);
+        btn_limpatela = findViewById(R.id.btn_limpatela);
+        lst_resultado = findViewById(R.id.lst_resultado);
+        btn_relatorio = findViewById(R.id.btn_relatorio);
 
 
         btn_tabela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 List<Dados> dados = db.mostrarTabela();
-                list = new ArrayList<String>();
-                adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
+                list = new ArrayList<>();
+                adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, list);
                 lst_resultado.setAdapter(adapter);
+
                 for (Dados d : dados) {
-                    list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
-                            +  " SEXO: " + d.getSexo() + " " + "\n "
-                            + "IDADE: " + d.getIdade() + " " + "Anos" + "\n"
-                            + " ESCOLARIDADE: " + d.getEscolaridade() + " " +  "\n "
-                            + "Q_1 = " + d.q1 + " " +  "\n "
-                            + "Q_2 = " + d.q2 + " " +  "\n "
-                            + "Q_3 = " + d.q3 + " " +  "\n "
-                            + "Q_4 = " + d.q4 + " " +  "\n "
-                            + "Q_5 = " + d.q5 + " " +  "\n "
-                            + "Q_6 = " + d.q6 + " " +  "\n "
-                            + "Q_7 = " + d.q7+  "\n");
+                            list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
+                                    + " SEXO: " + d.getSexo() + " " + "\n "
+                                    + "IDADE: " + d.getIdade() + " " + "Anos" + "\n"
+                                    + " ESCOLARIDADE: " + d.getEscolaridade() + " " + "\n "
+                                    + "Q_1 = " + d.q1 + " " + "\n "
+                                    + "Q_2 = " + d.q2 + " " + "\n "
+                                    + "Q_3 = " + d.q3 + " " + "\n "
+                                    + "Q_4 = " + d.q4 + " " + "\n "
+                                    + "Q_5 = " + d.q5 + " " + "\n "
+                                    + "Q_6 = " + d.q6 + " " + "\n "
+                                    + "Q_7 = " + d.q7 + "\n");
+                    }
                 }
-            }
         });
 
         btn_limpatela.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         msg.show();
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

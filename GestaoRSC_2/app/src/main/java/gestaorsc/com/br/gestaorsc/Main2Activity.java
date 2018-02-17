@@ -38,80 +38,80 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.tela_questao);
 
         //RADIOBUTTON SEXO
-        rb_f = (RadioButton)findViewById(R.id.rb_f);
-        rb_m = (RadioButton)findViewById(R.id.rb_m);
+        rb_f = findViewById(R.id.rb_f);
+        rb_m = findViewById(R.id.rb_m);
 
         //Button
-        btn_salvar = (Button)findViewById(R.id.btn_salvar);
+        btn_salvar = findViewById(R.id.btn_salvar);
         btn_salvar.setOnClickListener(this);
 
         //TEXTVIEW
-        txt_sexo = (TextView) findViewById(R.id.txt_sexo);
-        txt_escola = (TextView) findViewById(R.id.txt_escola);
-        txt_idade = (TextView) findViewById(R.id.txt_idade);
-        txt_questao = (TextView) findViewById(R.id.txt_questao);
+        txt_sexo = findViewById(R.id.txt_sexo);
+        txt_escola = findViewById(R.id.txt_escola);
+        txt_idade = findViewById(R.id.txt_idade);
+        txt_questao = findViewById(R.id.txt_questao);
 
         //TEXTVIEW QUESTÃO
-        txt_q1 = (TextView)findViewById(R.id.txt_q1);
-        txt_q2 = (TextView)findViewById(R.id.txt_q2);
-        txt_q3 = (TextView)findViewById(R.id.txt_q3);
-        txt_q4 = (TextView)findViewById(R.id.txt_q4);
-        txt_q5 = (TextView)findViewById(R.id.txt_q5);
-        txt_q6 = (TextView)findViewById(R.id.txt_q6);
-        txt_q7 = (TextView)findViewById(R.id.txt_q7);
+        txt_q1 = findViewById(R.id.txt_q1);
+        txt_q2 = findViewById(R.id.txt_q2);
+        txt_q3 = findViewById(R.id.txt_q3);
+        txt_q4 = findViewById(R.id.txt_q4);
+        txt_q5 = findViewById(R.id.txt_q5);
+        txt_q6 = findViewById(R.id.txt_q6);
+        txt_q7 = findViewById(R.id.txt_q7);
 
 
         //EDITTEXT
-        edt_idade = (EditText) findViewById(R.id.edt_idade);
+        edt_idade = findViewById(R.id.edt_idade);
 
         //RADIOBUTTON ESCOLARIDADE
-        rb_anal = (RadioButton)findViewById(R.id.rb_anal);
-        rb_efi = (RadioButton)findViewById(R.id.rb_efi);
-        rb_efc = (RadioButton)findViewById(R.id.rb_efc);
-        rb_emi = (RadioButton)findViewById(R.id.rb_emi);
-        rb_emc = (RadioButton)findViewById(R.id.rb_emc);
-        rb_esi = (RadioButton)findViewById(R.id.rb_esi);
-        rb_esc = (RadioButton)findViewById(R.id.rb_esc);
+        rb_anal = findViewById(R.id.rb_anal);
+        rb_efi = findViewById(R.id.rb_efi);
+        rb_efc = findViewById(R.id.rb_efc);
+        rb_emi = findViewById(R.id.rb_emi);
+        rb_emc = findViewById(R.id.rb_emc);
+        rb_esi = findViewById(R.id.rb_esi);
+        rb_esc = findViewById(R.id.rb_esc);
 
         //RADIOBUTTON Q1
-        rb_q1_a =  (RadioButton)findViewById(R.id.rb_q1_a);
-        rb_q1_b =  (RadioButton)findViewById(R.id.rb_q1_b);
-        rb_q1_c =  (RadioButton)findViewById(R.id.rb_q1_c);
-        rb_q1_d =  (RadioButton)findViewById(R.id.rb_q1_d);
-        rb_q1_e =  (RadioButton)findViewById(R.id.rb_q1_e);
+        rb_q1_a = findViewById(R.id.rb_q1_a);
+        rb_q1_b = findViewById(R.id.rb_q1_b);
+        rb_q1_c = findViewById(R.id.rb_q1_c);
+        rb_q1_d = findViewById(R.id.rb_q1_d);
+        rb_q1_e = findViewById(R.id.rb_q1_e);
 
         //RADIOBUTTON Q2
-        rb_q2_a = (RadioButton)findViewById(R.id.rb_q2_a);
-        rb_q2_b = (RadioButton)findViewById(R.id.rb_q2_b);
+        rb_q2_a = findViewById(R.id.rb_q2_a);
+        rb_q2_b = findViewById(R.id.rb_q2_b);
 
         //RADIOBUTTON Q3
-        rb_q3_a = (RadioButton)findViewById(R.id.rb_q3_a);
-        rb_q3_b = (RadioButton)findViewById(R.id.rb_q3_b);
+        rb_q3_a = findViewById(R.id.rb_q3_a);
+        rb_q3_b = findViewById(R.id.rb_q3_b);
 
         //RADIOBUTTON Q4
-        rb_q4_a = (RadioButton)findViewById(R.id.rb_q4_a);
-        rb_q4_b = (RadioButton)findViewById(R.id.rb_q4_b);
-        rb_q4_c = (RadioButton)findViewById(R.id.rb_q4_c);
-        rb_q4_d = (RadioButton)findViewById(R.id.rb_q4_d);
+        rb_q4_a = findViewById(R.id.rb_q4_a);
+        rb_q4_b = findViewById(R.id.rb_q4_b);
+        rb_q4_c = findViewById(R.id.rb_q4_c);
+        rb_q4_d = findViewById(R.id.rb_q4_d);
 
         //RADIOBUTTON Q5
-        rb_q5_a = (RadioButton)findViewById(R.id.rb_q5_a);
-        rb_q5_b = (RadioButton)findViewById(R.id.rb_q5_b);
-        rb_q5_c = (RadioButton)findViewById(R.id.rb_q5_c);
-        rb_q5_d = (RadioButton)findViewById(R.id.rb_q5_d);
-        rb_q5_e = (RadioButton)findViewById(R.id.rb_q5_e);
+        rb_q5_a = findViewById(R.id.rb_q5_a);
+        rb_q5_b = findViewById(R.id.rb_q5_b);
+        rb_q5_c = findViewById(R.id.rb_q5_c);
+        rb_q5_d = findViewById(R.id.rb_q5_d);
+        rb_q5_e = findViewById(R.id.rb_q5_e);
 
         //RADIOBUTTON Q6
-        rb_q6_a = (RadioButton)findViewById(R.id.rb_q6_a);
-        rb_q6_b = (RadioButton)findViewById(R.id.rb_q6_b);
-        rb_q6_c = (RadioButton)findViewById(R.id.rb_q6_c);
-        rb_q6_d = (RadioButton)findViewById(R.id.rb_q6_d);
-        rb_q6_e = (RadioButton)findViewById(R.id.rb_q6_e);
-        rb_q6_f = (RadioButton)findViewById(R.id.rb_q6_f);
+        rb_q6_a = findViewById(R.id.rb_q6_a);
+        rb_q6_b = findViewById(R.id.rb_q6_b);
+        rb_q6_c = findViewById(R.id.rb_q6_c);
+        rb_q6_d = findViewById(R.id.rb_q6_d);
+        rb_q6_e = findViewById(R.id.rb_q6_e);
+        rb_q6_f = findViewById(R.id.rb_q6_f);
 
         //RADIOBUTTON Q7
-        rb_q7_a = (RadioButton)findViewById(R.id.rb_q7_a);
-        rb_q7_b = (RadioButton)findViewById(R.id.rb_q7_b);
+        rb_q7_a = findViewById(R.id.rb_q7_a);
+        rb_q7_b = findViewById(R.id.rb_q7_b);
 
     }
 
