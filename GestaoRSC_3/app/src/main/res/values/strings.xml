@@ -59,6 +59,7 @@
     <string name="btn_limpatela">Limpar Tela</string>
     <string name="action_settings">Excluir pesquisa</string>
     <string name="sair">sair</string>
+    <string name="Sair">Sair</string>
 
 
 </resources>

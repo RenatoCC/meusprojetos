@@ -13,13 +13,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-	private Button btn_iniciar, btn_salvar, btn_tabela,btn_limpatela, btn_relatorio, btn_apaga;
+	private Button btn_iniciar, btn_salvar, btn_pesquisa,btn_limpatela, btn_relatorio, btn_apaga;
 	private ListView lst_resultado;
 	private ArrayList<String> list;
 	private ArrayAdapter<String> adapter;
 	double res,qtt;
-	//private Toast toast;
-	//private long lastBackPressTime = 0;
+
 	Database db = new Database(this);
 
 	@Override
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 		btn_iniciar = (Button) findViewById(R.id.btn_iniciar);
 		btn_salvar = (Button) findViewById(R.id.btn_salvar);
-		btn_tabela = (Button) findViewById(R.id.btn_tabela);
+		btn_pesquisa = (Button) findViewById(R.id.btn_pesquisa);
 		btn_limpatela = (Button) findViewById(R.id.btn_limpatela);
 		lst_resultado = (ListView) findViewById(R.id.lst_resultado);
 		btn_relatorio = (Button) findViewById(R.id.btn_relatorio);
@@ -40,32 +39,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		btn_iniciar.setOnClickListener(this);
 
 
-		btn_tabela.setOnClickListener(new View.OnClickListener() {
+		btn_pesquisa.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
 				List<Dados> dados = db.mostrarTabela();
+				List<Dados> dados4 = db.consulta4();
 				list = new ArrayList<String>();
 				adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, list);
-
+//CORRIGIR BOTÃO PESQUISA
 				lst_resultado.setAdapter(adapter);
-
+				for (Dados d4 : dados4) {
 					for (Dados d : dados) {
 
-						list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
-								+ "SEXO: " + d.getSexo() + " " + "\n "
-								+ "IDADE: " + d.getIdade() + " " + "Anos" + "\n"
-								+ " ESCOLARIDADE: " + d.getEscolaridade() + " " + "\n "
-								+ "Q_1 = " + d.q1 + " " + "\n "
-								+ "Q_2 = " + d.q2 + " " + "\n "
-								+ "Q_3 = " + d.q3 + " " + "\n "
-								+ "Q_4 = " + d.q4 + " " + "\n "
-								+ "Q_5 = " + d.q5 + " " + "\n "
-								+ "Q_6 = " + d.q6 + " " + "\n "
-								+ "Q_7 = " + d.q7 + "\n");
+						if (d4.getQuantidade_total() == 0) {
+
+							Toast.makeText(MainActivity.this, "AINDA NÃO EXISTE PESQUISA CADASTRADA", Toast.LENGTH_LONG).show();
+						} else
+
+							list.add(d.getId_pessoa() + "º) " + "---------------------------------------------------------------" + " \n " + "\n"
+									+ " SEXO: " + d.getSexo() + " " + "\n "
+									+ "IDADE: " + d.getIdade() + " " + "Anos" + "\n"
+									+ " ESCOLARIDADE: " + d.getEscolaridade() + " " + "\n "
+									+ "Q_1 = " + d.q1 + " " + "\n "
+									+ "Q_2 = " + d.q2 + " " + "\n "
+									+ "Q_3 = " + d.q3 + " " + "\n "
+									+ "Q_4 = " + d.q4 + " " + "\n "
+									+ "Q_5 = " + d.q5 + " " + "\n "
+									+ "Q_6 = " + d.q6 + " " + "\n "
+									+ "Q_7 = " + d.q7 + "\n");
 					}
 				}
-
+			}
 		});
 
 		btn_limpatela.setOnClickListener(new View.OnClickListener() {
@@ -173,26 +178,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		msg.show();
 
 	}
-	/*@SuppressLint("WrongConstant")
-	@Override
-	public void onBackPressed() {
-		if (this.lastBackPressTime < System.currentTimeMillis() - 4000) {
-			toast = Toast.makeText(this, "Pressione o Botão Voltar novamente para fechar o Aplicativo.", 4000);
-			toast.show();
-			this.lastBackPressTime = System.currentTimeMillis();
-		} else {
-			if (toast != null) {
-				toast.cancel();
-			}
-			super.onBackPressed();
-		}
-	}*/
 
 	@Override
 		public boolean onCreateOptionsMenu(Menu menu){
 		getMenuInflater().inflate(R.menu.menu_main,menu);
 		return true;
-}
+	}
 	@Override
 		public boolean onOptionsItemSelected(MenuItem item){
 	int id = item.getItemId();
