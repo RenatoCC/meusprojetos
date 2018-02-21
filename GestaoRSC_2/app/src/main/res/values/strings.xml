@@ -55,11 +55,11 @@
     <string name="rb_q7a">Sim</string>
     <string name="rb_q7b">Não</string>
     <string name="txt_pesquisa">Gerenciamento de Residuos</string>
-    <string name="btn_tabela">Pesquisa</string>
     <string name="btn_limpatela">Limpar Tela</string>
     <string name="action_settings">Excluir pesquisa</string>
     <string name="sair">sair</string>
     <string name="Sair">Sair</string>
+    <string name="btn_pesquisa">Pesquisa</string>
 
 
 </resources>

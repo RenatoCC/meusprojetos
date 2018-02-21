@@ -28,7 +28,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     int quantidade, quantidade2;
     double quantidade_total, quantidade3;
     String escolaridade;
-    String idade2;
 
     Database db = new Database(this);
 
@@ -114,6 +113,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         rb_q7_b = findViewById(R.id.rb_q7_b);
 
     }
+    //METODO QUE SALVA OS DADOS
 
     void salvaDados() {
 
@@ -124,8 +124,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         }
 
          idade = Integer.parseInt(edt_idade.getText().toString());
-        idade2 = String.valueOf(idade);
-
 
         if (rb_anal.isChecked()) {
             escolaridade = "Analfabeto";
@@ -226,6 +224,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         } else if (rb_q7_b.isChecked()) {
             q7 = "b";
         }
+    //TESTA SE OS VALORES SALVOS ESTÃO NULOS SE SIM UMA MENSAGEM SERA EXIBIDA PARA IMPEDIR QUE ISSO OCORRA
         if (sexo == null) {
             AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
@@ -240,8 +239,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             msg.show();
         }else
         if (idade <= 15 || idade > 120 || idade == 0 ) {
-            AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
+            AlertDialog.Builder msg = new AlertDialog.Builder(this);
             msg.setTitle("Alerta!!!");
             msg.setMessage("Idade não permitida");
             msg.setIcon(android.R.drawable.ic_dialog_alert);
@@ -257,7 +256,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             if(escolaridade == null) {
 
                 AlertDialog.Builder msg = new AlertDialog.Builder(this);
-
                 msg.setTitle("Alerta!!!");
                 msg.setMessage("Selecione uma escolaridade");
                 msg.setIcon(android.R.drawable.ic_dialog_alert);
@@ -271,9 +269,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             if( q1 == null || q2 == null || q3 == null || q4 == null || q5 == null || q6 == null || q7 == null){
 
                 AlertDialog.Builder msg = new AlertDialog.Builder(this);
-
                 msg.setTitle("Alerta!!!");
-                msg.setMessage("Existem questões sem responder");
+                msg.setMessage("Existem questões sem resposta");
                 msg.setIcon(android.R.drawable.ic_dialog_alert);
                 msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -283,16 +280,19 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 msg.show();
 
             }else
+                //ENVIA OS DADOS PARA BANCO
                 {
                     db.addDados(new Dados(sexo, idade, escolaridade, quantidade_total, quantidade, quantidade2, quantidade3, q1, q2, q3, q4, q5, q6, q7));
+                //MOSTRA MENSAGEM CONFIRMANDO O ENVIO DOS DADOS
                     Toast.makeText(Main2Activity.this, "Salvo com Sucesso", Toast.LENGTH_LONG).show();
 
+                //CHAMA A TELA INICIAL E LIMPA A PILHA IMPEDINDO QUE MUITOS TELA FIQUEM ABERTAS
                     Intent intent = new Intent(this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
         }
     }
-
+//RESPONSAEL POR CHAMAR O METODO DE SALVAR OS DADOS
     @Override
     public void onClick(View view) {
         salvaDados();
