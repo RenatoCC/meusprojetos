@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Romana</string>
+    <string name="txt_v1">Valor_1</string>
+    <string name="txt_v2">Valor_2</string>
+    <string name="edt_v1" />
+    <string name="edt_v2" />
+    <string name="rb_soma">Soma</string>
+    <string name="rb_menos">Subtrai</string>
+    <string name="rb_multiplica">Multiplica</string>
+    <string name="rb_divide">Divide</string>
+    <string name="btn_i">I</string>
+    <string name="btn_v">V</string>
+    <string name="btn_x">X</string>
+    <string name="btn_l">L</string>
+    <string name="btn_c">C</string>
+    <string name="btn_d">D</string>
+    <string name="btn_m">M</string>
+    <string name="btn_igual">=</string>
+    <string name="btn_apaga">CE</string>
+    <string name="btn_mais">+</string>
+    <string name="btn_menos">-</string>
+    <string name="btn_multiplica">*</string>
+    <string name="btn_divide">/</string>
+    <string name="txt_resultado" />
+
+</resources>
