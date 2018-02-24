@@ -5,20 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btn_igual,btn_i,btn_v,btn_x,btn_l,btn_c,btn_d,btn_m,btn_apaga,btn_mais,btn_menos,btn_multiplica,btn_divide;
     private TextView txt_v1,txt_v2;
-    private EditText edt_v1,edt_v2;
-    private TextView txt_resultado;
+    private TextView txt_resultado,txt_tela;
     int i = 1;
     int v = 5;
     int x = 10;
@@ -52,13 +48,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_multiplica = (Button)findViewById(R.id.btn_multiplica);
         btn_divide = (Button)findViewById(R.id.btn_divide);
 
-        edt_v1 = (EditText) findViewById(R.id.edt_v1);
         txt_resultado = (TextView)findViewById(R.id.txt_resultado);
+        txt_tela = (TextView)findViewById(R.id.txt_tela);
 
         btn_igual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                v2 = Integer.parseInt(edt_v1.getText().toString());
+                v2 = Integer.parseInt(txt_tela.getText().toString());
                 if (operador == "+") {
                     resultado = v1 + v2;
                     txt_resultado.setText(String.valueOf(resultado));
@@ -80,88 +76,88 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_apaga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText("");
+                txt_tela.setText("");
                 txt_resultado.setText("");
             }
         });
         btn_i.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "I");
+                txt_tela.setText(txt_tela.getText() + "I");
 
             }
         });
         btn_v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "V");
+                txt_tela.setText(txt_tela.getText() + "V");
             }
         });
         btn_x.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "X");
+                txt_tela.setText(txt_tela.getText() + "X");
             }
         });
         btn_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "L");
+                txt_tela.setText(txt_tela.getText() + "L");
             }
         });
         btn_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "C");
+                txt_tela.setText(txt_tela.getText() + "C");
             }
         });
         btn_d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "D");
+                txt_tela.setText(txt_tela.getText() + "D");
             }
         });
         btn_m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_v1.setText(edt_v1.getText() + "M");
+                txt_tela.setText(txt_tela.getText() + "M");
             }
         });
         btn_mais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 operador = "+";
-                v1 = Integer.parseInt(edt_v1.getText().toString());
-                edt_v1.setText("");
+                v1 = Integer.parseInt(txt_tela.getText().toString());
+                txt_tela.setText("");
             }
         });
         btn_menos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 operador = "-";
-                v1 = Integer.parseInt(edt_v1.getText().toString());
-                edt_v1.setText("");
+                v1 = Integer.parseInt(txt_tela.getText().toString());
+                txt_tela.setText("");
             }
         });
         btn_multiplica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 operador = "*";
-                v1 = Integer.parseInt(edt_v1.getText().toString());
-                edt_v1.setText("");
+                v1 = Integer.parseInt(txt_tela.getText().toString());
+                txt_tela.setText("");
             }
         });
         btn_divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 operador = "/";
-                v1 = Integer.parseInt(edt_v1.getText().toString());
-                edt_v1.setText("");
+                v1 = Integer.parseInt(txt_tela.getText().toString());
+                txt_tela.setText("");
             }
         });
     }
     public void teste(){
-        if(edt_v1.getText().toString().equals("")){
+        if(txt_tela.getText().toString().equals("")){
 
             AlertDialog.Builder msg = new AlertDialog.Builder(this);
             msg.setTitle("Alerta!!!");
@@ -174,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
             msg.show();
         }else{
-            edt_v1.setText("");
+            txt_tela.setText("");
         }
     }
 
