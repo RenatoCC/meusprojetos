@@ -31,23 +31,23 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginEnd="172dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="text"
         android:text="@string/edt_tela"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_texto" />
 
     <Button
         android:id="@+id/btn_res"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="168dp"
-        android:layout_marginEnd="272dp"
+        android:layout_marginEnd="172dp"
         android:layout_marginTop="8dp"
         android:text="@string/btn_res"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_res"
-        app:layout_constraintVertical_bias="0.618" />
+        app:layout_constraintVertical_bias="0.243" />
 </android.support.constraint.ConstraintLayout>

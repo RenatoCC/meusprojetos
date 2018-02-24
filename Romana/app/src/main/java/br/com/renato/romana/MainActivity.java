@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -15,13 +16,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn_igual,btn_i,btn_v,btn_x,btn_l,btn_c,btn_d,btn_m,btn_apaga,btn_mais,btn_menos,btn_multiplica,btn_divide;
     private TextView txt_v1,txt_v2;
     private TextView txt_resultado,txt_tela;
-    int i = 1;
-    int v = 5;
-    int x = 10;
-    int l = 50;
-    int c = 100;
-    int d = 500;
-    int m = 1000;
     int resultado;
     int v1,v2;
     String operador;
@@ -173,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             txt_tela.setText("");
         }
     }
-
     @Override
     public void onClick(View view) {
 

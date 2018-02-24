@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     char c;
     String roma;
+    String t;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,15 +30,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edt_tela = (EditText) findViewById(R.id.edt_tela);
         txt_texto = (TextView) findViewById(R.id.txt_texto);
 
-
         btn_res.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 roma = edt_tela.getText().toString();
-                c = roma.charAt(0);
                 txt_texto.setText(roma);
-                txt_res.setText(c);
+                //c = roma;
+               // txt_res.setText(roma.charAt(0));
+
             }
         });
 
