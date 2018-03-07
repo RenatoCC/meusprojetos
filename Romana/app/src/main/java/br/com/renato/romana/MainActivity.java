@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int resultado;
     int v1,v2;
     String operador;
-    int[] vetor = new int[5];
 
 
 

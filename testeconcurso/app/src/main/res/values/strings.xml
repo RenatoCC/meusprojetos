@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">testeconcurso</string>
+    <string name="txt_3" />
+    <string name="txt_2" />
+    <string name="txt_1" />
+    <string name="btn_res">Mostrar</string>
+</resources>
