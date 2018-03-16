@@ -25,7 +25,6 @@
     <string name="rb_q1e">Papel</string>
     <string name="edt_idade" />
     <string name="btn_salvar">Salvar</string>
-    <string name="btn_relatorio">Relatório</string>
     <string name="txt_q2">2º) - Os resíduos são coletados três vezes na semana, você acredita ser suficiente?</string>
     <string name="rb_q2a">Sim</string>
     <string name="rb_q2b">Não</string>
@@ -60,6 +59,7 @@
     <string name="sair">sair</string>
     <string name="Sair">Sair</string>
     <string name="btn_pesquisa">Pesquisa</string>
+    <string name="relatorio">Relatorio</string>
 
 
 </resources>

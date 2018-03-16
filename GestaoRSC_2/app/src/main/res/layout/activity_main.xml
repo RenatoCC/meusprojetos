@@ -51,16 +51,7 @@
                 android:text="@string/btn_pesquisa"
                 android:textSize="11pt" />
 
-            <Button
-                android:id="@+id/btn_relatorio"
-                android:layout_width="250dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/btn_relatorio"
-                android:textSize="11pt"
-                tools:layout_editor_absoluteX="41dp" />
-
-                <ListView
+            <ListView
                     android:id="@+id/lst_resultado"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

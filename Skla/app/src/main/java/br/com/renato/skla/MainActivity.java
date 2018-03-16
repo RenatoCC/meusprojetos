@@ -1,5 +1,7 @@
 package br.com.renato.skla;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,24 +17,27 @@ private Button btn_cadastra;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        btn_cadastra = (Button)findViewById(R.id.btn_cadastra);
+        btn_cadastra = findViewById(R.id.btn_cadastra);
 
+        //btn_cadastra.setOnClickListener(this);
 
         btn_cadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                chamaTela();
             }
         });
     }
 
+    public void chamaTela(){
+        setContentView(R.layout.calendario);
+    }
+
     @Override
     public void onClick(View v) {
-
+       // Intent it = new Intent(this,Main2Activity.class);
+        //startActivity(it);
     }
 }
 

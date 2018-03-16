@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_iniciar, btn_salvar, btn_pesquisa,btn_limpatela, btn_relatorio;
+    private Button btn_iniciar, btn_salvar, btn_pesquisa,btn_limpatela;
     private ListView lst_resultado;
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_pesquisa = findViewById(R.id.btn_pesquisa);
         btn_limpatela = findViewById(R.id.btn_limpatela);
         lst_resultado = findViewById(R.id.lst_resultado);
-        btn_relatorio = findViewById(R.id.btn_relatorio);
-
 
         //METODO QUE RETORNA TODOS OS DADOS DO BANCO
         btn_pesquisa.setOnClickListener(new View.OnClickListener() {
@@ -82,48 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
         }});
-        //METODO QUE RETORNA  UM RELATORIO ESPECIFICO DA PESQUISA REALIZADA
-       btn_relatorio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //RESPONSAVEL POR TRAZER OS DADOS DO BANCO
-                List<Dados> dados1 = db.consulta();
-                List<Dados> dados2 = db.consulta2();
-                List<Dados> dados3 = db.consulta3();
-                List<Dados> dados4 = db.consulta4();
 
-        //CARREGA AS INFORMAÇÕES NO SCROLLVIEW
-                list = new ArrayList<>();
-                adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, list);
-                lst_resultado.setAdapter(adapter);
+       }
 
-       //CONVERTE OS VALORES PARA UM PADRÃO COM
-                for (Dados d : dados4){
-                    DecimalFormat df = new DecimalFormat("0");
-                    qtt = d.getQuantidade_total();
-                    String dx = df.format(qtt);
-                    list.add(String.valueOf("TOTAL DE PESSOAS PESQUISADAS E: " + dx));
-                }
-                /*
-                for(Dados t : dados1){
-                    list.add(String.valueOf("A QUANTIDADE DE PESSOAS QUE RESPONDERAM A LETRA (A) DA QUESTÃO 1 E LETRA (B) DA QUESTÃO 2 É: " + t.getQuantidade()));
-                }
-                for (Dados b : dados2 ){
-                    list.add(String.valueOf("A QUANTIDDE DE PESSOA COM ESCOLARIDADE ANALFABETO É " + b.getQuantidade2()));
-                }*/
-                for (Dados c : dados3) {
-                    for (Dados d : dados4) {
-                        DecimalFormat df = new DecimalFormat("0.00");
-                        res = c.getQuantidade3() / 100 * d.getQuantidade_total();
-                        String dx = df.format(res);
-                        list.add((dx + "% " + "-> " + " ACHAM QUE O LIXO PREJUDICA O MEIO AMBIENTE"));
-
-                    }
-                }
-            }
-        });
-
-    }
     //RESPONSAVEL POR CHAMAR A TELA DE QUESTIONARIO
     public void onClick(View view) {
 
@@ -179,11 +138,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         msg.show();
     }
     //METODO QUE CRIA MENUS NA TELA
+    public void relatorio(){
+        //RESPONSAVEL POR TRAZER OS DADOS DO BANCO
+        List<Dados> dados1 = db.consulta();
+        List<Dados> dados2 = db.consulta2();
+        List<Dados> dados3 = db.consulta3();
+        List<Dados> dados4 = db.consulta4();
+
+        //CARREGA AS INFORMAÇÕES NO SCROLLVIEW
+        list = new ArrayList<>();
+        adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, list);
+        lst_resultado.setAdapter(adapter);
+
+        //CONVERTE OS VALORES PARA UM PADRÃO COM
+        for (Dados d : dados4){
+            DecimalFormat df = new DecimalFormat("0");
+            qtt = d.getQuantidade_total();
+            String dx = df.format(qtt);
+            list.add(String.valueOf("TOTAL DE PESSOAS PESQUISADAS E: " + dx));
+        }
+                /*
+                for(Dados t : dados1){
+                    list.add(String.valueOf("A QUANTIDADE DE PESSOAS QUE RESPONDERAM A LETRA (A) DA QUESTÃO 1 E LETRA (B) DA QUESTÃO 2 É: " + t.getQuantidade()));
+                }
+                for (Dados b : dados2 ){
+                    list.add(String.valueOf("A QUANTIDDE DE PESSOA COM ESCOLARIDADE ANALFABETO É " + b.getQuantidade2()));
+                }*/
+        for (Dados c : dados3) {
+            for (Dados d : dados4) {
+                DecimalFormat df = new DecimalFormat("0.00");
+                res = c.getQuantidade3() / 100 * d.getQuantidade_total();
+                String dx = df.format(res);
+                list.add((dx + "% " + "-> " + " ACHAM QUE O LIXO PREJUDICA O MEIO AMBIENTE"));
+
+            }
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
@@ -194,6 +190,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(id == R.id.sair){
             finish();
+        }
+        if(id == R.id.id_relatorio){
+            relatorio();
         }
         return true;
     }
