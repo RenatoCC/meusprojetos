@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">KmCar</string>
+    <string name="txt_km_inicio">Km Inicial:</string>
+    <string name="txt_km_final">Km Final:</string>
+    <string name="edt_oleo" />
+    <string name="txt_oleo">Oleo:</string>
+    <string name="txt_dono">Proprietario</string>
+    <string name="rb_voce">Você</string>
+    <string name="rb_outro">Outro</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="txt_filtro">Filtro</string>
+    <string name="rb_sim">Sim</string>
+    <string name="rb_nao">Não</string>
+    <string name="edt_outro" />
+    <string name="id_sair">Sair</string>
+    <string name="id_dados">Dados</string>
+    <string name="btn_mostrar">Carros</string>
+</resources>
