@@ -3,6 +3,8 @@ package br.com.renato.kmcar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,12 +17,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btn_salvar;
-    private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro;
-    private EditText edt_km_1, edt_km_2, edt_oleo, edt_outro;
-    private RadioButton rb_outro, rb_voce, rb_sim, rb_nao;
+    private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro,txt_modelo;
+    private EditText edt_km_1, edt_km_2, edt_oleo, edt_proprietario,edt_modelo;
+    private RadioButton rb_sim, rb_nao;
+
 
     int km_inicial, km_final;
-    String nome_proprietario, nome_oleo, filtro_trocado;
+    String nome_proprietario, nome_oleo, filtro_trocado,modelo;
 
     Database db = new Database(this);
 
@@ -29,23 +32,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // Log.i("Programador_Renato", "Ciclo de vida - omCreate");
-
-
-        btn_salvar =  findViewById(R.id.btn_salvar);
-        txt_filtro =  findViewById(R.id.txt_filtro);
-        txt_km_final =  findViewById(R.id.txt_km_final);
-        txt_km_inicio =  findViewById(R.id.txt_km_inicio);
+        btn_salvar = findViewById(R.id.btn_salvar);
+        txt_filtro = findViewById(R.id.txt_filtro);
+        txt_km_final = findViewById(R.id.txt_km_final);
+        txt_km_inicio = findViewById(R.id.txt_km_inicio);
         txt_oleo = findViewById(R.id.txt_oleo);
+        txt_modelo = findViewById(R.id.txt_modelo);
 
         edt_km_1 = findViewById(R.id.edt_km_1);
         edt_km_2 = findViewById(R.id.edt_km_2);
         edt_oleo = findViewById(R.id.edt_oleo);
-        edt_outro = findViewById(R.id.edt_outro);
+        edt_proprietario = findViewById(R.id.edt_proprietario);
+        edt_modelo = findViewById(R.id.edt_modelo);
         rb_nao = findViewById(R.id.rb_nao);
-        rb_outro = findViewById(R.id.rb_outro);
         rb_sim = findViewById(R.id.rb_sim);
-        rb_voce = findViewById(R.id.rb_voce);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,10 +54,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 LimpaCampos();
             }
         });
+
+        edt_oleo.addTextChangedListener(valida);
+        edt_proprietario.addTextChangedListener(valida);
     }
+
+    private TextWatcher valida = new TextWatcher() {
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        nome_oleo = edt_oleo.getText().toString().trim();
+        nome_proprietario = edt_proprietario.getText().toString().trim();
+
+        btn_salvar.setEnabled(!nome_oleo.isEmpty() && !nome_oleo.isEmpty());
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+         }
+    };
 
     void SalvaDados() {
 
+        modelo = edt_modelo.getText().toString();
         km_inicial = Integer.parseInt(edt_km_1.getText().toString());
         km_final = Integer.parseInt(edt_km_2.getText().toString());
         nome_oleo = edt_oleo.getText().toString();
@@ -68,24 +93,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (rb_nao.isChecked()) {
                 filtro_trocado = "Não";
             }
-            if (rb_voce.isChecked()) {
-                nome_proprietario = "Você";
-            }else
-                if (rb_outro.isChecked()) {
-                nome_proprietario = edt_outro.getText().toString();
-            }
+                nome_proprietario = edt_proprietario.getText().toString();
 
-            db.AddDados(new Dados(km_inicial,km_final,nome_oleo,filtro_trocado,nome_proprietario));
+            db.AddDados(new Dados(km_inicial,km_final,nome_oleo,filtro_trocado,nome_proprietario,modelo));
             Toast.makeText(MainActivity.this, "Cadastrado", Toast.LENGTH_LONG).show();
         }
 
     void LimpaCampos() {
-        edt_outro.setText("");
+        edt_proprietario.setText("");
         edt_oleo.setText("");
+        edt_modelo.setText("");
         edt_km_2.setText("");
         edt_km_1.setText("");
-        rb_outro.setChecked(false);
-        rb_voce.setChecked(false);
         rb_sim.setChecked(false);
         rb_nao.setChecked(false);
     }
@@ -100,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.Dados) {
+        if (id == R.id.Cadastro) {
             ChamaTela();
         }
         if (id == R.id.sair) {
