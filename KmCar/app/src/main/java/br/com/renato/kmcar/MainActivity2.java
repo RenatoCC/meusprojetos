@@ -21,17 +21,15 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
     Database db = new Database(this);
 
-
-
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.layout_dados);
 
-        Log.i("RENATO_PROGRAMADOR", "MainActivity2");
+       // Log.i("RENATO_PROGRAMADOR", "MainActivity2");
 
         lst_dados = findViewById(R.id.lst_dados);
-        btn_mostrar = (Button)findViewById(R.id.btn_mostrar);
+        btn_mostrar = findViewById(R.id.btn_mostrar);
 
         btn_mostrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,12 +42,12 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
                for(Dados d : dados){
                    list.add(
-                   d.getId() + "º) " + "\n " + "\n "
-                   + "KM INICIAL " + d.getKm_inicial() + " \n "
-                   + " KM FINAL " + d.getKm_final() + " \n "
-                   + "OLEO " + d.getNome_oleo() + " \n "
-                   + "FILTRO_TROCADO " + d.getFiltro_trocado() + " \n "
-                   + "NOME PROPRIETARIO " + d.getNome_proprietario() + "\n");
+                   d.id + "º) " + " -------------------------------------- " + "\n " + "\n "
+                   + "KM INICIAL: " + d.km_inicial + " \n " + "\n "
+                   + " KM FINAL: " + d.km_final + " \n " + "\n "
+                   + "OLEO: " + d.nome_oleo + " \n " + "\n "
+                   + "FILTRO_TROCADO: " + d.filtro_trocado + " \n " + "\n "
+                   + "NOME PROPRIETARIO: " + d.nome_proprietario + "\n");
                }
             }
         });

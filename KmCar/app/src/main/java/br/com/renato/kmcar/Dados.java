@@ -9,7 +9,7 @@ public class Dados {
 
     }
 
-    public Dados(String nome_proprietario, String filtro_trocado, String nome_oleo, int km_inicial, int km_final ){
+    public Dados(int km_inicial,int km_final, String nome_oleo,String filtro_trocado,String nome_proprietario){
 
         this.filtro_trocado = filtro_trocado;
         this.nome_oleo = nome_oleo;

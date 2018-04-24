@@ -3,7 +3,6 @@ package br.com.renato.kmcar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,23 +29,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i("Programador_Renato", "Ciclo de vida - omCreate");
+       // Log.i("Programador_Renato", "Ciclo de vida - omCreate");
 
 
-        btn_salvar = (Button) findViewById(R.id.btn_salvar);
-        txt_filtro = (TextView) findViewById(R.id.txt_filtro);
-        txt_km_final = (TextView) findViewById(R.id.txt_km_final);
-        txt_km_inicio = (TextView) findViewById(R.id.txt_km_inicio);
-        txt_oleo = (TextView) findViewById(R.id.txt_oleo);
+        btn_salvar =  findViewById(R.id.btn_salvar);
+        txt_filtro =  findViewById(R.id.txt_filtro);
+        txt_km_final =  findViewById(R.id.txt_km_final);
+        txt_km_inicio =  findViewById(R.id.txt_km_inicio);
+        txt_oleo = findViewById(R.id.txt_oleo);
 
-        edt_km_1 = (EditText) findViewById(R.id.edt_km_1);
-        edt_km_2 = (EditText) findViewById(R.id.edt_km_2);
-        edt_oleo = (EditText) findViewById(R.id.edt_oleo);
-        edt_outro = (EditText) findViewById(R.id.edt_outro);
-        rb_nao = (RadioButton) findViewById(R.id.rb_nao);
-        rb_outro = (RadioButton) findViewById(R.id.rb_outro);
-        rb_sim = (RadioButton) findViewById(R.id.rb_sim);
-        rb_voce = (RadioButton) findViewById(R.id.rb_voce);
+        edt_km_1 = findViewById(R.id.edt_km_1);
+        edt_km_2 = findViewById(R.id.edt_km_2);
+        edt_oleo = findViewById(R.id.edt_oleo);
+        edt_outro = findViewById(R.id.edt_outro);
+        rb_nao = findViewById(R.id.rb_nao);
+        rb_outro = findViewById(R.id.rb_outro);
+        rb_sim = findViewById(R.id.rb_sim);
+        rb_voce = findViewById(R.id.rb_voce);
 
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void SalvaDados() {
+
         km_inicial = Integer.parseInt(edt_km_1.getText().toString());
         km_final = Integer.parseInt(edt_km_2.getText().toString());
         nome_oleo = edt_oleo.getText().toString();
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 nome_proprietario = edt_outro.getText().toString();
             }
 
-            db.AddDados(new Dados(nome_proprietario, filtro_trocado, nome_oleo, km_inicial, km_final));
+            db.AddDados(new Dados(km_inicial,km_final,nome_oleo,filtro_trocado,nome_proprietario));
             Toast.makeText(MainActivity.this, "Cadastrado", Toast.LENGTH_LONG).show();
         }
 
