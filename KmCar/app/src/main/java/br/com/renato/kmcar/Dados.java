@@ -3,14 +3,15 @@ package br.com.renato.kmcar;
 
 public class Dados {
     int id,km_inicial,km_final;
-    String nome_proprietario,nome_oleo,filtro_trocado,modelo;
-
+    String nome_proprietario,nome_oleo,filtro_trocado,modelo,placa;
+//--------------------------------------------------------------------------------------------------
     public Dados(){
 
     }
+//--------------------------------------------------------------------------------------------------
+    public Dados(int km_inicial,int km_final, String placa,String nome_oleo,String filtro_trocado,String nome_proprietario,String modelo){
 
-    public Dados(int km_inicial,int km_final, String nome_oleo,String filtro_trocado,String nome_proprietario,String modelo){
-
+        this.placa = placa;
         this.filtro_trocado = filtro_trocado;
         this.nome_oleo = nome_oleo;
         this.nome_proprietario = nome_proprietario;
@@ -18,9 +19,17 @@ public class Dados {
         this.km_final = km_final;
         this.modelo = modelo;
     }
-
+//--------------------------------------------------------------------------------------------------
     public String getModelo() {
         return modelo;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public void setModelo(String modelo) {

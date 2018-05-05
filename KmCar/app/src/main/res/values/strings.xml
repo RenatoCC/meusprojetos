@@ -3,7 +3,7 @@
     <string name="txt_km_inicio">Km Inicial:</string>
     <string name="txt_km_final">Km Final:</string>
     <string name="edt_oleo" />
-    <string name="txt_oleo">Oleo:</string>
+    <string name="txt_oleo">Óleo:</string>
     <string name="txt_dono">Proprietario</string>
     <string name="btn_salvar">Salvar</string>
     <string name="txt_filtro">Filtro</string>
@@ -12,9 +12,14 @@
     <string name="edt_proprietario" />
     <string name="id_sair">Sair</string>
     <string name="id_dados">Cadastro</string>
-    <string name="btn_mostrar">Carros</string>
-    <string name="txt_modelo">Modelo:</string>
+    <string name="txt_modelo">Veiculo:</string>
     <string name="edt_modelo" />
     <string name="btn_apagar">Apagar Carro</string>
     <string name="edt_id" />
+    <string name="txt_km1">Km Inicial</string>
+    <string name="txt_placa">Placa:</string>
+    <string name="edt_placa" />
+    <string name="edt_pesquisa"></string>
+    <string name="btn_pesquisa">Pesquisar</string>
+
 </resources>

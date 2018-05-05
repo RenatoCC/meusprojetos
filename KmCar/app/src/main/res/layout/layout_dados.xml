@@ -7,27 +7,16 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_mostrar"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_mostrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/btn_apagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="32dp"
+        android:enabled="false"
         android:text="@string/btn_apagar"
-        app:layout_constraintStart_toEndOf="@+id/btn_mostrar"
-        app:layout_constraintTop_toTopOf="parent"
-        android:enabled="false"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lst_dados"
@@ -35,25 +24,48 @@
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="184dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_apagar">
+        app:layout_constraintTop_toBottomOf="@+id/btn_pesquisa">
 
     </ListView>
 
     <EditText
-        android:id="@+id/edt_id"
-        android:layout_width="75dp"
+        android:id="@+id/edt_placa"
+        android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Numero"
-        android:inputType="number"
+        android:hint="Placa"
+        android:inputType="textCapCharacters"
         android:text="@string/edt_id"
         app:layout_constraintStart_toEndOf="@+id/btn_apagar"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_pesquisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_pesquisa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_apagar" />
+
+    <EditText
+        android:id="@+id/edt_pesquisa"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Placa"
+        android:inputType="textCapCharacters"
+        android:text="@string/edt_pesquisa"
+        app:layout_constraintStart_toEndOf="@+id/btn_pesquisa"
+        app:layout_constraintTop_toBottomOf="@+id/edt_placa" />
 </android.support.constraint.ConstraintLayout>
