@@ -21,5 +21,7 @@
     <string name="edt_placa" />
     <string name="edt_pesquisa"></string>
     <string name="btn_pesquisa">Pesquisar</string>
+    <string name="menu_carros">Carros</string>
+    <string name="btn_foto">Foto</string>
 
 </resources>

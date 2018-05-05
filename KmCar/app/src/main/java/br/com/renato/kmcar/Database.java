@@ -3,9 +3,12 @@ package br.com.renato.kmcar;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +33,7 @@ public class Database extends SQLiteOpenHelper {
     public Database(Context context) {
         super(context, BANCO_KM, null, VERSAO_BANCO);
     }
+
 
     //--------------------------------------------------------------------------------------------------
     @Override
@@ -69,37 +73,39 @@ public class Database extends SQLiteOpenHelper {
         db.insert(TABELA_TROCA_OLEO, null, values);
         db.close();
     }
- //-------------------------------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------------------------------
     void apagar(Dados dados) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         db.delete(TABELA_TROCA_OLEO, COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
         db.close();
     }
-//--------------------------------------------------------------------------------------------------
+
+    //--------------------------------------------------------------------------------------------------
     public List<Dados> pesquisa(Dados dados) {
         List<Dados> ListaTabela = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
 
-    Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",new String[]{String.valueOf(dados.getPlaca())});
+        if(c.getCount() == 0){
 
-
-
-        if (c.moveToFirst()) {
-            do {
-                dados.setPlaca(c.getString(0));
-                dados.setModelo(c.getString(1));
-                dados.setKm_inicial(Integer.parseInt(c.getString(2)));
-                dados.setKm_final(Integer.parseInt(c.getString(3)));
-                dados.setNome_oleo(c.getString(4));
-                dados.setFiltro_trocado(c.getString(5));
-                dados.setNome_proprietario(c.getString(6));
-
-                ListaTabela.add(dados);
-            } while (c.moveToNext());
         }
-        return ListaTabela;
-    }
+            if (c.moveToFirst()) {
+                do {
+                    dados.setPlaca(c.getString(0));
+                    dados.setModelo(c.getString(1));
+                    dados.setKm_inicial(Integer.parseInt(c.getString(2)));
+                    dados.setKm_final(Integer.parseInt(c.getString(3)));
+                    dados.setNome_oleo(c.getString(4));
+                    dados.setFiltro_trocado(c.getString(5));
+                    dados.setNome_proprietario(c.getString(6));
+
+                    ListaTabela.add(dados);
+                } while (c.moveToNext());
+            }
+            return ListaTabela;
+        }
  //-------------------------------------------------------------------------------------------------
     public List<Dados> Cadastro() {
 

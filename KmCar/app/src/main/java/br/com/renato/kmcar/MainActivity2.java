@@ -2,6 +2,7 @@ package br.com.renato.kmcar;
 
 
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +61,6 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             public void onClick(View v) {
                 Dados dados = new Dados();
                 String placa = edt_pesquisa.getText().toString();
-
                 dados.setPlaca(placa);
                 db.pesquisa(dados);
                 edt_pesquisa.setText("");
@@ -72,11 +73,13 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 alerta();
+                Toast.makeText(MainActivity2.this,"Carro apagado",Toast.LENGTH_LONG).show();
             }
         });
 
 //--------------------------------------------------------------------------------------------------
         edt_placa.addTextChangedListener(valida);
+        edt_pesquisa.addTextChangedListener(valida);
     }
 //--------------------------------------------------------------------------------------------------
 
@@ -90,6 +93,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
             String id = edt_placa.getText().toString().trim();
             btn_apagar.setEnabled(!id.isEmpty());
+            String placa  = edt_pesquisa.getText().toString().trim();
+            btn_pesquisa.setEnabled(!placa.isEmpty());
         }
         @Override
         public void afterTextChanged(Editable s) {
@@ -165,6 +170,21 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         }
 //--------------------------------------------------------------------------------------------------
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.carros) {
+            mostrar();
+        }
+        return true;
+    }
     @Override
     public void onClick(View v) {
 

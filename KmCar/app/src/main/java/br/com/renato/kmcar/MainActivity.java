@@ -1,6 +1,11 @@
 package br.com.renato.kmcar;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,16 +15,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btn_salvar;
+    private Button btn_salvar,btn_foto;
     private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro,txt_modelo,txt_placa;
     private EditText edt_km_1, edt_km_2, edt_oleo, edt_proprietario,edt_modelo,edt_placa;
     private RadioButton rb_sim, rb_nao;
+    private ImageView img_imagem;
 
 
     int km_inicial, km_final;
@@ -32,12 +39,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btn_salvar = findViewById(R.id.btn_salvar);
+        btn_foto = findViewById(R.id.btn_foto);
         txt_filtro = findViewById(R.id.txt_filtro);
         txt_km_final = findViewById(R.id.txt_km_final);
         txt_km_inicio = findViewById(R.id.txt_km_inicio);
         txt_oleo = findViewById(R.id.txt_oleo);
         txt_modelo = findViewById(R.id.txt_modelo);
 
+        img_imagem = findViewById(R.id.img_imagem);
         edt_km_1 = findViewById(R.id.edt_km_1);
         edt_km_2 = findViewById(R.id.edt_km_2);
         edt_oleo = findViewById(R.id.edt_oleo);
@@ -46,12 +55,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edt_modelo = findViewById(R.id.edt_modelo);
         rb_nao = findViewById(R.id.rb_nao);
         rb_sim = findViewById(R.id.rb_sim);
+
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},0 );
+        }
 //--------------------------------------------------------------------------------------------------
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SalvaDados();
                 LimpaCampos();
+            }
+        });
+
+        btn_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tirarFoto();
             }
         });
 //--------------------------------------------------------------------------------------------------
@@ -80,6 +100,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          }
     };
 //--------------------------------------------------------------------------------------------------
+    void tirarFoto(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1 && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap imagen = (Bitmap) extras.get("data");
+            img_imagem.setImageBitmap(imagen);
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------
     void SalvaDados() {
 
         placa = edt_placa.getText().toString();

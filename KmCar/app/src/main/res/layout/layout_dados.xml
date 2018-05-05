@@ -15,17 +15,18 @@
         android:layout_marginTop="32dp"
         android:enabled="false"
         android:text="@string/btn_apagar"
+        android:textAppearance="?android:textAppearanceMedium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lst_dados"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="398dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="184dp"
-        android:background="@android:color/darker_gray"
+        android:layout_marginTop="44dp"
+        android:background="#dad9d9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,7 @@
         android:ems="10"
         android:hint="Placa"
         android:inputType="textCapCharacters"
+        android:textColorHint="@android:color/black"
         android:text="@string/edt_id"
         app:layout_constraintStart_toEndOf="@+id/btn_apagar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,6 +55,8 @@
         android:layout_marginStart="72dp"
         android:layout_marginTop="16dp"
         android:text="@string/btn_pesquisa"
+        android:enabled="false"
+        android:textAppearance="?android:textAppearanceMedium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_apagar" />
 
@@ -66,6 +70,8 @@
         android:hint="Placa"
         android:inputType="textCapCharacters"
         android:text="@string/edt_pesquisa"
+        android:textColorHint="@android:color/black"
         app:layout_constraintStart_toEndOf="@+id/btn_pesquisa"
         app:layout_constraintTop_toBottomOf="@+id/edt_placa" />
+
 </android.support.constraint.ConstraintLayout>
