@@ -129,11 +129,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
    //SALVA OS DADOS NO BANCO
     void SalvaDados() {
 
-        placa = edt_placa.getText().toString();
-        modelo = edt_modelo.getText().toString();
-        km_inicial = Integer.parseInt(edt_km_1.getText().toString());
-        km_final = Integer.parseInt(edt_km_2.getText().toString());
-        nome_oleo = edt_oleo.getText().toString();
+            placa = edt_placa.getText().toString();
+            modelo = edt_modelo.getText().toString();
+            km_inicial = Integer.parseInt(edt_km_1.getText().toString());
+            km_final = Integer.parseInt(edt_km_2.getText().toString());
+            nome_oleo = edt_oleo.getText().toString();
 
         if (rb_sim.isChecked()) {
             filtro_trocado = "Sim";
@@ -143,26 +143,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
                 nome_proprietario = edt_proprietario.getText().toString();
 
+    // METODO PARA CONVERTER E SALVAR A FOTO
         Bitmap bitmap = ((BitmapDrawable) img_imagem.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
         byte imageByte[] = stream.toByteArray();
 
-        foto = imageByte;
+            foto = imageByte;
 
+    //ADICIONAR OS DADOS NO BANCO
         db.AddDados(new Dados(km_inicial,km_final,placa,nome_oleo,filtro_trocado,nome_proprietario,modelo,foto));
             Toast.makeText(MainActivity.this, "Cadastrado", Toast.LENGTH_LONG).show();
         }
-
-
-
-   /* private byte[] imageView(byte[] foto) {
-        Bitmap bitmap = ((BitmapDrawable) img_imagem.getDrawable()).getBitmap();
-        ByteArrayOutputStream saida = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,saida);
-        byte[] img = saida.toByteArray();
-        return img;
-    }*/
 
 //--------------------------------------------------------------------------------------------------
 

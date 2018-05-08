@@ -4,7 +4,7 @@
     <string name="txt_km_final">Km Final:</string>
     <string name="edt_oleo" />
     <string name="txt_oleo">Óleo:</string>
-    <string name="txt_dono">Proprietario</string>
+    <string name="txt_dono">Proprietario:</string>
     <string name="btn_salvar">Salvar</string>
     <string name="txt_filtro">Filtro</string>
     <string name="rb_sim">Sim</string>

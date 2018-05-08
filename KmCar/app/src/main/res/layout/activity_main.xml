@@ -1,244 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.renato.kmcar.MainActivity">
 
-    <TextView
-        android:id="@+id/txt_placa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/txt_placa"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="8dp">
 
-    <EditText
-        android:id="@+id/edt_placa"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:focusable="true"
-        android:hint="Numero"
-        android:inputType="textCapCharacters"
-        android:text="@string/edt_placa"
-        app:layout_constraintStart_toEndOf="@+id/txt_placa"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_modelo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/txt_modelo"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_placa" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/edt_modelo"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Modelo"
-        android:inputType="textPersonName"
-        android:text="@string/edt_modelo"
-        app:layout_constraintStart_toEndOf="@+id/txt_modelo"
-        app:layout_constraintTop_toBottomOf="@+id/edt_placa" />
+                <TextView
+                    android:id="@+id/txt_placa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/txt_placa"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txt_km_inicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="24dp"
-        android:layout_weight="0"
-        android:text="@string/txt_km_inicio"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_modelo" />
+                <EditText
+                    android:id="@+id/edt_placa"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:focusable="true"
+                    android:hint="Numero"
+                    android:inputType="textCapCharacters"
+                    android:text="@string/edt_placa" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/edt_km_1"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="0"
-        android:ems="10"
-        android:hint="0000000"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/txt_km_inicio"
-        app:layout_constraintTop_toBottomOf="@+id/edt_modelo" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txt_km_final"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/txt_km_final"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_km_inicio" />
+                <TextView
+                    android:id="@+id/txt_modelo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="64dp"
+                    android:text="@string/txt_modelo"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edt_km_2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="0000000"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/txt_km_final"
-        app:layout_constraintTop_toBottomOf="@+id/edt_km_1" />
+                <EditText
+                    android:id="@+id/edt_modelo"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="0dp"
+                    android:ems="10"
+                    android:hint="Modelo"
+                    android:inputType="textPersonName"
+                    android:text="@string/edt_modelo" />
 
-    <TextView
-        android:id="@+id/txt_oleo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/txt_oleo"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_km_final" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/edt_oleo"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Marca/Tipo"
-        android:inputType="textPersonName"
-        android:text="@string/edt_oleo"
-        app:layout_constraintStart_toEndOf="@+id/txt_oleo"
-        app:layout_constraintTop_toBottomOf="@+id/edt_km_2" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img_imagem"
-        android:layout_width="240dp"
-        android:layout_height="145dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_oleo" />
-    <EditText
-        android:id="@+id/edt_proprietario"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:hint="Nome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_carro" />
+                <TextView
+                    android:id="@+id/txt_km_inicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_weight="0"
+                    android:text="@string/txt_km_inicio"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txt_carro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/txt_dono"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+                <EditText
+                    android:id="@+id/edt_km_1"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:hint="0000000"
+                    android:inputType="number" />
 
-    <Button
-        android:id="@+id/btn_salvar"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:enabled="false"
-        android:text="@string/btn_salvar"
-        app:layout_constraintEnd_toStartOf="@+id/btn_foto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_proprietario" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/txt_filtro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/txt_filtro"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_oleo" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_filtro">
+                <TextView
+                    android:id="@+id/txt_km_final"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="52dp"
+                    android:text="@string/txt_km_final"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/rb_sim"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:text="@string/rb_sim"
-            android:textSize="14sp"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="210dp" />
+                <EditText
+                    android:id="@+id/edt_km_2"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:ems="10"
+                    android:hint="0000000"
+                    android:inputType="number" />
+            </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/rb_nao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:text="@string/rb_nao"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/rb_sim"
-            tools:layout_editor_absoluteX="76dp" />
-    </RadioGroup>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_foto"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/btn_foto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_proprietario" />
+                <TextView
+                    android:id="@+id/txt_oleo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="84dp"
+                    android:text="@string/txt_oleo"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-</android.support.constraint.ConstraintLayout>
+                <EditText
+                    android:id="@+id/edt_oleo"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:ems="10"
+                    android:hint="Marca/Tipo"
+                    android:inputType="textPersonName"
+                    android:text="@string/edt_oleo" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="0dp">
+
+                    <TextView
+                        android:id="@+id/txt_filtro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/txt_filtro"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/rb_sim"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/rb_sim"
+                        android:textSize="14sp"
+                        tools:layout_editor_absoluteX="20dp"
+                        tools:layout_editor_absoluteY="210dp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_nao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/rb_nao"
+                        android:textSize="14sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/txt_carro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="@string/txt_dono"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_proprietario"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:ems="10"
+                    android:hint="Nome"
+                    android:inputType="textPersonName"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_imagem"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+                <Button
+                    android:id="@+id/btn_salvar"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="30dp"
+                    android:enabled="false"
+                    android:text="@string/btn_salvar" />
+
+                <Button
+                    android:id="@+id/btn_foto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/btn_foto" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

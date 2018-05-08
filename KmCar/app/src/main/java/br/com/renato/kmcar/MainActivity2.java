@@ -1,8 +1,11 @@
 package br.com.renato.kmcar;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -13,9 +16,11 @@ import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +31,7 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
     private ArrayAdapter<String> adapter;
     private Button btn_apagar, btn_pesquisa;
     private EditText edt_placa, edt_pesquisa;
+    private ImageView img_carro;
 
     Database db = new Database(this);
 
@@ -39,23 +45,7 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
         btn_pesquisa = findViewById(R.id.btn_pesquisa);
         edt_placa = findViewById(R.id.edt_placa);
         edt_pesquisa = findViewById(R.id.edt_pesquisa);
-
-    //-------------------------------------------------------------------------------------------------
-     /*   List<Dados> dados = db.Cadastro();
-        list = new ArrayList<>();
-        adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, list);
-        lst_dados.setAdapter(adapter);
-        for (Dados d : dados) {
-            list.add(
-                    "\n " +
-                            "                         " + "PLACA: " + d.placa + "\n " + "\n"
-                            + "PROPRIETARIO: " + d.nome_proprietario + "\n " + "\n"
-                            + "MODELO: " + d.modelo + " \n " + "\n "
-                            + "KM INICIAL: " + d.km_inicial + " \n " + "\n "
-                            + "KM FINAL: " + d.km_final + " \n " + "\n "
-                            + "ÓLEO: " + d.nome_oleo + " \n " + "\n "
-                            + "FILTRO_TROCADO: " + d.filtro_trocado + " \n ");
-        }*/
+        img_carro = findViewById(R.id.img_carro);
 //--------------------------------------------------------------------------------------------------
         btn_pesquisa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,11 +111,10 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                             + "ÓLEO: " + d.nome_oleo + " \n " + "\n "
                             + "FILTRO_TROCADO: " + d.filtro_trocado + " \n ");
         }
+        img_carro.setImageResource(0);
     }
     void resultado(Dados dados) {
         List<Dados> dados1 = db.pesquisa(dados);
-        // Dados dados = new Dados();
-
 
         list = new ArrayList<>();
         adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, list);
@@ -140,6 +129,11 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                                 + "KM FINAL: " + d.km_final + " \n " + "\n "
                                 + "ÓLEO: " + d.nome_oleo + " \n " + "\n "
                                 + "FILTRO_TROCADO: " + d.filtro_trocado + " \n ");
+           d.getFoto();
+           byte[] outImage = d.getFoto();
+            ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
+            Bitmap imageBitmap = BitmapFactory.decodeStream(imageStream);
+            img_carro.setImageBitmap(imageBitmap);
             }
         }
 

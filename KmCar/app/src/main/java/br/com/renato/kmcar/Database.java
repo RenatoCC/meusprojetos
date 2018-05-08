@@ -1,6 +1,7 @@
 package br.com.renato.kmcar;
 
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -96,9 +97,8 @@ public class Database extends SQLiteOpenHelper {
 
 
         Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
-
-         if (c.moveToFirst()) {
-                do{
+            if (c.moveToFirst()) {
+                do {
                     dados.setPlaca(c.getString(0));
                     dados.setModelo(c.getString(1));
                     dados.setKm_inicial(Integer.parseInt(c.getString(2)));
@@ -107,11 +107,14 @@ public class Database extends SQLiteOpenHelper {
                     dados.setFiltro_trocado(c.getString(5));
                     dados.setNome_proprietario(c.getString(6));
                     dados.setFoto(c.getBlob(7));
+
                     ListaTabela.add(dados);
+
                 } while (c.moveToNext());
             }
             return ListaTabela;
         }
+
  //-------------------------------------------------------------------------------------------------
     public List<Dados> Cadastro() {
 
