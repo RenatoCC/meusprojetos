@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String COLUNA_NOME_OLEO = "oleo";
     private static final String COLUNA_FILTRO = "filtro_trocado";
     private static final String COLUNA_PROPRIETARIO = "proprietario";
+    private static final String COLUNA_FOTO = "foto";
 
 
     public Database(Context context) {
@@ -35,7 +37,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
 
-    //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -46,7 +48,8 @@ public class Database extends SQLiteOpenHelper {
                 COLUNA_KM_FINAL + " INTEGER, " +
                 COLUNA_NOME_OLEO + " TEXT, " +
                 COLUNA_FILTRO + " TEXT, " +
-                COLUNA_PROPRIETARIO + " TEXT)";
+                COLUNA_PROPRIETARIO + " TEXT, " +
+                COLUNA_FOTO + " BLOB )";
 
         db.execSQL(QUERY_TABELA_TROCA_OLEO);
     }
@@ -55,6 +58,8 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+        db.execSQL("DROP TABLE IF EXISTS " + TABELA_TROCA_OLEO);
+        onCreate(db);
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -69,6 +74,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUNA_NOME_OLEO, dados.getNome_oleo());
         values.put(COLUNA_FILTRO, dados.getFiltro_trocado());
         values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
+        values.put(COLUNA_FOTO,dados.getFoto());
 
         db.insert(TABELA_TROCA_OLEO, null, values);
         db.close();
@@ -82,17 +88,17 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
+
     //--------------------------------------------------------------------------------------------------
     public List<Dados> pesquisa(Dados dados) {
         List<Dados> ListaTabela = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
+
+
         Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
 
-        if(c.getCount() == 0){
-
-        }
-            if (c.moveToFirst()) {
-                do {
+         if (c.moveToFirst()) {
+                do{
                     dados.setPlaca(c.getString(0));
                     dados.setModelo(c.getString(1));
                     dados.setKm_inicial(Integer.parseInt(c.getString(2)));
@@ -100,7 +106,7 @@ public class Database extends SQLiteOpenHelper {
                     dados.setNome_oleo(c.getString(4));
                     dados.setFiltro_trocado(c.getString(5));
                     dados.setNome_proprietario(c.getString(6));
-
+                    dados.setFoto(c.getBlob(7));
                     ListaTabela.add(dados);
                 } while (c.moveToNext());
             }

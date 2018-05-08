@@ -4,12 +4,13 @@ package br.com.renato.kmcar;
 public class Dados {
     int id,km_inicial,km_final;
     String nome_proprietario,nome_oleo,filtro_trocado,modelo,placa;
+    byte[] foto;
 //--------------------------------------------------------------------------------------------------
     public Dados(){
 
     }
 //--------------------------------------------------------------------------------------------------
-    public Dados(int km_inicial,int km_final, String placa,String nome_oleo,String filtro_trocado,String nome_proprietario,String modelo){
+    public Dados(int km_inicial,int km_final, String placa,String nome_oleo,String filtro_trocado,String nome_proprietario,String modelo,byte[] foto){
 
         this.placa = placa;
         this.filtro_trocado = filtro_trocado;
@@ -18,8 +19,19 @@ public class Dados {
         this.km_inicial = km_inicial;
         this.km_final = km_final;
         this.modelo = modelo;
+        this.foto = foto;
     }
 //--------------------------------------------------------------------------------------------------
+
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
     public String getModelo() {
         return modelo;
     }
