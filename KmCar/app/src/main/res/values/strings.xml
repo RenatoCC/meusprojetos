@@ -23,5 +23,6 @@
     <string name="btn_pesquisa">Pesquisar</string>
     <string name="menu_carros">Carros</string>
     <string name="btn_foto">Foto</string>
+    <string name="deleta">Apagar Cadastro</string>
 
 </resources>

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText edt_km_1, edt_km_2, edt_oleo, edt_proprietario,edt_modelo,edt_placa;
     private RadioButton rb_sim, rb_nao;
     private ImageView img_imagem;
+    private ImageButton img_botao;
 
 
     int km_inicial, km_final;
@@ -43,13 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btn_salvar = findViewById(R.id.btn_salvar);
-        btn_foto = findViewById(R.id.btn_foto);
+        //btn_foto = findViewById(R.id.btn_foto);
         txt_filtro = findViewById(R.id.txt_filtro);
         txt_km_final = findViewById(R.id.txt_km_final);
         txt_km_inicio = findViewById(R.id.txt_km_inicio);
         txt_oleo = findViewById(R.id.txt_oleo);
         txt_modelo = findViewById(R.id.txt_modelo);
 
+        img_botao = findViewById(R.id.img_botao);
         img_imagem = findViewById(R.id.img_imagem);
         edt_km_1 = findViewById(R.id.edt_km_1);
         edt_km_2 = findViewById(R.id.edt_km_2);
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         //BOTÃO DE FOTO COM O METODO DE TIRAR A FOTO
-        btn_foto.setOnClickListener(new View.OnClickListener() {
+        img_botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tirarFoto();

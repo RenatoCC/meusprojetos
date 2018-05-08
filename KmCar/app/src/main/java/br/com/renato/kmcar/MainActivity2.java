@@ -16,6 +16,7 @@ import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -32,7 +33,6 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
     private Button btn_apagar, btn_pesquisa;
     private EditText edt_placa, edt_pesquisa;
     private ImageView img_carro;
-
     Database db = new Database(this);
 
     @Override
@@ -179,6 +179,10 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
         if (id == R.id.carros) {
             mostrar();
         }
+        if(id == R.id.deleta){
+            db.ApagaTudo();
+            Toast.makeText(MainActivity2.this,"Cadastro apagado",Toast.LENGTH_LONG).show();
+        }
         return true;
     }
     @Override
@@ -187,4 +191,9 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
     }
 }
 
-
+/*<Button
+                    android:id="@+id/btn_foto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="@string/btn_foto" />*/

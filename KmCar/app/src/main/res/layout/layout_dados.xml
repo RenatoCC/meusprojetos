@@ -1,89 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_apagar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:enabled="false"
-        android:text="@string/btn_apagar"
-        android:textAppearance="?android:textAppearanceMedium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ListView
-        android:id="@+id/lst_dados"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="290dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#dad9d9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_placa">
-
-    </ListView>
-
-    <ImageView
-        android:id="@+id/img_carro"
+        android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lst_dados" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edt_placa"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Placa"
-        android:inputType="textCapCharacters"
-        android:text="@string/edt_id"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_apagar" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_pesquisa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:enabled="false"
-        android:text="@string/btn_pesquisa"
-        android:textAppearance="?android:textAppearanceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_apagar"
-        app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btn_pesquisa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
+                android:enabled="false"
+                android:text="@string/btn_pesquisa"
+                android:textAppearance="?android:textAppearanceMedium" />
 
-    <EditText
-        android:id="@+id/edt_pesquisa"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Placa"
-        android:inputType="textCapCharacters"
-        android:text="@string/edt_pesquisa"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pesquisa" />
 
-</android.support.constraint.ConstraintLayout>
+            <Button
+                android:id="@+id/btn_apagar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="8dp"
+                android:enabled="false"
+                android:text="@string/btn_apagar"
+                android:textAppearance="?android:textAppearanceMedium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edt_pesquisa"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="0dp"
+                android:ems="10"
+                android:hint="Placa"
+                android:inputType="textCapCharacters"
+                android:text="@string/edt_pesquisa"
+                android:textColorHint="@android:color/black" />
+
+            <EditText
+                android:id="@+id/edt_placa"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="0dp"
+                android:ems="10"
+                android:hint="Placa"
+                android:inputType="textCapCharacters"
+                android:text="@string/edt_id"
+                android:textColorHint="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lst_dados"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#dad9d9">
+
+            </ListView>
+
+            <ImageView
+                android:id="@+id/img_carro"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

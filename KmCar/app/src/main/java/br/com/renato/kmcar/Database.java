@@ -88,7 +88,14 @@ public class Database extends SQLiteOpenHelper {
         db.delete(TABELA_TROCA_OLEO, COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
         db.close();
     }
+    void ApagaTudo(){
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        db.delete(TABELA_TROCA_OLEO,null,null);
+        String Deleta = "DELETE FROM " + TABELA_TROCA_OLEO;
+        db.execSQL(Deleta);
+        db.close();
+    }
 
     //--------------------------------------------------------------------------------------------------
     public List<Dados> pesquisa(Dados dados) {
