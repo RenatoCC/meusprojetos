@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 SalvaDados();
                 LimpaCampos();
+                img_imagem.setImageResource(R.drawable.carro2);
             }
         });
         //BOTÃO DE FOTO COM O METODO DE TIRAR A FOTO

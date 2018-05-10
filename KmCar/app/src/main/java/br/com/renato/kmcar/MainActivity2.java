@@ -53,9 +53,9 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                 Dados dados = new Dados();
                 String placa = edt_pesquisa.getText().toString();
                 dados.setPlaca(placa);
-                db.pesquisa(dados);
-                edt_pesquisa.setText("");
-             resultado(dados);
+                    db.pesquisa(dados);
+                    edt_pesquisa.setText("");
+                    resultado(dados);
             }
         });
 
@@ -92,7 +92,18 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
         }
     };
 //--------------------------------------------------------------------------------------------------
-
+  /*  void TestePesquisa(){
+        Dados dados = new Dados();
+        if(edt_pesquisa.getText().toString().equals(dados.getPlaca())){
+            String placa = edt_pesquisa.getText().toString();
+            dados.setPlaca(placa);
+            db.pesquisa(dados);
+            edt_pesquisa.setText("");
+            resultado(dados);
+        }else {
+            Toast.makeText(MainActivity2.this,"Veiculo não cadastrado",Toast.LENGTH_LONG).show();
+        }
+    }*/
 //--------------------------------------------------------------------------------------------------
    void mostrar(){
 
@@ -180,10 +191,42 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
             mostrar();
         }
         if(id == R.id.deleta){
-            db.ApagaTudo();
-            Toast.makeText(MainActivity2.this,"Cadastro apagado",Toast.LENGTH_LONG).show();
+            AlertDialog.Builder msg = new AlertDialog.Builder(this);
+
+            msg.setTitle("Alerta!!!");
+            msg.setMessage("Tem certeza que deseja pagar");
+            msg.setIcon(android.R.drawable.ic_dialog_alert);
+            msg.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            msg.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                        db.ApagaTudo();
+                        LimpaCampos();
+                        Toast.makeText(MainActivity2.this, "Cadastro apagado", Toast.LENGTH_LONG).show();
+
+                }
+            });
+            msg.show();
         }
         return true;
+    }
+
+    void LimpaCampos(){
+       try{
+           if(adapter.isEmpty()){
+
+           }else {
+               adapter.clear();
+               edt_pesquisa.setText("");
+               img_carro.setImageResource(0);
+           }
+       }catch (NullPointerException ex){
+
+       }
     }
     @Override
     public void onClick(View v) {
@@ -191,9 +234,3 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
     }
 }
 
-/*<Button
-                    android:id="@+id/btn_foto"
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_marginEnd="20dp"
-                            android:text="@string/btn_foto" />*/

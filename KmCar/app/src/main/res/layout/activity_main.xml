@@ -19,7 +19,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_light">
 
                 <TextView
                     android:id="@+id/txt_placa"
@@ -48,7 +49,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark">
 
                 <TextView
                     android:id="@+id/txt_modelo"
@@ -75,7 +77,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark">
 
                 <TextView
                     android:id="@+id/txt_km_inicio"
@@ -103,7 +106,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="#5f6bc4">
 
                 <TextView
                     android:id="@+id/txt_km_final"
@@ -127,7 +131,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark">
 
                 <TextView
                     android:id="@+id/txt_oleo"
@@ -153,7 +158,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="0dp"
+                android:background="@android:color/holo_blue_light">
 
                 <TextView
                     android:id="@+id/txt_carro"
@@ -172,13 +178,14 @@
                     android:layout_marginStart="10dp"
                     android:ems="10"
                     android:hint="Nome"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapWords"
                     android:text="" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp"
+                android:background="@android:color/holo_blue_light">
 
                 <RadioGroup
                     android:id="@+id/radioGroup2"
@@ -228,34 +235,35 @@
                     android:id="@+id/img_imagem"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="10dp"
-                    android:scaleType="centerCrop" />
+                    android:background="#bbcef7"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/carro2" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp">
+                android:background="#fd2881c9">
 
                 <Button
                     android:id="@+id/btn_salvar"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="80dp"
                     android:enabled="false"
                     android:text="@string/btn_salvar" />
 
                 <ImageButton
                     android:id="@+id/img_botao"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp"
-                    android:layout_marginBottom="10dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/camera" />
+                    style="@android:style/Widget.ImageButton"
+                    android:layout_width="100dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="50dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/camera2" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

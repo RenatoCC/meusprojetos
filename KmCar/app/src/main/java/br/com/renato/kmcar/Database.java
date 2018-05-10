@@ -102,7 +102,6 @@ public class Database extends SQLiteOpenHelper {
         List<Dados> ListaTabela = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-
         Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
             if (c.moveToFirst()) {
                 do {
