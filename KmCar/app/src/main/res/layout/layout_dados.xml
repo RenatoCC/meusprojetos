@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="@android:color/holo_blue_light"
         android:orientation="vertical">
 
         <LinearLayout
@@ -73,7 +73,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="290dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@android:color/holo_blue_light"
             android:orientation="vertical">
 
             <ListView
@@ -91,6 +91,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:background="#dad9d9">
@@ -98,6 +99,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="290dp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp">
 
@@ -105,7 +107,7 @@
                     android:id="@+id/img_carro"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"

@@ -235,7 +235,7 @@
                     android:id="@+id/img_imagem"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:background="#bbcef7"
+                    android:background="@android:color/holo_blue_light"
                     android:paddingLeft="50dp"
                     android:paddingRight="50dp"
                     android:scaleType="centerCrop"
