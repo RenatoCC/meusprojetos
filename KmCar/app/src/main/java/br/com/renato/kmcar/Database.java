@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
@@ -81,7 +82,7 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
-    //-------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------
     void apagar(Dados dados) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -100,9 +101,12 @@ public class Database extends SQLiteOpenHelper {
     //--------------------------------------------------------------------------------------------------
     public List<Dados> pesquisa(Dados dados) {
         List<Dados> ListaTabela = new ArrayList<>();
+
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
+        Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
+                new String[]{String.valueOf(dados.getPlaca())});
+
             if (c.moveToFirst()) {
                 do {
                     dados.setPlaca(c.getString(0));
@@ -120,7 +124,50 @@ public class Database extends SQLiteOpenHelper {
             }
             return ListaTabela;
         }
+//--------------------------------------------------------------------------------------------------
+   public List<Dados> editarCarro(Dados dados){
+        List<Dados> editarCarro = new ArrayList<>();
 
+       SQLiteDatabase db = this.getReadableDatabase();
+
+       Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
+               new String[]{String.valueOf(dados.getPlaca())});
+
+        if(c.moveToFirst()){
+            do{
+                dados.setPlaca(c.getString(0));
+                dados.setModelo(c.getString(1));
+                dados.setKm_inicial(Integer.parseInt(c.getString(2)));
+                dados.setKm_final(Integer.parseInt(c.getString(3)));
+                dados.setNome_oleo(c.getString(4));
+                dados.setFiltro_trocado(c.getString(5));
+                dados.setNome_proprietario(c.getString(6));
+                dados.setFoto(c.getBlob(7));
+
+                editarCarro.add(dados);
+            }while (c.moveToNext());
+        }
+        return editarCarro;
+    }
+ //-------------------------------------------------------------------------------------------------
+    void adtualizaCarro(Dados dados){
+       SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(COLUNA_PLACA, dados.getPlaca());
+        values.put(COLUNA_MODELO, dados.getModelo());
+        values.put(COLUNA_KM_INICIAL, dados.getKm_inicial());
+        values.put(COLUNA_KM_FINAL, dados.getKm_final());
+        values.put(COLUNA_NOME_OLEO, dados.getNome_oleo());
+        values.put(COLUNA_FILTRO, dados.getFiltro_trocado());
+        values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
+        values.put(COLUNA_FOTO,dados.getFoto());
+
+        db.update(TABELA_TROCA_OLEO, values,COLUNA_PLACA + " = ?",
+                new String[]{String.valueOf(dados.getPlaca())});
+
+    }
  //-------------------------------------------------------------------------------------------------
     public List<Dados> Cadastro() {
 
@@ -147,10 +194,24 @@ public class Database extends SQLiteOpenHelper {
         }
         return ListaTabela;
     }
+    Dados selecionar(String placa){
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor c = db.query(TABELA_TROCA_OLEO,new String[]{COLUNA_PLACA,COLUNA_MODELO,COLUNA_KM_INICIAL,
+        COLUNA_KM_FINAL,COLUNA_NOME_OLEO,COLUNA_FILTRO,COLUNA_PROPRIETARIO,COLUNA_FOTO},COLUNA_PLACA + " = ?",
+        new String[]{placa},null,null,null,null);
 
-
-//--------------------------------------------------------------------------------------------------
-
-
+        if(c != null){
+            c.moveToFirst();
+        }
+        Dados dados = new Dados(Integer.parseInt(c.getString(0)),
+                Integer.parseInt(c.getString(1)),
+                c.getString(2),
+                c.getString(3),
+                c.getString(4),
+                c.getString(5),
+                c.getString(6),
+                c.getBlob(7));
+        return dados;
     }
+}

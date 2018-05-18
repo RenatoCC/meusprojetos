@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.renato.kmcar.MainActivity">
+    android:orientation="vertical"
+    tools:context="br.com.renato.kmcar.MainActivity"
+    android:id="@+id/template">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/ic_launcher_background"
         tools:layout_editor_absoluteX="255dp"
         tools:layout_editor_absoluteY="8dp">
 
@@ -44,7 +47,7 @@
                     android:focusable="true"
                     android:hint="Numero"
                     android:inputType="textCapCharacters"
-                    android:text="@string/edt_placa" />
+                    android:text="" />
             </LinearLayout>
 
             <LinearLayout
@@ -199,7 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         android:text="@string/txt_filtro"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -235,6 +238,10 @@
                     android:id="@+id/img_imagem"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
                     android:background="@android:color/holo_blue_light"
                     android:paddingLeft="50dp"
                     android:paddingRight="50dp"
@@ -253,17 +260,31 @@
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="80dp"
+                    android:layout_marginTop="3dp"
+                    android:background="#DCDCDC"
                     android:enabled="false"
                     android:text="@string/btn_salvar" />
+
+                <Button
+                    android:id="@+id/btn_atualizar"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="-100dp"
+                    android:enabled="false"
+                    android:text="@string/btn_atualizar"
+                    android:visibility="invisible" />
 
                 <ImageButton
                     android:id="@+id/img_botao"
                     style="@android:style/Widget.ImageButton"
                     android:layout_width="100dp"
                     android:layout_height="55dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginStart="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="#DCDCDC"
                     android:scaleType="centerInside"
-                    app:srcCompat="@drawable/camera2" />
+                    app:srcCompat="@drawable/camera5" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -24,5 +24,8 @@
     <string name="menu_carros">Carros</string>
     <string name="btn_foto">Foto</string>
     <string name="deleta">Apagar Cadastro</string>
+    <string name="btn_editar">Editar</string>
+    <string name="edt_edita" />
+    <string name="btn_atualizar">Atualizar</string>
 
 </resources>

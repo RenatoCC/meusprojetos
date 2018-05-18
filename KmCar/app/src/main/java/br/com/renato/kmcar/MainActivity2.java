@@ -1,22 +1,20 @@
 package br.com.renato.kmcar;
 
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.*;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -30,8 +28,8 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
     private ListView lst_dados;
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
-    private Button btn_apagar, btn_pesquisa;
-    private EditText edt_placa, edt_pesquisa;
+    private Button btn_apagar, btn_pesquisa,btn_editar;
+    private EditText edt_placa, edt_pesquisa,edt_edita;
     private ImageView img_carro;
     Database db = new Database(this);
 
@@ -45,7 +43,33 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
         btn_pesquisa = findViewById(R.id.btn_pesquisa);
         edt_placa = findViewById(R.id.edt_placa);
         edt_pesquisa = findViewById(R.id.edt_pesquisa);
+        edt_edita = findViewById(R.id.edit_edita);
         img_carro = findViewById(R.id.img_carro);
+        btn_editar = findViewById(R.id.btn_editar);
+
+
+        lst_dados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String conteudo = (String) lst_dados.getItemAtPosition(position);
+
+                //Toast.makeText(MainActivity2.this,"Selecionado " + conteudo,Toast.LENGTH_LONG).show();
+                String placa = conteudo.substring(0,conteudo.indexOf("\n"));
+                Dados dados = db.selecionar(placa);
+
+                chamaTela();
+                MainActivity m = new MainActivity();
+
+                m.findViewById(R.id.edt_placa);
+                m.findViewById(R.id.edt_modelo);
+                m.findViewById(R.id.edt_proprietario);
+                m.findViewById(R.id.edt_km_1);
+                m.findViewById(R.id.edt_km_2);
+
+
+
+            }
+        });
 //--------------------------------------------------------------------------------------------------
         btn_pesquisa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +82,6 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                     resultado(dados);
             }
         });
-
 //--------------------------------------------------------------------------------------------------
         btn_apagar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,13 +90,25 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                 Toast.makeText(MainActivity2.this,"Carro apagado",Toast.LENGTH_LONG).show();
             }
         });
-
+        btn_editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //MainActivity m = new MainActivity();
+                  //  Dados dados = new Dados();
+                    //String placa = edt_edita.getText().toString();
+                    //dados.setPlaca(placa);
+                   // db.editarCarro(dados);
+                   // edt_edita.setText("");
+                    //chamaTela();
+                   // m.setarCampos(dados);
+            }
+        });
 //--------------------------------------------------------------------------------------------------
         edt_placa.addTextChangedListener(valida);
         edt_pesquisa.addTextChangedListener(valida);
+        edt_edita.addTextChangedListener(valida);
     }
 //--------------------------------------------------------------------------------------------------
-
     private TextWatcher valida = new TextWatcher() {
 
         @Override
@@ -81,30 +116,29 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
         }
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             String id = edt_placa.getText().toString().trim();
             btn_apagar.setEnabled(!id.isEmpty());
+
             String placa  = edt_pesquisa.getText().toString().trim();
             btn_pesquisa.setEnabled(!placa.isEmpty());
+
+            String placa2 = edt_edita.getText().toString().trim();
+            btn_editar.setEnabled(!placa2.isEmpty());
+
         }
         @Override
         public void afterTextChanged(Editable s) {
         }
     };
-//--------------------------------------------------------------------------------------------------
-  /*  void TestePesquisa(){
-        Dados dados = new Dados();
-        if(edt_pesquisa.getText().toString().equals(dados.getPlaca())){
-            String placa = edt_pesquisa.getText().toString();
-            dados.setPlaca(placa);
-            db.pesquisa(dados);
-            edt_pesquisa.setText("");
-            resultado(dados);
-        }else {
-            Toast.makeText(MainActivity2.this,"Veiculo não cadastrado",Toast.LENGTH_LONG).show();
-        }
-    }*/
-//--------------------------------------------------------------------------------------------------
+    void chamaTela(){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+
+    //--------------------------------------------------------------------------------------------------
    void mostrar(){
 
         List<Dados> dados = db.Cadastro();
@@ -123,7 +157,9 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                             + "FILTRO_TROCADO: " + d.filtro_trocado + " \n ");
         }
         img_carro.setImageResource(0);
-    }
+       adapter.notifyDataSetChanged();
+
+   }
     void resultado(Dados dados) {
         List<Dados> dados1 = db.pesquisa(dados);
 
@@ -140,13 +176,17 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
                                 + "KM FINAL: " + d.km_final + " \n " + "\n "
                                 + "ÓLEO: " + d.nome_oleo + " \n " + "\n "
                                 + "FILTRO_TROCADO: " + d.filtro_trocado + " \n ");
-           d.getFoto();
+
+
            byte[] outImage = d.getFoto();
             ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
             Bitmap imageBitmap = BitmapFactory.decodeStream(imageStream);
             img_carro.setImageBitmap(imageBitmap);
-            }
+
+        adapter.notifyDataSetChanged();
         }
+        }
+ //-------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
     void alerta() {
@@ -214,7 +254,6 @@ public class MainActivity2 extends AppCompatActivity  implements View.OnClickLis
         }
         return true;
     }
-
     void LimpaCampos(){
        try{
            if(adapter.isEmpty()){
