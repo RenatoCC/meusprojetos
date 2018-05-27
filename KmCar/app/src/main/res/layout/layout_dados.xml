@@ -13,125 +13,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark">
-
-            <Button
-                android:id="@+id/btn_pesquisa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="0dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="8dp"
-                android:enabled="false"
-                android:text="@string/btn_pesquisa"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <Button
-                android:id="@+id/btn_apagar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="8dp"
-                android:enabled="false"
-                android:text="@string/btn_apagar"
-                android:textAppearance="?android:textAppearanceMedium" />
-
-            <Button
-                android:id="@+id/btn_editar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="8dp"
-                android:enabled="false"
-                android:text="@string/btn_editar"
-                android:textAppearance="?android:textAppearanceMedium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_light">
-
-            <EditText
-                android:id="@+id/edt_pesquisa"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="0dp"
-                android:ems="10"
-                android:hint="Placa"
-                android:inputType="textCapCharacters"
-                android:text="@string/edt_pesquisa"
-                android:textColorHint="@android:color/black" />
-
-            <EditText
-                android:id="@+id/edt_placa"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="0dp"
-                android:ems="10"
-                android:hint="Placa"
-                android:inputType="textCapCharacters"
-                android:text="@string/edt_id"
-                android:textColorHint="@android:color/black" />
-
-            <EditText
-                android:id="@+id/edit_edita"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="45dp"
-                android:hint="Placa"
-                android:inputType="textCapCharacters"
-                android:text=""
-                android:textColorHint="@android:color/black" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="290dp"
+            android:layout_height="match_parent"
             android:background="@android:color/holo_blue_light"
             android:orientation="vertical">
 
             <ListView
                 android:id="@+id/lst_dados"
-                android:layout_width="match_parent"
-                android:layout_height="290dp"
+                android:layout_width="wrap_content"
+                android:layout_height="570dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:background="#dad9d9">
 
             </ListView>
         </LinearLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="#dad9d9">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="290dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp">
-
-                <ImageView
-                    android:id="@+id/img_carro"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:scaleType="centerCrop" />
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        </LinearLayout>
 </LinearLayout>

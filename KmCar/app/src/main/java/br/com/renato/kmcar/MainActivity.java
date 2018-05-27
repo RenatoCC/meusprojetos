@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.opengl.Visibility;
 import android.provider.MediaStore;
-import android.support.annotation.LayoutRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,11 +16,11 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,16 +29,18 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public  class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btn_salvar,btn_foto,btn_atualizar;
+    private Button btn_salvar,btn_foto;
     private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro,txt_modelo,txt_placa;
     private EditText edt_km_1, edt_km_2, edt_oleo, edt_proprietario,edt_modelo,edt_placa;
     private RadioButton rb_sim, rb_nao;
     private ImageView img_imagem;
     private ImageButton img_botao;
     private ArrayList<String> list;
+    private LinearLayout linear;
 
 
     int km_inicial, km_final;
@@ -52,7 +54,6 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_atualizar = findViewById(R.id.btn_atualizar);
         btn_salvar = findViewById(R.id.btn_salvar);
         txt_filtro = findViewById(R.id.txt_filtro);
         txt_km_final = findViewById(R.id.txt_km_final);
@@ -71,10 +72,15 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
         rb_nao = findViewById(R.id.rb_nao);
         rb_sim = findViewById(R.id.rb_sim);
 
+        linear = findViewById(R.id.linear);
+
+
+
         //HABILITA A CAMERA
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},0 );
         }
+
 
 //--------------------------------------------------------------------------------------------------
 
@@ -166,6 +172,7 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
     //ADICIONAR OS DADOS NO BANCO
         db.AddDados(new Dados(km_inicial,km_final,placa,nome_oleo,filtro_trocado,nome_proprietario,modelo,foto));
             Toast.makeText(MainActivity.this, "Cadastrado", Toast.LENGTH_LONG).show();
+
         }
 //--------------------------------------------------------------------------------------------------
    //LIMPA OS CAMPOS APOS SALVAR OS DADOS
@@ -181,16 +188,11 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
         img_imagem.setImageResource(0);
     }
 
-  /*  void campos(){
-        edt_placa.setText("PKU3399");
-        edt_proprietario.setText("Renato");
-    }*/
-
+ //-----------------------------------------------------------------------------------------------
 
  //-------------------------------------------------------------------------------------------------
-    public void setarCampos(){
 
-    }
+
 //--------------------------------------------------------------------------------------------------
   //CRIA O MENU DE OPÇÕES
     @Override
@@ -216,11 +218,14 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
     //INICIA A TELA DE CONNSULTA
     void ChamaTela(){
         Intent it = new Intent(this,MainActivity2.class);
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(it);
     }
+
 //--------------------------------------------------------------------------------------------------
     @Override
     public void onClick(View v) {
 
     }
+
 }

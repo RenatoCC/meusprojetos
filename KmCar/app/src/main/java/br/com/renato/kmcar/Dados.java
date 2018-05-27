@@ -21,6 +21,10 @@ public class Dados {
         this.modelo = modelo;
         this.foto = foto;
     }
+
+    public Dados(String placa, String modelo, int km_inicial, int km_final, String nome_oleo, String filtro_trocado, String nome_proprietario,
+                 byte[] foto) {
+    }
 //--------------------------------------------------------------------------------------------------
 
 

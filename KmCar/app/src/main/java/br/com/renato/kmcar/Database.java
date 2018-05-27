@@ -1,17 +1,11 @@
 package br.com.renato.kmcar;
 
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.support.v7.app.AlertDialog;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +31,6 @@ public class Database extends SQLiteOpenHelper {
     public Database(Context context) {
         super(context, BANCO_KM, null, VERSAO_BANCO);
     }
-
 
 //--------------------------------------------------------------------------------------------------
     @Override
@@ -119,15 +112,15 @@ public class Database extends SQLiteOpenHelper {
                     dados.setFoto(c.getBlob(7));
 
                     ListaTabela.add(dados);
-
                 } while (c.moveToNext());
             }
             return ListaTabela;
         }
 //--------------------------------------------------------------------------------------------------
-   public List<Dados> editarCarro(Dados dados){
-        List<Dados> editarCarro = new ArrayList<>();
+   public List<Dados> pesquisa(){
+        List<Dados> editarCarro= new ArrayList<>();
 
+        Dados dados = new Dados();
        SQLiteDatabase db = this.getReadableDatabase();
 
        Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
@@ -150,7 +143,7 @@ public class Database extends SQLiteOpenHelper {
         return editarCarro;
     }
  //-------------------------------------------------------------------------------------------------
-    void adtualizaCarro(Dados dados){
+    void atualizaCarro(Dados dados){
        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -194,24 +187,12 @@ public class Database extends SQLiteOpenHelper {
         }
         return ListaTabela;
     }
-    Dados selecionar(String placa){
-        SQLiteDatabase db = this.getReadableDatabase();
+ //-------------------------------------------------------------------------------------------------
 
-        Cursor c = db.query(TABELA_TROCA_OLEO,new String[]{COLUNA_PLACA,COLUNA_MODELO,COLUNA_KM_INICIAL,
-        COLUNA_KM_FINAL,COLUNA_NOME_OLEO,COLUNA_FILTRO,COLUNA_PROPRIETARIO,COLUNA_FOTO},COLUNA_PLACA + " = ?",
-        new String[]{placa},null,null,null,null);
 
-        if(c != null){
-            c.moveToFirst();
-        }
-        Dados dados = new Dados(Integer.parseInt(c.getString(0)),
-                Integer.parseInt(c.getString(1)),
-                c.getString(2),
-                c.getString(3),
-                c.getString(4),
-                c.getString(5),
-                c.getString(6),
-                c.getBlob(7));
-        return dados;
-    }
-}
+//--------------------------------------------------------------------------------------------------
+
+  }
+
+
+

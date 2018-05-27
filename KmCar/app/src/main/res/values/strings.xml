@@ -27,5 +27,7 @@
     <string name="btn_editar">Editar</string>
     <string name="edt_edita" />
     <string name="btn_atualizar">Atualizar</string>
+    <string name="Editar">Editar</string>
+    <string name="excluir">Excluir</string>
 
 </resources>

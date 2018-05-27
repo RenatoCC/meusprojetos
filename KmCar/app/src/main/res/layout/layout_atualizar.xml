@@ -21,12 +21,13 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/layout_placa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_light">
 
                 <TextView
-                    android:id="@+id/txt_placa"
+                    android:id="@+id/txt_placa2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="80dp"
@@ -38,16 +39,15 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_placa"
+                    android:id="@+id/edt_placa2"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:focusable="true"
-                    android:hint="Numero"
-                    android:inputType="textCapCharacters"
-                     />
+                    android:inputType="textCapCharacters" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -56,7 +56,7 @@
                 android:background="@android:color/holo_blue_dark">
 
                 <TextView
-                    android:id="@+id/txt_modelo"
+                    android:id="@+id/txt_modelo2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="64dp"
@@ -66,15 +66,13 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_modelo"
+                    android:id="@+id/edt_modelo2"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="0dp"
                     android:ems="10"
-                    android:hint="Modelo"
-                    android:inputType="textCapWords"
-                    />
+                    android:inputType="textCapWords" />
 
             </LinearLayout>
 
@@ -84,7 +82,7 @@
                 android:background="@color/colorPrimaryDark">
 
                 <TextView
-                    android:id="@+id/txt_km_inicio"
+                    android:id="@+id/txt_km_inicio2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="44dp"
@@ -95,14 +93,13 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_km_1"
+                    android:id="@+id/edt_km_1_2"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="0"
                     android:ems="10"
-                    android:hint="0000000"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -113,7 +110,7 @@
                 android:background="#5f6bc4">
 
                 <TextView
-                    android:id="@+id/txt_km_final"
+                    android:id="@+id/txt_km_final2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="52dp"
@@ -123,12 +120,11 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_km_2"
+                    android:id="@+id/edt_km_2_2"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:ems="10"
-                    android:hint="0000000"
                     android:inputType="number" />
             </LinearLayout>
 
@@ -138,7 +134,7 @@
                 android:background="@android:color/holo_blue_dark">
 
                 <TextView
-                    android:id="@+id/txt_oleo"
+                    android:id="@+id/txt_oleo2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="84dp"
@@ -148,14 +144,12 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_oleo"
+                    android:id="@+id/edt_oleo2"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
                     android:ems="10"
-                    android:hint="Marca/Tipo"
-                    android:inputType="textCapWords"
-                     />
+                    android:inputType="textCapWords" />
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +159,7 @@
                 android:background="@android:color/holo_blue_light">
 
                 <TextView
-                    android:id="@+id/txt_carro"
+                    android:id="@+id/txt_proprietario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -175,14 +169,12 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_proprietario"
+                    android:id="@+id/edt_proprietario2"
                     android:layout_width="250dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="10dp"
                     android:ems="10"
-                    android:hint="Nome"
-                    android:inputType="textCapWords"
-                     />
+                    android:inputType="textCapWords" />
             </LinearLayout>
 
             <LinearLayout
@@ -198,7 +190,7 @@
                     android:layout_marginTop="0dp">
 
                     <TextView
-                        android:id="@+id/txt_filtro"
+                        android:id="@+id/txt_filtro2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
@@ -209,7 +201,7 @@
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:id="@+id/rb_sim"
+                        android:id="@+id/rb_sim2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -220,7 +212,7 @@
                         tools:layout_editor_absoluteY="210dp" />
 
                     <RadioButton
-                        android:id="@+id/rb_nao"
+                        android:id="@+id/rb_nao2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -235,7 +227,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img_imagem"
+                    android:id="@+id/img_imagem2"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginBottom="8dp"
@@ -246,7 +238,7 @@
                     android:paddingLeft="50dp"
                     android:paddingRight="50dp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/carro2" />
+                     />
 
             </LinearLayout>
 
@@ -257,24 +249,20 @@
                 android:background="#fd2881c9">
 
                 <Button
-                    android:id="@+id/btn_salvar"
+                    android:id="@+id/btn_atualizar"
                     android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="3dp"
-                    android:background="#DCDCDC"
-                    android:enabled="false"
-                    android:text="@string/btn_salvar"
-                    android:visibility="visible"/>
-
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="50dp"
+                    android:text="@string/btn_atualizar"
+                    android:visibility="visible" />
 
                 <ImageButton
-                    android:id="@+id/img_botao"
+                    android:id="@+id/img_botao2"
                     style="@android:style/Widget.ImageButton"
                     android:layout_width="100dp"
                     android:layout_height="55dp"
                     android:layout_marginBottom="3dp"
-                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="3dp"
                     android:background="#DCDCDC"
                     android:scaleType="centerInside"
@@ -284,3 +272,4 @@
     </ScrollView>
 
 </LinearLayout>
+
