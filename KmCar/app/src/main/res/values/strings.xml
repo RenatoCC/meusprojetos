@@ -19,8 +19,6 @@
     <string name="txt_km1">Km Inicial</string>
     <string name="txt_placa">Placa:</string>
     <string name="edt_placa" />
-    <string name="edt_pesquisa"></string>
-    <string name="btn_pesquisa">Pesquisar</string>
     <string name="menu_carros">Carros</string>
     <string name="btn_foto">Foto</string>
     <string name="deleta">Apagar Cadastro</string>
@@ -29,5 +27,12 @@
     <string name="btn_atualizar">Atualizar</string>
     <string name="Editar">Editar</string>
     <string name="excluir">Excluir</string>
+    <string name="txt_p_placa">Placa:</string>
+    <string name="txt_v_veiculo">Veiculo:</string>
+    <string name="txt_k1_inicial">Km_Inicial:</string>
+    <string name="txt_k2_final">Km_Final:</string>
+    <string name="txt_o_oleo">Óleo:</string>
+    <string name="txt_prop">Proprietário:</string>
+    <string name="txt_f_filtro">Filtro:</string>
 
 </resources>

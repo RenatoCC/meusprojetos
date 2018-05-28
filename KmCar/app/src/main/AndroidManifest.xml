@@ -29,13 +29,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
             <activity
                 android:name=".MainActivity2"
                 android:windowSoftInputMode="stateHidden">
             </activity>
 
         <activity android:name=".Atualizar"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity android:name=".Apresentacao"
             android:windowSoftInputMode="stateHidden">
         </activity>
     </application>

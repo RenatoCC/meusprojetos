@@ -28,9 +28,7 @@ public class Atualizar extends AppCompatActivity {
     private ImageButton img_botao2;
     private ImageView img_imagem2;
 
-    int km_inicial2, km_final2;
-    String nome_proprietario2, nome_oleo2, filtro_trocado2,modelo2,placa2;
-    byte[] foto2;
+    String  filtro_trocado2;
 
     Database db = new Database(this);
     Dados dados = new Dados();

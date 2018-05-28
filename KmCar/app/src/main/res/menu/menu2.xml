@@ -3,9 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/carros"
-        android:title="@string/menu_carros" />
-    <item
         android:id="@+id/deleta"
         android:title="@string/deleta" />
 </menu>

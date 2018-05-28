@@ -29,8 +29,6 @@ public class MainActivity2 extends AppCompatActivity {
     private ListView lst_dados;
     private ArrayList<String> list;
     private ArrayAdapter<String> adapter;
-    private Button btn_pesquisa;
-    private EditText edt_placa3, edt_pesquisa;
     private ImageView img_carro;
     Database db = new Database(this);
 
@@ -40,9 +38,6 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.layout_dados);
 
         lst_dados = findViewById(R.id.lst_dados);
-        btn_pesquisa = findViewById(R.id.btn_pesquisa);
-        edt_pesquisa = findViewById(R.id.edt_pesquisa);
-        img_carro = findViewById(R.id.img_carro);
 
         registerForContextMenu(lst_dados);
 
@@ -52,38 +47,21 @@ public class MainActivity2 extends AppCompatActivity {
         lst_dados.setAdapter(adapter);
         for(Dados d : dados){
             list.add(
-                    d.placa + "\n " + "\n"
-                            + "PROPRIETARIO: " + d.nome_proprietario + "\n " + "\n"
-                            + "MODELO: " + d.modelo + " \n " + "\n "
-                            + "KM INICIAL: " + d.km_inicial + " \n " + "\n "
-                            + "KM FINAL: " + d.km_final + " \n " + "\n "
-                            + "ÓLEO: " + d.nome_oleo + " \n " + "\n "
-                            + "FILTRO_TROCADO: " + d.filtro_trocado + " \n ");
+                    d.placa + "\n " );
         }
-        img_carro.setImageResource(0);
         adapter.notifyDataSetChanged();
 
 
-    //--------------------------------------------------------------------------------------------------
-        btn_pesquisa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Dados dados = new Dados();
-                String placa = edt_pesquisa.getText().toString();
-                dados.setPlaca(placa);
-                    db.pesquisa(dados);
-                    edt_pesquisa.setText("");
-                    resultado(dados);
-            }
-        });
+//--------------------------------------------------------------------------------------------------
+
 //--------------------------------------------------------------------------------------------------
         lst_dados.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
+
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String conteudo = (String) lst_dados.getItemAtPosition(position);
                 String placa = conteudo.substring(0, conteudo.indexOf("\n"));
 
-                Intent intent = new Intent(MainActivity2.this, Atualizar.class);
+                Intent intent = new Intent(MainActivity2.this, Apresentacao.class);
                 intent.putExtra("placa", placa);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -91,25 +69,8 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 //--------------------------------------------------------------------------------------------------
-        edt_pesquisa.addTextChangedListener(valida);
     }
 //--------------------------------------------------------------------------------------------------
-    private TextWatcher valida = new TextWatcher() {
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String placa  = edt_pesquisa.getText().toString().trim();
-
-            btn_pesquisa.setEnabled(!placa.isEmpty());
-
-        }
-        @Override
-        public void afterTextChanged(Editable s) {
-        }
-    };
 
 //--------------------------------------------------------------------------------------------------
     @Override
@@ -168,7 +129,15 @@ public class MainActivity2 extends AppCompatActivity {
     //--------------------------------------------------------------------------------------------------
    void mostrar(){
 
-
+       List<Dados> dados = db.Cadastro();
+       list = new ArrayList<>();
+       adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, list);
+       lst_dados.setAdapter(adapter);
+       for(Dados d : dados){
+           list.add(
+                   d.placa + "\n " );
+       }
+       adapter.notifyDataSetChanged();
    }
 
     void resultado(Dados dados) {
@@ -199,33 +168,7 @@ public class MainActivity2 extends AppCompatActivity {
  //-------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
-    void alerta() {
-        AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
-        msg.setTitle("Alerta!!!");
-        msg.setMessage("Tem certeza que deseja pagar");
-        msg.setIcon(android.R.drawable.ic_dialog_alert);
-        msg.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        msg.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                Dados dados = new Dados();
-                String placa = edt_placa3.getText().toString();
-
-                dados.setPlaca(placa);
-                db.apagar(dados);
-                edt_placa3.setText("");
-                Toast.makeText(MainActivity2.this,"Carro apagado",Toast.LENGTH_LONG).show();
-                mostrar();
-            }
-        });
-        msg.show();
-        }
 //--------------------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------------------
@@ -240,9 +183,6 @@ public class MainActivity2 extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.carros) {
-            mostrar();
-        }
         if(id == R.id.deleta){
             AlertDialog.Builder msg = new AlertDialog.Builder(this);
 
@@ -273,7 +213,6 @@ public class MainActivity2 extends AppCompatActivity {
 
            }else {
                adapter.clear();
-               edt_pesquisa.setText("");
                img_carro.setImageResource(0);
            }
        }catch (NullPointerException ex){

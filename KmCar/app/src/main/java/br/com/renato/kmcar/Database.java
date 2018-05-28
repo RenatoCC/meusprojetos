@@ -49,7 +49,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(QUERY_TABELA_TROCA_OLEO);
     }
 
-    //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
@@ -57,7 +57,7 @@ public class Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
     void AddDados(Dados dados) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -69,7 +69,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUNA_NOME_OLEO, dados.getNome_oleo());
         values.put(COLUNA_FILTRO, dados.getFiltro_trocado());
         values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
-        values.put(COLUNA_FOTO,dados.getFoto());
+        values.put(COLUNA_FOTO, dados.getFoto());
 
         db.insert(TABELA_TROCA_OLEO, null, values);
         db.close();
@@ -82,10 +82,11 @@ public class Database extends SQLiteOpenHelper {
         db.delete(TABELA_TROCA_OLEO, COLUNA_PLACA + " = ?", new String[]{String.valueOf(dados.getPlaca())});
         db.close();
     }
-    void ApagaTudo(){
+
+    void ApagaTudo() {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TABELA_TROCA_OLEO,null,null);
+        db.delete(TABELA_TROCA_OLEO, null, null);
         String Deleta = "DELETE FROM " + TABELA_TROCA_OLEO;
         db.execSQL(Deleta);
         db.close();
@@ -100,34 +101,35 @@ public class Database extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
                 new String[]{String.valueOf(dados.getPlaca())});
 
-            if (c.moveToFirst()) {
-                do {
-                    dados.setPlaca(c.getString(0));
-                    dados.setModelo(c.getString(1));
-                    dados.setKm_inicial(Integer.parseInt(c.getString(2)));
-                    dados.setKm_final(Integer.parseInt(c.getString(3)));
-                    dados.setNome_oleo(c.getString(4));
-                    dados.setFiltro_trocado(c.getString(5));
-                    dados.setNome_proprietario(c.getString(6));
-                    dados.setFoto(c.getBlob(7));
+        if (c.moveToFirst()) {
+            do {
+                dados.setPlaca(c.getString(0));
+                dados.setModelo(c.getString(1));
+                dados.setKm_inicial(Integer.parseInt(c.getString(2)));
+                dados.setKm_final(Integer.parseInt(c.getString(3)));
+                dados.setNome_oleo(c.getString(4));
+                dados.setFiltro_trocado(c.getString(5));
+                dados.setNome_proprietario(c.getString(6));
+                dados.setFoto(c.getBlob(7));
 
-                    ListaTabela.add(dados);
-                } while (c.moveToNext());
-            }
-            return ListaTabela;
+                ListaTabela.add(dados);
+            } while (c.moveToNext());
         }
-//--------------------------------------------------------------------------------------------------
-   public List<Dados> pesquisa(){
-        List<Dados> editarCarro= new ArrayList<>();
+        return ListaTabela;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+    public List<Dados> pesquisa() {
+        List<Dados> editarCarro = new ArrayList<>();
 
         Dados dados = new Dados();
-       SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
 
-       Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
-               new String[]{String.valueOf(dados.getPlaca())});
+    Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
+                new String[]{String.valueOf(dados.getPlaca())});
 
-        if(c.moveToFirst()){
-            do{
+        if (c.moveToFirst()) {
+            do {
                 dados.setPlaca(c.getString(0));
                 dados.setModelo(c.getString(1));
                 dados.setKm_inicial(Integer.parseInt(c.getString(2)));
@@ -138,13 +140,14 @@ public class Database extends SQLiteOpenHelper {
                 dados.setFoto(c.getBlob(7));
 
                 editarCarro.add(dados);
-            }while (c.moveToNext());
+            } while (c.moveToNext());
         }
         return editarCarro;
     }
+
  //-------------------------------------------------------------------------------------------------
-    void atualizaCarro(Dados dados){
-       SQLiteDatabase db = this.getWritableDatabase();
+    void atualizaCarro(Dados dados) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
@@ -155,12 +158,13 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUNA_NOME_OLEO, dados.getNome_oleo());
         values.put(COLUNA_FILTRO, dados.getFiltro_trocado());
         values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
-        values.put(COLUNA_FOTO,dados.getFoto());
+        values.put(COLUNA_FOTO, dados.getFoto());
 
-        db.update(TABELA_TROCA_OLEO, values,COLUNA_PLACA + " = ?",
+        db.update(TABELA_TROCA_OLEO, values, COLUNA_PLACA + " = ?",
                 new String[]{String.valueOf(dados.getPlaca())});
 
     }
+
  //-------------------------------------------------------------------------------------------------
     public List<Dados> Cadastro() {
 
@@ -187,12 +191,13 @@ public class Database extends SQLiteOpenHelper {
         }
         return ListaTabela;
     }
+}
  //-------------------------------------------------------------------------------------------------
 
 
 //--------------------------------------------------------------------------------------------------
 
-  }
+
 
 
 

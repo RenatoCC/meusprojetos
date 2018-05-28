@@ -4,9 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.opengl.Visibility;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,11 +23,9 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentLinkedDeque;
+
 
 public  class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -75,12 +71,10 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
         linear = findViewById(R.id.linear);
 
 
-
-        //HABILITA A CAMERA
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},0 );
+     //HABILITA A CAMERA
+    if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},0 );
         }
-
 
 //--------------------------------------------------------------------------------------------------
 
@@ -125,7 +119,6 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
 
          }
     };
-
 
 //--------------------------------------------------------------------------------------------------
    //TIRA A FOTO E MOSTRA NO IMAGEVIEW
