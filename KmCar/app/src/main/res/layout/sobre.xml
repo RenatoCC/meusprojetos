@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:background="#27B9A6"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="150dp"
+            android:background="#1E2A38"
+            android:id="@+id/img_black_left"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="250dp"
+            android:background="#ffffff"
+            android:id="@+id/img_white_esquerdo"/>
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:id="@+id/foto"
+            android:src="@drawable/foto"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="250dp"
+            android:background="#ffffff"
+            android:id="@+id/img_white_direito"/>
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="150dp"
+            android:background="#1E2A38"
+            android:id="@+id/img_black_direito"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_nome"
+            android:text="Renato da Silva Carneiro"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#1E2A38"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_nome_faculdade"
+            android:text="Formado em Análise e Desenvolvimento de Sistemas"
+            android:textColor="#ffffff"
+            android:layout_marginStart="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_ano_formacao"
+            android:text="AIEC - 2015 - 2017"
+            android:textColor="#ffffff"
+            android:layout_marginStart="120dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="10dp"
+            android:id="@+id/img_esquerdo_pequeno"
+            android:background="#ffffff"
+            android:layout_marginTop="150dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_direito_pequeno"
+            android:layout_width="55dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="315dp"
+            android:layout_marginTop="150dp"
+            android:background="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp">
+
+        <ImageView
+            android:layout_width="270dp"
+            android:layout_height="10dp"
+            android:background="#ffffff"
+            android:id="@+id/img_baixo"
+            android:layout_marginStart="45dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#1E2A38"
+        android:layout_marginTop="420dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_telefone"
+            android:text="(71)99677-2340"
+            android:textColor="#ffffff"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_email"
+            android:text="renatocaar@outlook.com"
+            android:textColor="#ffffff"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_linkedin"
+            android:text="www.linkedin.com/in/renato-da-silva-carneiro-72b4a0115"
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="50dp"/>
+
+    </LinearLayout>
+</RelativeLayout>

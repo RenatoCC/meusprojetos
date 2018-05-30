@@ -1,33 +1,35 @@
-package br.com.renato.kmcar;
+        package br.com.renato.kmcar;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.Manifest;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.content.pm.PackageManager;
+        import android.graphics.Bitmap;
+        import android.graphics.drawable.BitmapDrawable;
+        import android.provider.MediaStore;
+        import android.support.v4.app.ActivityCompat;
+        import android.support.v7.app.AlertDialog;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.text.Editable;
+        import android.text.TextWatcher;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.LinearLayout;
+        import android.widget.RadioButton;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
+        import java.io.ByteArrayOutputStream;
+        import java.util.ArrayList;
 
 
-public  class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public  class MainActivity extends AppCompatActivity{
 
     private Button btn_salvar,btn_foto;
     private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro,txt_modelo,txt_placa;
@@ -139,34 +141,50 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
 //--------------------------------------------------------------------------------------------------
    //SALVA OS DADOS NO BANCO
     void SalvaDados() {
-
             placa = edt_placa.getText().toString();
             modelo = edt_modelo.getText().toString();
             km_inicial = Integer.parseInt(edt_km_1.getText().toString());
             km_final = Integer.parseInt(edt_km_2.getText().toString());
             nome_oleo = edt_oleo.getText().toString();
+            if (rb_sim.isChecked()){
 
-        if (rb_sim.isChecked()) {
-            filtro_trocado = "Sim";
-        } else
-            if (rb_nao.isChecked()) {
+                filtro_trocado = "Sim";
+            }
+            if (rb_nao.isChecked()){
                 filtro_trocado = "Não";
             }
-                nome_proprietario = edt_proprietario.getText().toString();
+
+            nome_proprietario = edt_proprietario.getText().toString();
 
     // METODO PARA CONVERTER E SALVAR A FOTO
         Bitmap bitmap = ((BitmapDrawable) img_imagem.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
         byte imageByte[] = stream.toByteArray();
 
             foto = imageByte;
 
-    //ADICIONAR OS DADOS NO BANCO
-        db.AddDados(new Dados(km_inicial,km_final,placa,nome_oleo,filtro_trocado,nome_proprietario,modelo,foto));
-            Toast.makeText(MainActivity.this, "Cadastrado", Toast.LENGTH_LONG).show();
-
+//--------------------------------------------------------------------------------------------------
+        //TESTA OS VALORES ANTES DE SALVAR
+        if(placa.equals("") || modelo.equals("") || String.valueOf(km_inicial).equals("") ||
+                String.valueOf(km_final).equals("") || nome_oleo.equals("") || filtro_trocado.equals("")
+                || nome_proprietario.equals("") || foto.equals(null)){
+            AlertDialog.Builder msg = new AlertDialog.Builder(this);
+            msg.setTitle("Alerta!!!");
+            msg.setMessage("Preencha todos os campos");
+            msg.setIcon(android.R.drawable.ic_dialog_alert);
+            msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            msg.show();
         }
+            //ADICIONAR OS DADOS NO BANCO
+            db.AddDados(new Dados(km_inicial, km_final, placa, nome_oleo, filtro_trocado, nome_proprietario, modelo, foto));
+            Toast.makeText(MainActivity.this, "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
+
+    }
 //--------------------------------------------------------------------------------------------------
    //LIMPA OS CAMPOS APOS SALVAR OS DADOS
     void LimpaCampos() {
@@ -179,12 +197,8 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
         rb_sim.setChecked(false);
         rb_nao.setChecked(false);
         img_imagem.setImageResource(0);
+        edt_placa.requestFocus();
     }
-
- //-----------------------------------------------------------------------------------------------
-
- //-------------------------------------------------------------------------------------------------
-
 
 //--------------------------------------------------------------------------------------------------
   //CRIA O MENU DE OPÇÕES
@@ -200,7 +214,7 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
 
         if (id == R.id.Cadastro) {
             ChamaTela();
-
+            finish();
         }
         if (id == R.id.sair) {
             finish();
@@ -211,14 +225,11 @@ public  class MainActivity extends AppCompatActivity implements View.OnClickList
     //INICIA A TELA DE CONNSULTA
     void ChamaTela(){
         Intent it = new Intent(this,MainActivity2.class);
-        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(it);
+
     }
 
 //--------------------------------------------------------------------------------------------------
-    @Override
-    public void onClick(View v) {
 
-    }
 
 }

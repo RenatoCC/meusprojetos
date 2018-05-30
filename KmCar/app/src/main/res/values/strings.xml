@@ -34,5 +34,8 @@
     <string name="txt_o_oleo">Óleo:</string>
     <string name="txt_prop">Proprietário:</string>
     <string name="txt_f_filtro">Filtro:</string>
+    <string name="pesquisa">Pesquisa</string>
+    <string name="id_menu_sobre">Sobre</string>
+    <string name="id_cadastro">Cadastro</string>
 
 </resources>

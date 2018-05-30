@@ -10,7 +10,8 @@ public class Dados {
 
     }
 //--------------------------------------------------------------------------------------------------
-    public Dados(int km_inicial,int km_final, String placa,String nome_oleo,String filtro_trocado,String nome_proprietario,String modelo,byte[] foto){
+    public Dados(int km_inicial,int km_final, String placa,String nome_oleo,String filtro_trocado,
+                 String nome_proprietario,String modelo,byte[] foto){
 
         this.placa = placa;
         this.filtro_trocado = filtro_trocado;
@@ -22,11 +23,7 @@ public class Dados {
         this.foto = foto;
     }
 
-    public Dados(String placa, String modelo, int km_inicial, int km_final, String nome_oleo, String filtro_trocado, String nome_proprietario,
-                 byte[] foto) {
-    }
 //--------------------------------------------------------------------------------------------------
-
 
     public byte[] getFoto() {
         return foto;

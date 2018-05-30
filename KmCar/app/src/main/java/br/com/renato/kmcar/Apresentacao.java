@@ -1,5 +1,6 @@
 package br.com.renato.kmcar;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -42,7 +43,6 @@ private ImageView img_foto;
         Database db = new Database(this);
 
 
-
         String placa = getIntent().getStringExtra("placa");
         dados.setPlaca(placa);
 
@@ -61,8 +61,11 @@ private ImageView img_foto;
             ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
             Bitmap imageBitmap = BitmapFactory.decodeStream(imageStream);
             img_foto.setImageBitmap(imageBitmap);
-        }
 
+//--------------------------------------------------------------------------------------------------
+        }
+        //Intent intent = new Intent();
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 }
 

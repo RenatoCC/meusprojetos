@@ -92,7 +92,7 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
-    //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
     public List<Dados> pesquisa(Dados dados) {
         List<Dados> ListaTabela = new ArrayList<>();
 
@@ -117,8 +117,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return ListaTabela;
     }
-
-    //--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
     public List<Dados> pesquisa() {
         List<Dados> editarCarro = new ArrayList<>();
 
@@ -144,11 +143,9 @@ public class Database extends SQLiteOpenHelper {
         }
         return editarCarro;
     }
-
  //-------------------------------------------------------------------------------------------------
     void atualizaCarro(Dados dados) {
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
 
         values.put(COLUNA_PLACA, dados.getPlaca());
@@ -160,14 +157,12 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
         values.put(COLUNA_FOTO, dados.getFoto());
 
-        db.update(TABELA_TROCA_OLEO, values, COLUNA_PLACA + " = ?",
+
+        db.update(TABELA_TROCA_OLEO, values, COLUNA_PLACA + " = ?" ,
                 new String[]{String.valueOf(dados.getPlaca())});
-
     }
-
  //-------------------------------------------------------------------------------------------------
     public List<Dados> Cadastro() {
-
         List<Dados> ListaTabela = new ArrayList<>();
 
         String QUERY_TABELA_TROCA_OLEO = "SELECT * FROM " + TABELA_TROCA_OLEO;
@@ -193,9 +188,6 @@ public class Database extends SQLiteOpenHelper {
     }
 }
  //-------------------------------------------------------------------------------------------------
-
-
-//--------------------------------------------------------------------------------------------------
 
 
 
