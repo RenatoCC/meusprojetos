@@ -1,6 +1,7 @@
         package br.com.renato.kmcar;
 
         import android.Manifest;
+        import android.annotation.SuppressLint;
         import android.content.DialogInterface;
         import android.content.Intent;
         import android.content.pm.PackageManager;
@@ -12,6 +13,7 @@
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.text.Editable;
+        import android.text.TextUtils;
         import android.text.TextWatcher;
         import android.view.Menu;
         import android.view.MenuItem;
@@ -26,10 +28,13 @@
         import android.widget.Toast;
 
         import java.io.ByteArrayOutputStream;
+        import java.text.SimpleDateFormat;
+        import java.time.DateTimeException;
         import java.util.ArrayList;
+        import java.util.Calendar;
 
 
-public  class MainActivity extends AppCompatActivity{
+        public  class MainActivity extends AppCompatActivity{
 
     private Button btn_salvar,btn_foto;
     private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro,txt_modelo,txt_placa;
@@ -44,8 +49,10 @@ public  class MainActivity extends AppCompatActivity{
     int km_inicial, km_final;
     String nome_proprietario, nome_oleo, filtro_trocado,modelo,placa;
     byte[] foto;
+    SimpleDateFormat simpleDateFormat;
     Database db = new Database(this);
-
+    Calendar calendario;
+    String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +92,7 @@ public  class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 SalvaDados();
-                LimpaCampos();
-                img_imagem.setImageResource(R.drawable.carro2);
+
             }
         });
         //BOTÃO DE FOTO COM O METODO DE TIRAR A FOTO
@@ -140,51 +146,92 @@ public  class MainActivity extends AppCompatActivity{
     }
 //--------------------------------------------------------------------------------------------------
    //SALVA OS DADOS NO BANCO
-    void SalvaDados() {
-            placa = edt_placa.getText().toString();
-            modelo = edt_modelo.getText().toString();
-            km_inicial = Integer.parseInt(edt_km_1.getText().toString());
-            km_final = Integer.parseInt(edt_km_2.getText().toString());
-            nome_oleo = edt_oleo.getText().toString();
-            if (rb_sim.isChecked()){
+void SalvaDados() {
+        placa = edt_placa.getText().toString();
+        modelo = edt_modelo.getText().toString();
 
-                filtro_trocado = "Sim";
-            }
-            if (rb_nao.isChecked()){
-                filtro_trocado = "Não";
-            }
+        km_inicial = Integer.parseInt(edt_km_1.getText().toString());
+        km_final = Integer.parseInt(edt_km_2.getText().toString());
 
-            nome_proprietario = edt_proprietario.getText().toString();
+        nome_oleo = edt_oleo.getText().toString();
 
-    // METODO PARA CONVERTER E SALVAR A FOTO
+        if (rb_sim.isChecked()) {
+            filtro_trocado = "Sim";
+        }
+        if (rb_nao.isChecked()) {
+            filtro_trocado = "Não";
+        }
+
+        nome_proprietario = edt_proprietario.getText().toString();
+
+        // METODO PARA CONVERTER E SALVAR A FOTO
         Bitmap bitmap = ((BitmapDrawable) img_imagem.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte imageByte[] = stream.toByteArray();
 
-            foto = imageByte;
+        foto = imageByte;
+
+        calendario = Calendar.getInstance();
+        simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+
+        data = simpleDateFormat.format(calendario.getTime());
 
 //--------------------------------------------------------------------------------------------------
         //TESTA OS VALORES ANTES DE SALVAR
-        if(placa.equals("") || modelo.equals("") || String.valueOf(km_inicial).equals("") ||
-                String.valueOf(km_final).equals("") || nome_oleo.equals("") || filtro_trocado.equals("")
-                || nome_proprietario.equals("") || foto.equals(null)){
-            AlertDialog.Builder msg = new AlertDialog.Builder(this);
-            msg.setTitle("Alerta!!!");
-            msg.setMessage("Preencha todos os campos");
-            msg.setIcon(android.R.drawable.ic_dialog_alert);
-            msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                }
-            });
-            msg.show();
-        }
-            //ADICIONAR OS DADOS NO BANCO
-            db.AddDados(new Dados(km_inicial, km_final, placa, nome_oleo, filtro_trocado, nome_proprietario, modelo, foto));
-            Toast.makeText(MainActivity.this, "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
+       /* int i, n;
+        char a, b, c;
+        n = placa.length();
+        for (i = 0; i <= n; i++) {
+            a = placa.charAt(0);
+           // c = placa.charAt(2);
 
-    }
+            if (Character.isDigit(a)) {
+                Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
+                 }
+            }*/
+                 if(TextUtils.isEmpty(placa) || TextUtils.isEmpty(modelo) || TextUtils.isEmpty(nome_oleo) ||
+                    TextUtils.isEmpty(nome_proprietario) || TextUtils.isEmpty(filtro_trocado)) {
+                    AlertDialog.Builder msg = new AlertDialog.Builder(this);
+                    msg.setTitle("Alerta!!!");
+                    msg.setMessage("Preencha todos os campos");
+                    msg.setIcon(android.R.drawable.ic_dialog_alert);
+                    msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+                    msg.show();
+                }else
+                     if (km_inicial == 0 || km_final == 0) {
+                    AlertDialog.Builder msg = new AlertDialog.Builder(this);
+                    msg.setTitle("Alerta!!!");
+                    msg.setMessage("Preencha todos os campos");
+                    msg.setIcon(android.R.drawable.ic_dialog_alert);
+                    msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    msg.show();
+                } else {
+                    //ADICIONAR OS DADOS NO BANCO
+                    db.AddDados(new Dados(km_inicial, km_final, placa, nome_oleo, filtro_trocado, nome_proprietario, modelo, foto,
+                            data));
+                    Toast.makeText(MainActivity.this, "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                    LimpaCampos();
+                    img_imagem.setImageResource(R.drawable.carro2);
+                    edt_km_1.setText("0");
+                    edt_km_2.setText("0");
+
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                }
+            }
+
+
+
 //--------------------------------------------------------------------------------------------------
    //LIMPA OS CAMPOS APOS SALVAR OS DADOS
     void LimpaCampos() {

@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@android:color/holo_blue_light"
-    >
+    android:background="@drawable/inicial">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_floating"
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="250dp"
         android:layout_marginTop="450dp"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_action_add"
         app:fabSize="auto"/>
 
@@ -26,7 +25,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
-        android:background="#dad9d9">
+        android:cacheColorHint="#fff">
 
     </ListView>
 </RelativeLayout>

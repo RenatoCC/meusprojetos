@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -98,7 +99,8 @@ public class MainActivity2 extends AppCompatActivity {
                  String placa = conteudo.substring(0, conteudo.indexOf("\n"));
                  Intent intent = new Intent(MainActivity2.this, Atualizar.class);
                  intent.putExtra("placa", placa);
-                 startActivity(intent);
+                startActivity(intent);
+                finish();
                 break;
 
             case R.id.id_excluir:
@@ -133,9 +135,11 @@ public class MainActivity2 extends AppCompatActivity {
    //METODO QUE EXIBE A PLACA NO LISTVIEW
     void mostrar(){
 
+
        List<Dados> dados = db.Cadastro();
        list = new ArrayList<>();
        adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, list);
+
        lst_dados.setAdapter(adapter);
        for(Dados d : dados){
            list.add(
@@ -143,6 +147,7 @@ public class MainActivity2 extends AppCompatActivity {
        }
        adapter.notifyDataSetChanged();
    }
+
 //--------------------------------------------------------------------------------------------------
 //EXIBE O MENU DE PESQUISA
     @Override
@@ -185,6 +190,7 @@ public class MainActivity2 extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                         db.ApagaTudo();
+                        mostrar();
                         Toast.makeText(MainActivity2.this, "Cadastro apagado", Toast.LENGTH_LONG).show();
 
                 }

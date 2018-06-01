@@ -13,7 +13,7 @@ import java.util.List;
 public class Database extends SQLiteOpenHelper {
 
 
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
     private static final String BANCO_KM = "db_km";
 
     //TABELA_TROCA_OLEO
@@ -26,6 +26,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String COLUNA_FILTRO = "filtro_trocado";
     private static final String COLUNA_PROPRIETARIO = "proprietario";
     private static final String COLUNA_FOTO = "foto";
+    private static final String COLUNA_DATA = "data";
 
 
     public Database(Context context) {
@@ -36,15 +37,17 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String QUERY_TABELA_TROCA_OLEO = "CREATE TABLE " + TABELA_TROCA_OLEO + " ("
-                + COLUNA_PLACA + " TEXT PRIMARY KEY, " +
+        String QUERY_TABELA_TROCA_OLEO = "CREATE TABLE " +
+                TABELA_TROCA_OLEO + " (" +
+                COLUNA_PLACA + " TEXT PRIMARY KEY, " +
                 COLUNA_MODELO + " TEXT, " +
                 COLUNA_KM_INICIAL + " INTEGER, " +
                 COLUNA_KM_FINAL + " INTEGER, " +
                 COLUNA_NOME_OLEO + " TEXT, " +
                 COLUNA_FILTRO + " TEXT, " +
                 COLUNA_PROPRIETARIO + " TEXT, " +
-                COLUNA_FOTO + " BLOB )";
+                COLUNA_FOTO + " BLOB, " +
+                COLUNA_DATA + " TEXT)";
 
         db.execSQL(QUERY_TABELA_TROCA_OLEO);
     }
@@ -70,6 +73,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUNA_FILTRO, dados.getFiltro_trocado());
         values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
         values.put(COLUNA_FOTO, dados.getFoto());
+        values.put(COLUNA_DATA,dados.getData());
 
         db.insert(TABELA_TROCA_OLEO, null, values);
         db.close();
@@ -111,6 +115,7 @@ public class Database extends SQLiteOpenHelper {
                 dados.setFiltro_trocado(c.getString(5));
                 dados.setNome_proprietario(c.getString(6));
                 dados.setFoto(c.getBlob(7));
+                dados.setData(c.getString(8));
 
                 ListaTabela.add(dados);
             } while (c.moveToNext());
@@ -118,31 +123,7 @@ public class Database extends SQLiteOpenHelper {
         return ListaTabela;
     }
 //--------------------------------------------------------------------------------------------------
-    public List<Dados> pesquisa() {
-        List<Dados> editarCarro = new ArrayList<>();
 
-        Dados dados = new Dados();
-        SQLiteDatabase db = this.getReadableDatabase();
-
-    Cursor c = db.rawQuery("SELECT * FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
-                new String[]{String.valueOf(dados.getPlaca())});
-
-        if (c.moveToFirst()) {
-            do {
-                dados.setPlaca(c.getString(0));
-                dados.setModelo(c.getString(1));
-                dados.setKm_inicial(Integer.parseInt(c.getString(2)));
-                dados.setKm_final(Integer.parseInt(c.getString(3)));
-                dados.setNome_oleo(c.getString(4));
-                dados.setFiltro_trocado(c.getString(5));
-                dados.setNome_proprietario(c.getString(6));
-                dados.setFoto(c.getBlob(7));
-
-                editarCarro.add(dados);
-            } while (c.moveToNext());
-        }
-        return editarCarro;
-    }
  //-------------------------------------------------------------------------------------------------
     void atualizaCarro(Dados dados) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -156,6 +137,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUNA_FILTRO, dados.getFiltro_trocado());
         values.put(COLUNA_PROPRIETARIO, dados.getNome_proprietario());
         values.put(COLUNA_FOTO, dados.getFoto());
+        values.put(COLUNA_DATA, dados.getData());
 
 
         db.update(TABELA_TROCA_OLEO, values, COLUNA_PLACA + " = ?" ,
@@ -180,6 +162,8 @@ public class Database extends SQLiteOpenHelper {
                 dados.setNome_oleo(c.getString(4));
                 dados.setFiltro_trocado(c.getString(5));
                 dados.setNome_proprietario(c.getString(6));
+                dados.setFoto(c.getBlob(7));
+                dados.setData(c.getString(8));
 
                 ListaTabela.add(dados);
             } while (c.moveToNext());

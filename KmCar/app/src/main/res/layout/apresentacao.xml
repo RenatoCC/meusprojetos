@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -26,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             />
 
@@ -189,15 +190,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/papel_de_parede"
+        >
+
+        <TextView
+            android:id="@+id/txt_d_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/papel_de_parede">
 
         <ImageView
             android:id="@+id/img_foto"
             android:layout_width="350dp"
-            android:layout_height="250dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp" />
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
+
 </LinearLayout>

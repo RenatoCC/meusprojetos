@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Apresentacao extends AppCompatActivity{
 private TextView txt_placa,txt_p_placa,txt_veiculo,txt_v_veiculo,txt_km_inicial,txt_k1_inicial,txt_km_final,
-    txt_k2_final,txt_oleo,txt_o_oleo,txt_prop,txt_prop_prop,txt_filtro,txt_f_filtro;
+    txt_k2_final,txt_oleo,txt_o_oleo,txt_prop,txt_prop_prop,txt_filtro,txt_f_filtro,txt_d_data;
 
 private ImageView img_foto;
 
@@ -37,6 +37,7 @@ private ImageView img_foto;
         txt_prop_prop = findViewById(R.id.txt_pro_prop);
         txt_filtro = findViewById(R.id.txt_filtro);
         txt_f_filtro = findViewById(R.id.txt_f_filtro);
+        txt_d_data = findViewById(R.id.txt_d_data);
         img_foto = findViewById(R.id.img_foto);
 
         Dados dados = new Dados();
@@ -56,6 +57,7 @@ private ImageView img_foto;
             txt_o_oleo.setText(d.getNome_oleo());
             txt_prop_prop.setText(d.getNome_proprietario());
             txt_f_filtro.setText(d.getFiltro_trocado());
+            txt_d_data.setText(d.getData());
 
             byte[] outImage = d.getFoto();
             ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
