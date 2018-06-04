@@ -46,8 +46,9 @@ public class MainActivity2 extends AppCompatActivity {
 
         List<Dados> dados = db.Cadastro();
         list = new ArrayList<>();
-        adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, list);
+        adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1,list);
         lst_dados.setAdapter(adapter);
+
         for(Dados d : dados){
             list.add(
                     d.placa + "\n " );
@@ -100,6 +101,7 @@ public class MainActivity2 extends AppCompatActivity {
                  Intent intent = new Intent(MainActivity2.this, Atualizar.class);
                  intent.putExtra("placa", placa);
                 startActivity(intent);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 break;
 
@@ -142,8 +144,10 @@ public class MainActivity2 extends AppCompatActivity {
 
        lst_dados.setAdapter(adapter);
        for(Dados d : dados){
+
            list.add(
                    d.placa + "\n " );
+
        }
        adapter.notifyDataSetChanged();
    }

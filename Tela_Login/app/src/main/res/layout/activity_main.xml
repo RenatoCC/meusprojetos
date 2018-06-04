@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.renato.tela_login.MainActivity"
+    android:background="@drawable/gradient">
+
+    <EditText
+        android:id="@+id/edt_usuario"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="70dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_name_usuario2"
+        android:ems="10"
+        android:hint="usuario"
+        android:inputType="textCapCharacters"
+        android:textColorHint="#fff" />
+
+    <EditText
+        android:id="@+id/edt_senha"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edt_usuario"
+        android:layout_below="@+id/edt_usuario"
+        android:layout_marginTop="20dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_name_senha2"
+        android:ems="10"
+        android:textColorHint="#fff"
+        android:hint="senha"
+        android:inputType="textPersonName" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="450dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/edt_senha"
+        android:layout_below="@+id/edt_senha"
+        android:layout_marginEnd="88dp"
+        android:layout_marginTop="60dp"
+        android:elevation="10dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="20dp"
+        android:id="@+id/cardView2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="Login"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/txt_registro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Registre-se"
+        android:textColor="#fff"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/edt_usuario"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/logo" />
+</RelativeLayout>

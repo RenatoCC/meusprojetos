@@ -47,7 +47,9 @@ public class Inicial extends AppCompatActivity {
             Intent intent = new Intent(Inicial.this,Sobre.class);
             startActivity(intent);
         }
-
+        if(id == R.id.id_sair){
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 }

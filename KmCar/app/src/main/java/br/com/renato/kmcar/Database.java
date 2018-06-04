@@ -123,7 +123,12 @@ public class Database extends SQLiteOpenHelper {
         return ListaTabela;
     }
 //--------------------------------------------------------------------------------------------------
+    void testarChave(Dados dados){
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        db.rawQuery("SELECT " + COLUNA_PLACA + " FROM " + TABELA_TROCA_OLEO + " WHERE " + COLUNA_PLACA + " = ?",
+                new String[]{String.valueOf(dados.getPlaca())});
+    }
  //-------------------------------------------------------------------------------------------------
     void atualizaCarro(Dados dados) {
         SQLiteDatabase db = this.getWritableDatabase();

@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#6A5ACD</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/cardview_dark_background</item>
+        <item name="colorPrimaryDark">@color/cardview_dark_background</item>
         <item name="colorControlNormal">#808080</item>
-        <item name="colorControlActivated">#000000</item>
+        <item name="colorControlActivated">#98FB98</item>
     </style>
 
     <style name="rb_voce">Você</style>

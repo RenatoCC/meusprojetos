@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@drawable/inicial">
+    android:background="@drawable/atualizacao">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_floating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="480dp"
         android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_action_add"
         app:fabSize="auto"/>

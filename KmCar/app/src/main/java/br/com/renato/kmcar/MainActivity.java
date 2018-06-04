@@ -43,7 +43,6 @@
     private ImageView img_imagem;
     private ImageButton img_botao;
     private ArrayList<String> list;
-    private LinearLayout linear;
 
 
     int km_inicial, km_final;
@@ -77,7 +76,7 @@
         rb_nao = findViewById(R.id.rb_nao);
         rb_sim = findViewById(R.id.rb_sim);
 
-        linear = findViewById(R.id.linear);
+        img_imagem.setImageResource(R.drawable.carro2);
 
 
      //HABILITA A CAMERA
@@ -146,14 +145,18 @@
     }
 //--------------------------------------------------------------------------------------------------
    //SALVA OS DADOS NO BANCO
-void SalvaDados() {
+    void SalvaDados() {
         placa = edt_placa.getText().toString();
         modelo = edt_modelo.getText().toString();
 
-        km_inicial = Integer.parseInt(edt_km_1.getText().toString());
-        km_final = Integer.parseInt(edt_km_2.getText().toString());
+        if(edt_km_1.getText().toString() == "0"){
+            km_inicial = 0;
+        }else {
+            km_inicial = Integer.parseInt(edt_km_1.getText().toString());
+        }
+            km_final = Integer.parseInt(edt_km_2.getText().toString());
 
-        nome_oleo = edt_oleo.getText().toString();
+            nome_oleo = edt_oleo.getText().toString();
 
         if (rb_sim.isChecked()) {
             filtro_trocado = "Sim";
@@ -165,12 +168,12 @@ void SalvaDados() {
         nome_proprietario = edt_proprietario.getText().toString();
 
         // METODO PARA CONVERTER E SALVAR A FOTO
-        Bitmap bitmap = ((BitmapDrawable) img_imagem.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte imageByte[] = stream.toByteArray();
+           Bitmap bitmap = ((BitmapDrawable) img_imagem.getDrawable()).getBitmap();
+           ByteArrayOutputStream stream = new ByteArrayOutputStream();
+           bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+           byte imageByte[] = stream.toByteArray();
 
-        foto = imageByte;
+           foto = imageByte;
 
         calendario = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm");
@@ -179,17 +182,23 @@ void SalvaDados() {
 
 //--------------------------------------------------------------------------------------------------
         //TESTA OS VALORES ANTES DE SALVAR
-       /* int i, n;
+     /*   int i, n;
         char a, b, c;
         n = placa.length();
-        for (i = 0; i <= n; i++) {
+       for (i = 0; i <= n; i++) {
             a = placa.charAt(0);
-           // c = placa.charAt(2);
+            b = placa.charAt(2);
+            c = placa.charAt(2);
 
             if (Character.isDigit(a)) {
                 Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
-                 }
-            }*/
+            } else if (Character.isDigit(b)) {
+                Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
+            } else if (Character.isDigit(c)) {
+                Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
+            }
+        } */
+
                  if(TextUtils.isEmpty(placa) || TextUtils.isEmpty(modelo) || TextUtils.isEmpty(nome_oleo) ||
                     TextUtils.isEmpty(nome_proprietario) || TextUtils.isEmpty(filtro_trocado)) {
                     AlertDialog.Builder msg = new AlertDialog.Builder(this);
@@ -204,7 +213,19 @@ void SalvaDados() {
                     });
                     msg.show();
                 }else
-                     if (km_inicial == 0 || km_final == 0) {
+                    if(km_inicial > km_final){
+                        AlertDialog.Builder msg = new AlertDialog.Builder(this);
+                        msg.setTitle("Alerta!!!");
+                        msg.setMessage("Km_inicial não pode ser maior que Km_final");
+                        msg.setIcon(android.R.drawable.ic_dialog_alert);
+                        msg.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        });
+                        msg.show();
+                    }else
+                     if (km_final == 0) {
                     AlertDialog.Builder msg = new AlertDialog.Builder(this);
                     msg.setTitle("Alerta!!!");
                     msg.setMessage("Preencha todos os campos");
@@ -261,9 +282,6 @@ void SalvaDados() {
 
         if (id == R.id.Cadastro) {
             ChamaTela();
-            finish();
-        }
-        if (id == R.id.sair) {
             finish();
         }
         return true;

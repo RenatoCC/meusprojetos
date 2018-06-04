@@ -4,7 +4,4 @@
     <item
         android:id="@+id/Cadastro"
         android:title="@string/id_dados" />
-    <item
-        android:id="@+id/sair"
-        android:title="@string/id_sair" />
 </menu>

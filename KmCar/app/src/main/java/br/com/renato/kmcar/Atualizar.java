@@ -26,8 +26,8 @@ import java.util.List;
 
 public class Atualizar extends AppCompatActivity {
     private Button btn_atualizar;
-    private TextView txt_placa2,txt_modelo2,txt_km_inicio2,txt_km_final2,txt_oleo2,txt_proprietario,txt_filtro2,txt_id_placa;
-    private EditText edt_modelo2,edt_km_1_2,edt_km_2_2,edt_oleo2,edt_proprietario2;
+    private TextView txt_placa2,txt_modelo2,txt_km_inicio2,txt_km_final2,txt_oleo2,txt_proprietario2,txt_filtro2;
+    private EditText edt_modelo2,edt_km_1_2,edt_km_2_2,edt_oleo2,edt_proprietario2,edt_placa2;
     private RadioButton rb_sim2,rb_nao2;
     private ImageButton img_botao2;
     private ImageView img_imagem2;
@@ -36,8 +36,6 @@ public class Atualizar extends AppCompatActivity {
 
     Database db = new Database(this);
     Dados dados = new Dados();
-    MainActivity2 main = new MainActivity2();
-
 
     @Override
     protected void onCreate( Bundle bundle) {
@@ -47,20 +45,19 @@ public class Atualizar extends AppCompatActivity {
 
         btn_atualizar = findViewById(R.id.btn_atualizar);
         txt_filtro2 = findViewById(R.id.txt_filtro2);
-        txt_id_placa = findViewById(R.id.txt_id_placa);
         txt_km_final2 = findViewById(R.id.txt_km_final2);
         txt_km_inicio2 = findViewById(R.id.txt_km_inicio2);
         txt_oleo2 = findViewById(R.id.txt_oleo2);
         txt_modelo2 = findViewById(R.id.txt_modelo2);
-        txt_proprietario = findViewById(R.id.txt_proprietario);
+        txt_proprietario2 = findViewById(R.id.txt_proprietario2);
         txt_placa2 = findViewById(R.id.txt_placa2);
-
+        edt_placa2 = findViewById(R.id.edt_placa2);
         img_botao2 = findViewById(R.id.img_botao2);
         img_imagem2 = findViewById(R.id.img_imagem2);
         edt_km_1_2 = findViewById(R.id.edt_km_1_2);
         edt_km_2_2 = findViewById(R.id.edt_km_2_2);
         edt_oleo2 = findViewById(R.id.edt_oleo2);
-       // edt_placa2 = findViewById(R.id.edt_placa2);
+
         edt_proprietario2 = findViewById(R.id.edt_proprietario2);
         edt_modelo2 = findViewById(R.id.edt_modelo2);
         rb_nao2 = findViewById(R.id.rb_nao2);
@@ -69,13 +66,15 @@ public class Atualizar extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
         }
+
+            //RECEBE O VALOR DA PLACA PASSADO POR INTENT
             String placa = getIntent().getStringExtra("placa");
             dados.setPlaca(placa);
 
             final List<Dados> dados1 = db.pesquisa(dados);
 
             for (Dados d : dados1) {
-                txt_id_placa.setText(d.getPlaca());
+                edt_placa2.setText(d.getPlaca());
                 edt_modelo2.setText(d.getModelo());
                 edt_km_1_2.setText(String.valueOf(d.getKm_inicial()));
                 edt_km_2_2.setText(String.valueOf(d.getKm_final()));
@@ -104,7 +103,7 @@ public class Atualizar extends AppCompatActivity {
             btn_atualizar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dados.setPlaca(txt_id_placa.getText().toString());
+                    dados.setPlaca(txt_placa2.getText().toString());
                     dados.setModelo(edt_modelo2.getText().toString());
                     dados.setKm_inicial(Integer.parseInt(edt_km_1_2.getText().toString()));
                     dados.setKm_final(Integer.parseInt(edt_km_2_2.getText().toString()));
