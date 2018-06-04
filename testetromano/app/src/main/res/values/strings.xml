@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">testetromano</string>
-    <string name="btn_res">Calcular</string>
-    <string name="txt_tela" />
-    <string name="txt_res" />
-    <string name="edt_tela" />
-    <string name="txt_texto" />
-</resources>
