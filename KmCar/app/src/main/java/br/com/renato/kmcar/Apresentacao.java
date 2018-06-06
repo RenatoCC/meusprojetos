@@ -66,8 +66,7 @@ private ImageView img_foto;
 
 //--------------------------------------------------------------------------------------------------
         }
-        //Intent intent = new Intent();
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
     }
 }
 

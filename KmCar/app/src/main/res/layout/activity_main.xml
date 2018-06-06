@@ -225,7 +225,6 @@
                     android:textSize="14sp" />
             </RadioGroup>
 
-
             <ImageView
                 android:id="@+id/img_imagem"
                 android:layout_width="300dp"
@@ -235,7 +234,8 @@
                 android:layout_marginTop="8dp"
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
-                android:background="#11000000"/>
+                android:background="#11000000"
+                android:scaleType="centerCrop"/>
 
             <Button
                 android:id="@+id/btn_salvar"

@@ -207,6 +207,7 @@
                 android:layout_marginTop="8dp"
                 android:background="#11000000"
                 android:paddingLeft="50dp"
+                android:scaleType="centerCrop"
                 android:paddingRight="50dp" />
 
             <Button
