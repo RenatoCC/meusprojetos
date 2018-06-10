@@ -34,10 +34,7 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:focusable="true"
-                android:hint="Numero"
-                android:inputType="textCapCharacters"
-                android:textColorHint="#fff"
-                android:textColor="#fff"/>
+                android:inputType="textCapCharacters" />
 
             <TextView
                 android:id="@+id/txt_modelo2"
@@ -57,10 +54,7 @@
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="60dp"
                 android:ems="10"
-                android:hint="Modelo"
-                android:inputType="textCapWords"
-                android:textColorHint="#fff"
-                android:textColor="#fff"/>
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/txt_km_inicio2"
@@ -81,10 +75,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:hint="0000000"
-                android:inputType="number"
-                android:text="0"
-                android:textColor="#fff" />
+                android:inputType="number" />
 
 
             <TextView
@@ -105,10 +96,7 @@
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="140dp"
                 android:ems="10"
-                android:hint="0000000"
-                android:inputType="number"
-                android:text="0"
-                android:textColor="#fff" />
+                android:inputType="number"/>
 
             <TextView
                 android:id="@+id/txt_oleo2"
@@ -128,10 +116,8 @@
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="180dp"
                 android:ems="10"
-                android:hint="Marca/Tipo"
                 android:inputType="textCapWords"
-                android:textColorHint="#fff"
-                android:textColor="#fff"/>
+                />
 
             <TextView
                 android:id="@+id/txt_proprietario2"
@@ -151,10 +137,8 @@
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="220dp"
                 android:ems="10"
-                android:hint="Nome"
                 android:inputType="textCapWords"
-                android:textColorHint="#fff"
-                android:textColor="#fff"/>
+                android:textColorHint="#fff" />
 
             <RadioGroup
                 android:id="@+id/radioGroup2"

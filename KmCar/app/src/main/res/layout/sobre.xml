@@ -137,10 +137,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_linkedin"
-            android:text="www.linkedin.com/in/renato-da-silva-carneiro-72b4a0115"
+            android:text="www.linkedin.com/in/renato-da-silva-"
             android:textColor="#ffffff"
             android:layout_marginTop="10dp"
             android:layout_marginStart="50dp"/>
+
+        <TextView
+            android:id="@+id/txt_likedin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="carneiro-72b4a0115"
+            android:textColor="#ffffff"
+            android:layout_marginStart="100dp"/>
 
     </LinearLayout>
 </RelativeLayout>

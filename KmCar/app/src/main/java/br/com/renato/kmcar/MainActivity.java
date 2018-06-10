@@ -182,24 +182,29 @@
 
 //--------------------------------------------------------------------------------------------------
         //TESTA OS VALORES ANTES DE SALVAR
-     /*   int i, n;
+        int i, n;
         char a, b, c;
         n = placa.length();
-       for (i = 0; i <= n; i++) {
+
+         /*  for (i = 0; i <= n; i++) {
             a = placa.charAt(0);
             b = placa.charAt(2);
             c = placa.charAt(2);
 
             if (Character.isDigit(a)) {
-                Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "placa invalida: " + placa, Toast.LENGTH_LONG).show();
             } else if (Character.isDigit(b)) {
-                Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "placa invalida: " + placa, Toast.LENGTH_LONG).show();
             } else if (Character.isDigit(c)) {
-                Toast.makeText(MainActivity.this, "placa invalida " + placa, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "placa invalida: " + placa, Toast.LENGTH_LONG).show();
             }
-        } */
+        }*/
+        if(placa.contains("@") || placa.contains("!") || placa.contains("*") || placa.contains("#") ||
+                placa.contains("&") || placa.contains("+") || placa.contains("$")){
+            Toast.makeText(MainActivity.this, "placa invalida: " + placa, Toast.LENGTH_LONG).show();
 
-                 if(TextUtils.isEmpty(placa) || TextUtils.isEmpty(modelo) || TextUtils.isEmpty(nome_oleo) ||
+        }else
+                if(TextUtils.isEmpty(placa) || TextUtils.isEmpty(modelo) || TextUtils.isEmpty(nome_oleo) ||
                     TextUtils.isEmpty(nome_proprietario) || TextUtils.isEmpty(filtro_trocado)) {
                     AlertDialog.Builder msg = new AlertDialog.Builder(this);
                     msg.setTitle("Alerta!!!");
