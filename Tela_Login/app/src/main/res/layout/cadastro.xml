@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#11000000">
+
+        <TextView
+            android:id="@+id/txt_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/edt_nome"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="85dp"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#11000000">
+
+        <TextView
+            android:id="@+id/txt_sobrenome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sobrenome:"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/edt_sobrenome"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="45dp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#11000000">
+
+        <TextView
+            android:id="@+id/txt_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha:"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/edt_senha"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="90dp"
+            android:textColor="#fff"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#11000000">
+
+        <TextView
+            android:id="@+id/txt_repete_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repita a senha:"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/edt_repete_senha"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:textColor="#fff"
+            android:inputType="textPassword"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_foto"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/camera"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#11000000">
+
+        <Button
+            android:id="@+id/btn_salvar"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:text="Salvar"
+            android:layout_marginStart="120dp"
+            android:background="#11000000"
+            android:textColor="#fff"/>
+    </LinearLayout>
+</LinearLayout>

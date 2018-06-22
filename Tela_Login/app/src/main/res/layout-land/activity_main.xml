@@ -7,14 +7,15 @@
     tools:context="br.com.renato.tela_login.MainActivity"
     android:background="@drawable/gradient">
 
+
     <EditText
         android:id="@+id/edt_usuario"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView"
-        android:layout_marginStart="83dp"
-        android:layout_marginTop="128dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="29dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_name_usuario2"
         android:ems="10"
@@ -23,7 +24,7 @@
         android:textColorHint="#fff" />
 
     <EditText
-        android:id="@+id/edt_senha_login"
+        android:id="@+id/edt_senha"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/edt_usuario"
@@ -37,16 +38,16 @@
         android:inputType="textPersonName" />
 
     <android.support.v7.widget.CardView
-        android:layout_width="450dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_alignLeft="@+id/edt_senha_login"
-        android:layout_below="@+id/edt_senha_login"
+        android:layout_alignLeft="@+id/edt_senha"
+        android:layout_below="@+id/edt_senha"
         android:layout_marginEnd="88dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:elevation="10dp"
         app:cardBackgroundColor="@color/colorAccent"
         app:cardCornerRadius="20dp"
-        android:id="@+id/card">
+        android:id="@+id/cardView2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -68,19 +69,20 @@
         android:id="@+id/txt_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/card"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_alignEnd="@+id/cardView2"
+        android:layout_below="@+id/cardView2"
+        android:layout_marginEnd="62dp"
+        android:layout_marginTop="35dp"
         android:text="Registre-se"
-        android:textColor="#fff"/>
+        android:textColor="#fff" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignEnd="@+id/edt_usuario"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@+id/cardView2"
         android:src="@drawable/logo" />
 </RelativeLayout>
