@@ -3,18 +3,27 @@ package br.com.renato.tela_login;
 
 public class Dados {
 
-    String nome,sobrenome,senha;
+    String nome,usuario,sobrenome,senha,email;
     byte[] foto;
 
 
     public Dados(){
 
     }
-    public Dados(String nome,String sobrenome,String senha,byte[] foto){
+    public Dados(String nome,String sobrenome,String senha,String email,byte[] foto){
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.senha = senha;
+        this.email = email;
         this.foto = foto;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNome() {
@@ -31,6 +40,14 @@ public class Dados {
 
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getSenha() {

@@ -20,6 +20,9 @@
         <activity android:name=".Cadastro">
 
         </activity>
+        <activity android:name=".Logado">
+
+        </activity>
     </application>
 
 </manifest>

@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView txt_registro;
     private EditText edt_usuario,edt_senha_login;
     private CardView card;
+    Database db = new Database(this);
+    Dados dados = new Dados();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +37,25 @@ public class MainActivity extends AppCompatActivity {
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edt_usuario.getText().toString().equals("") || edt_senha_login.getText().toString().equals("")){
-                    Toast.makeText(MainActivity.this,"usuário ou senha inválido",Toast.LENGTH_LONG).show();
-                }
+                String email = edt_usuario.getText().toString();
+                String senha = edt_senha_login.getText().toString();
+                dados.setEmail(email);
+                dados.setSenha(senha);
+
+//               if (edt_usuario.getText().toString().isEmpty()){
+//                   Toast.makeText(MainActivity.this,"digite um email",Toast.LENGTH_SHORT).show();
+//               }else
+//                   if (edt_senha_login.getText().toString().isEmpty()){
+//                       Toast.makeText(MainActivity.this,"digite um senha",Toast.LENGTH_SHORT).show();
+//                   }else
+//                if (db.pesquisa(dados) == true){
+//                    Intent intent = new Intent(MainActivity.this, Logado.class);
+//                      startActivity(intent);
+//                }else
+//                    if (db.pesquisa(dados) == !true){
+//                    Toast.makeText(MainActivity.this,"Usuario não cadastrado",Toast.LENGTH_SHORT).show();
+//                    }
             }
         });
     }
-
-
 }

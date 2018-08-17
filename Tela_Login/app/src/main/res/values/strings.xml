@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tela_Login</string>
+    <string name="email">Email:</string>
+    <string name="repita_email">Repita email:</string>
+    <string name="senha">Senha:</string>
+    <string name="repita_a_senha">Repita a senha:</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="sobrenome">Sobrenome:</string>
+    <string name="nome">Nome:</string>
 </resources>

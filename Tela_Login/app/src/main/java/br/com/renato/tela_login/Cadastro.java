@@ -13,19 +13,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
 public class Cadastro extends AppCompatActivity {
 
-    private TextView txt_nome,txt_sobrenome,txt_senha,txt_repete_senha;
-    private EditText edt_nome,edt_sobrenome,edt_senha,edt_repete_senha;
-    private Button btn_salvar;
+    private TextView txt_nome,txt_sobrenome,txt_senha,txt_repete_senha,txt_email;
+    private EditText edt_nome,edt_sobrenome,edt_senha,edt_repete_senha,edt_email,edt_email2;
+    private Button btn_salvar,btn_cancelar;
     private ImageView img_foto;
+    private ImageButton img_botao;
 
-    String nome,sobrenome,senha,senha2;
+    String nome,sobrenome,senha,senha2,email,email2;
     byte[] foto;
     Database db = new Database(this);
 
@@ -38,15 +41,20 @@ public class Cadastro extends AppCompatActivity {
         txt_sobrenome = findViewById(R.id.txt_sobrenome);
         txt_senha = findViewById(R.id.txt_senha);
         txt_repete_senha = findViewById(R.id.txt_repete_senha);
+        txt_email = findViewById(R.id.txt_email);
 
         edt_nome = findViewById(R.id.edt_nome);
         edt_sobrenome = findViewById(R.id.edt_sobrenome);
         edt_senha = findViewById(R.id.edt_senha);
         edt_repete_senha = findViewById(R.id.edt_repete_senha);
+        edt_email = findViewById(R.id.edt_email);
+        edt_email2 = findViewById(R.id.edt_email2);
 
         btn_salvar = findViewById(R.id.btn_salvar);
+        btn_cancelar = findViewById(R.id.btn_cancelar);
         img_foto = findViewById(R.id.img_foto);
 
+        img_botao = findViewById(R.id.img_botao);
         //HABILITA A CAMERA
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
@@ -55,13 +63,19 @@ public class Cadastro extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 salvar();
-                chamarTela();
+
             }
         });
-        img_foto.setOnClickListener(new View.OnClickListener() {
+        img_botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tirarFoto();
+            }
+        });
+        btn_cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -86,6 +100,9 @@ public class Cadastro extends AppCompatActivity {
         sobrenome = edt_sobrenome.getText().toString();
         senha = edt_senha.getText().toString();
         senha2 = edt_repete_senha.getText().toString();
+        email = edt_email.getText().toString();
+        email2 = edt_email2.getText().toString();
+
 
         // METODO PARA CONVERTER E SALVAR A FOTO
         Bitmap bitmap = ((BitmapDrawable) img_foto.getDrawable()).getBitmap();
@@ -95,11 +112,32 @@ public class Cadastro extends AppCompatActivity {
 
         foto = imageByte;
 
-        db.AddDados(new Dados(nome,sobrenome,senha,foto));
+        //TESTA VARIAVEIS
+
+        if (!email.equals(email2)){
+            Toast.makeText(Cadastro.this,"Email incopativeis",Toast.LENGTH_LONG).show();
+        }else
+        if (!senha.equals(senha2)){
+            Toast.makeText(Cadastro.this,"Senha incopativeis",Toast.LENGTH_LONG).show();
+        }else {
+            db.AddDados(new Dados(nome,sobrenome,senha,email,foto));
+            chamarTela();
+            //limpaCampos();
+        }
     }
 
     void chamarTela(){
         Intent intent = new Intent(Cadastro.this,MainActivity.class);
         startActivity(intent);
+    }
+    void limpaCampos(){
+        edt_nome.setText("");
+        edt_sobrenome.setText("");
+        edt_email.setText("");
+        edt_email2.setText("");
+        edt_senha.setText("");
+        edt_repete_senha.setText("");
+        img_foto.setImageResource(R.drawable.camera);
+
     }
 }

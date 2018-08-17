@@ -15,7 +15,7 @@
             android:id="@+id/txt_nome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome:"
+            android:text="@string/nome"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
             android:textColor="#fff"/>
@@ -26,7 +26,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="85dp"
             android:textColor="#fff"
-            />
+            android:inputType="textPersonName"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:id="@+id/txt_sobrenome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sobrenome:"
+            android:text="@string/sobrenome"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
             android:textColor="#fff"/>
@@ -47,7 +47,51 @@
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginStart="45dp"
+            android:textColor="#fff"
+            android:inputType="textPersonName"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
             android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="95dp"
+            android:textColor="#fff"
+            android:inputType="textEmailAddress"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_email2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repita_email"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#fff"/>
+
+        <EditText
+            android:id="@+id/edt_email2"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:textColor="#fff"
+            android:inputType="textEmailAddress"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,7 +102,7 @@
             android:id="@+id/txt_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Senha:"
+            android:text="@string/senha"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
             android:textColor="#fff"/>
@@ -80,7 +124,7 @@
             android:id="@+id/txt_repete_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Repita a senha:"
+            android:text="@string/repita_a_senha"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
             android:textColor="#fff"/>
@@ -97,21 +141,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <ImageButton
+            android:id="@+id/img_botao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera2"
+            android:layout_marginStart="20dp"/>
 
         <ImageView
             android:id="@+id/img_foto"
             android:layout_width="250dp"
             android:layout_height="200dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="50dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/camera"/>
+            android:layout_marginTop="10dp"
+             />
+
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:background="#11000000">
 
         <Button
@@ -119,9 +171,15 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:textSize="15sp"
-            android:text="Salvar"
-            android:layout_marginStart="120dp"
-            android:background="#11000000"
-            android:textColor="#fff"/>
+            android:text="@string/salvar"
+            android:layout_marginStart="20dp"
+            />
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="@string/cancelar"
+            android:layout_marginStart="10dp"/>
     </LinearLayout>
 </LinearLayout>
