@@ -1,7 +1,5 @@
 package br.com.renato.kmcar;
 
-
-
 public class Dados {
     int id,km_inicial,km_final;
     String nome_proprietario,nome_oleo,filtro_trocado,modelo,placa;

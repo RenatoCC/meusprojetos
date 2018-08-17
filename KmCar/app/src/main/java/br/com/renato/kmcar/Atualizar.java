@@ -67,7 +67,7 @@ public class Atualizar extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
         }
 
-            //RECEBE O VALOR DA PLACA PASSADO POR INTENT
+            //RECEBE O VALOR DA PLACA PASSADO POR INTENT DA CLASSE MAINACTIVITY2
             String placa = getIntent().getStringExtra("placa");
             dados.setPlaca(placa);
 

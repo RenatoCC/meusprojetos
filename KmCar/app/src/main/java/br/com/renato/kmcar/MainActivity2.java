@@ -137,7 +137,6 @@ public class MainActivity2 extends AppCompatActivity {
    //METODO QUE EXIBE A PLACA NO LISTVIEW
     void mostrar(){
 
-
        List<Dados> dados = db.Cadastro();
        list = new ArrayList<>();
        adapter = new ArrayAdapter<>(MainActivity2.this, android.R.layout.simple_list_item_1, list);

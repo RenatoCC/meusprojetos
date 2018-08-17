@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 public class Inicial extends AppCompatActivity {
 
@@ -43,7 +41,11 @@ public class Inicial extends AppCompatActivity {
             Intent intent = new Intent(Inicial.this,MainActivity2.class);
             startActivity(intent);
         }
-        if(id == R.id.id_sobre){
+        if(id == R.id.id_autor){
+            Intent intent = new Intent(Inicial.this,Autor.class);
+            startActivity(intent);
+        }
+        if (id == R.id.id_sobre){
             Intent intent = new Intent(Inicial.this,Sobre.class);
             startActivity(intent);
         }

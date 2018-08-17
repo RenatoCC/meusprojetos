@@ -1,6 +1,6 @@
         package br.com.renato.kmcar;
 
-        import android.Manifest;
+   import android.Manifest;
         import android.annotation.SuppressLint;
         import android.content.DialogInterface;
         import android.content.Intent;
@@ -32,9 +32,7 @@
         import java.time.DateTimeException;
         import java.util.ArrayList;
         import java.util.Calendar;
-
-
-        public  class MainActivity extends AppCompatActivity{
+ public  class MainActivity extends AppCompatActivity{
 
     private Button btn_salvar,btn_foto;
     private TextView txt_km_inicio, txt_km_final, txt_oleo, txt_filtro,txt_modelo,txt_placa;
@@ -182,7 +180,7 @@
 
 //--------------------------------------------------------------------------------------------------
         //TESTA OS VALORES ANTES DE SALVAR
-        int i, n;
+         int i, n;
         char a, b, c;
         n = placa.length();
 

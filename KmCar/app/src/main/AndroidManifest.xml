@@ -29,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Sobre"
+        <activity android:name=".Autor"
             android:screenOrientation="portrait">
         </activity>
             <activity
@@ -44,6 +44,10 @@
         </activity>
         <activity android:name=".Apresentacao"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Sobre"
+            android:screenOrientation="portrait">
+
         </activity>
     </application>
 

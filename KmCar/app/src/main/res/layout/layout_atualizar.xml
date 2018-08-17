@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/atualizacao">
 
-
             <TextView
                 android:id="@+id/txt_placa2"
                 android:layout_width="wrap_content"
