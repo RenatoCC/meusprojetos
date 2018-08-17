@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#1E90FF">
 
         <TextView
@@ -24,7 +24,7 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:background="#9AC0CD">
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="@string/preço_gasolina"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
         android:id="@+id/edt_preco"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:textColor="#FF0000"
         android:inputType="numberDecimal" />
 
@@ -50,29 +50,32 @@
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <Button
             android:id="@+id/btn_Ver"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:background="#3CB371"
+            android:textColor="#ffffff"
             android:text="@string/btn_ver"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="70dp"
             tools:text="@string/btn_ver" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="80dp"
         android:background="#9AC0CD"
-        >
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/txt_alcool"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:text="@string/preço_alcool"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -85,9 +88,8 @@
             android:textColor="#548B54"
             android:textStyle="bold"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="30dp"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -103,5 +105,29 @@
             android:layout_marginTop="10dp"
             android:text="@string/txt_info"
             android:textAlignment="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#B2DFEE">
+
+        <ImageView
+            android:id="@+id/img_razao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/imgen3"
+            android:layout_marginStart="100dp"
+            android:scaleType="centerInside"
+            android:visibility="invisible"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/txt_razao"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            />
     </LinearLayout>
 </LinearLayout>

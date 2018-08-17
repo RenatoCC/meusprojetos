@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#27B9A6">
 
     <TextView
         android:id="@+id/txt_sobre"
@@ -11,9 +12,22 @@
         android:text="@string/sobre_2"
         android:textAlignment="center"
         android:layout_marginTop="50dp"
-        android:textColor="#7B68EE"
+        android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txt_instrucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Para utilizar o aplicativo basta inserir o valor da
+gasolina que o aplicativo mostrará o valor que o álcool deve
+ser."
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:id="@+id/txt_info_2"
@@ -22,8 +36,8 @@
         android:text="@string/txt_info_2"
         android:layout_marginTop="50dp"
         android:layout_marginStart="100dp"
-        android:textSize="20sp"
-        android:textColor="#7B68EE"
+        android:textSize="22sp"
+        android:textColor="#ffffff"
         android:textStyle="bold"/>
 
 </LinearLayout>

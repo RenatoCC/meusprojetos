@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,9 +16,10 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView txt_gasolina,txt_alcool,txt_resultado,txt_info;
+    private TextView txt_gasolina,txt_alcool,txt_resultado,txt_info,txt_razao;
     private EditText edt_preco;
     private Button btn_ver;
+    private ImageView img_razao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         edt_preco = findViewById(R.id.edt_preco);
         btn_ver = findViewById(R.id.btn_Ver);
         txt_info = findViewById(R.id.txt_info);
+        txt_razao = findViewById(R.id.txt_razao);
+        img_razao = findViewById(R.id.img_razao);
 
         btn_ver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,12 +43,16 @@ public class MainActivity extends AppCompatActivity {
                     double gasolina;
                     double resultado;
                     double valor = 0.70;
+                    double razao;
                     gasolina = Double.parseDouble(edt_preco.getText().toString());
                     resultado = gasolina * valor;
+                    razao = resultado / gasolina;
                     DecimalFormat format = new DecimalFormat("#.###");
 
                     txt_resultado.setText(String.valueOf(format.format(resultado)));
+                    txt_razao.setText(String.valueOf(format.format(razao)));
                     txt_info.setVisibility(View.VISIBLE);
+                    img_razao.setVisibility(View.VISIBLE);
                 }
             }
         });
