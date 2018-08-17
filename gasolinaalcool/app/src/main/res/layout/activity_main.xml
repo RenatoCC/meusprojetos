@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#B2DFEE">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E90FF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/calculo"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#9AC0CD">
+
+    <TextView
+        android:id="@+id/txt_gasolina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/preço_gasolina"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="@string/preço_gasolina" />
+
+    <EditText
+        android:id="@+id/edt_preco"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColor="#FF0000"
+        android:inputType="numberDecimal" />
+
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_Ver"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:text="@string/btn_ver"
+            android:layout_marginStart="40dp"
+            tools:text="@string/btn_ver" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#9AC0CD"
+        >
+
+        <TextView
+            android:id="@+id/txt_alcool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="60dp"
+            android:text="@string/preço_alcool"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="@string/preço_alcool" />
+        <TextView
+            android:id="@+id/txt_resultado"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#548B54"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="60dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_info"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#548B54"
+            android:layout_marginTop="10dp"
+            android:text="@string/txt_info"
+            android:textAlignment="center" />
+    </LinearLayout>
+</LinearLayout>
