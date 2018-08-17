@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/historico"
+        android:title="@string/extrato"
+        android:icon="@drawable/historico"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/add"
+        android:title="@string/adicionar"
+        android:icon="@drawable/despesa"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/add_receita"
+        android:title="@string/receita"
+        android:icon="@drawable/add_receita"
+        app:showAsAction="ifRoom"/>
+</menu>

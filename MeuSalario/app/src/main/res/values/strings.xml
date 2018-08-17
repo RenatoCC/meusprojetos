@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MeuSalario</string>
+    <string name="histórico">Histórico</string>
+    <string name="novo_debito">Nova despesa</string>
+    <string name="extrato">extrato</string>
+    <string name="adicionar">Despesa</string>
+    <string name="receita">Receita</string>
+    <string name="excluir">Excluir</string>
+    <string name="editar">Editar</string>
+</resources>
