@@ -7,8 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView txt_gasolina,txt_alcool,txt_resultado,txt_info,txt_razao;
     private EditText edt_preco;
     private Button btn_ver;
-    private ImageView img_razao;
+    private ImageView img_razao,img_marca;
+    private Switch mudar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,22 @@ public class MainActivity extends AppCompatActivity {
         txt_info = findViewById(R.id.txt_info);
         txt_razao = findViewById(R.id.txt_razao);
         img_razao = findViewById(R.id.img_razao);
+        img_marca = findViewById(R.id.img_marca);
+        mudar = findViewById(R.id.mudar);
 
+
+        mudar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    Intent intent = new Intent(MainActivity.this,Consumo.class);
+                    startActivity(intent);
+                mudar.setChecked(false);
+                }else{
+
+                }
+            }
+        });
         btn_ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,18 +59,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Digite um valor", Toast.LENGTH_LONG).show();
                 } else {
                     double gasolina;
-                    double resultado;
+                    double alcool;
                     double valor = 0.70;
-                    double razao;
-                    gasolina = Double.parseDouble(edt_preco.getText().toString());
-                    resultado = gasolina * valor;
-                    razao = resultado / gasolina;
-                    DecimalFormat format = new DecimalFormat("#.###");
+                   // double razao;
 
-                    txt_resultado.setText(String.valueOf(format.format(resultado)));
-                    txt_razao.setText(String.valueOf(format.format(razao)));
+                    gasolina = Double.parseDouble(edt_preco.getText().toString());
+                    alcool = gasolina * valor;
+                    //razao = alcool / gasolina;
+                    DecimalFormat format = new DecimalFormat("#.##");
+
+                    txt_resultado.setText(String.valueOf(format.format(alcool)));
+                    //txt_razao.setText(String.valueOf(format.format(razao)));
                     txt_info.setVisibility(View.VISIBLE);
-                    img_razao.setVisibility(View.VISIBLE);
+                    img_marca.setVisibility(View.VISIBLE);
                 }
             }
         });

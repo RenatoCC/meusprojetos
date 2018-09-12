@@ -22,6 +22,9 @@
         <activity android:name=".Autor">
 
         </activity>
+        <activity android:name=".Consumo">
+
+        </activity>
     </application>
 
 </manifest>
