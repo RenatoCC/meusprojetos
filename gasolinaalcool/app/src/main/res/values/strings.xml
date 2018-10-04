@@ -7,7 +7,7 @@
     <string name="calculo">CALCULO PARA ABASTECIMENTO</string>
     <string name="sobre">Sobre</string>
     <string name="sair">Sair</string>
-    <string name="sobre_2">Aplicativo criado para saber se é mehor abastecer com alcool ou gasolina, ativando a opção consumo é possivel calcular o consumo de combustível do carro </string>
-    <string name="txt_info_2">Se beber não dirija!</string>
+    <string name="sobre_2">Aplicativo criado para saber se é mehor abastecer com alcool ou gasolina </string>
+    <string name="txt_info_2">Se for dirigir não beba!!</string>
     <string name="id_autor">Autor</string>
 </resources>

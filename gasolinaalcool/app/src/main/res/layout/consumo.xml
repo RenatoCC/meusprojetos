@@ -13,7 +13,7 @@
             android:id="@+id/txt_apresentacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calculo para consumo de combustivel"
+            android:text="Calculo de consumo de combustivel"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:textSize="18sp"
@@ -68,7 +68,7 @@
             android:text="Quantidades de litros abastecidos:"
             android:layout_marginStart="10dp"
             android:textStyle="bold"
-            android:textSize="17sp"/>
+            android:textSize="16sp"/>
 
         <EditText
             android:id="@+id/edt_qtd_litros"
@@ -82,13 +82,13 @@
 
         <Button
             android:id="@+id/btn_calcular"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Calcular"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -102,7 +102,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginStart="20dp"
             android:visibility="invisible"
-            android:textSize="15sp"/>
+            android:textSize="17sp"/>
 
         <TextView
             android:id="@+id/txt_resultado"
@@ -110,7 +110,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
             android:layout_marginStart="10dp"
-            android:textSize="15sp"/>
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/txt_litro"
@@ -120,6 +120,71 @@
             android:layout_marginTop="50dp"
             android:layout_marginStart="10dp"
             android:visibility="invisible"
-            android:textSize="15sp"/>
+            android:textSize="17sp"/>
     </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_verde"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="#1bb74f"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txt_vermelho"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="#ff0000"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txt_laranja"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:background="#ff8000"
+            android:visibility="invisible" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consumo OK"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="100dp"
+            android:textColor="#007400"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/txt_alto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atenção!! consumo alto"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="50dp"
+            android:textColor="#ff0000"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/txt_medio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consumo não está normal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="50dp"
+            android:textColor="#ff8000"
+            android:visibility="invisible"/>
+    </FrameLayout>
 </LinearLayout>

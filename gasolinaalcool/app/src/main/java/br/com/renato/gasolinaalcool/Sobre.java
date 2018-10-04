@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class Sobre extends AppCompatActivity {
 
-    private TextView txt_sobre;
+    private TextView txt_sobre,txt_exp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,5 +15,6 @@ public class Sobre extends AppCompatActivity {
         setContentView(R.layout.sobre);
 
         txt_sobre = findViewById(R.id.txt_sobre);
+        txt_exp = findViewById(R.id.txt_exp);
     }
 }
