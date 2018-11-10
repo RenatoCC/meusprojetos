@@ -1,86 +1,105 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web);
 @import url(https://fonts.googleapis.com/css?family=Tillana);
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+
 
 body {
-	font-family: Arial, sans-serif;
-	/*background-color: #dddddd;
-	color: rgba(0,0,0,1);*/
+
+	font-family: 'Orbitron', sans-serif;
+}
+div#interface {
+	/*background-image: url(_imagens/fundo_menor.jpg);*/
+	width: 100%;
+	background-color:#F5F5F5
+	}
+
+/*---------------------------cabecalho-------------------------*/	
+header#cabecalho {
+	position: relative;
+	border-bottom: 5px #606060 solid;
+	text-align:center;
+	/*background:#5F9EA0;*/
 
 }
-/*div#interface {
-	width: 1020px;
-	background-color: #ffffff;
-	margin: -20px auto 0px auto;
-	box-shadow: 0px 0px 10px black;
-	padding: 10px 10px 10px 10px;
+header#cabecalho h1 {
+	text-align: center;
+	font-size: 30pt;
+	padding-top:10px;
+}
+/*header#cabecalho h1:hover {
+	background-color:rgba(0,0,0,.1);
+}*/
+/*---------------------------foto--------------------------------*/
+/*	figure.foto {
+		width:400px;
+		position: relative;
+		border: 8px solid white;
+		box-shadow: 1px 1px 4px black;
+	}*/
+	
+img {
+	background-color:#ffffff;
+	margin-left:-20px;
+	border-radius:50%;
+	width: 400px;
+	height: 400px;
+	overflow: hidden;
+}
+/*.redondo img {
+	position: absolute;
+  bottom: 0;
+  width: 100%;
 }*/
 
-}
-	p {
-	 text-align: justify;
-	 font-size: 12pt;
-	 text-align: center
+/*-------------------------texto lateral----------------------------*/
 
- }
+aside#lateral_esquerda {
+	display:block;
+	float:left;
+	height:100%;
+	
+}
+aside#lateral_direita {
+	display: block;
+	width:600px;
+	float: right;
+	margin-bottom:10px;
+	padding-left:50px;
+	border-left:1px #606060 solid;
+}
+section#corpo {
+	display: block;
+	float: left;
+	width:650px;
+}
+
+/*------------------------rodape---------------------------------*/
+footer#rodape  {
+	clear: both;
+	text-align: center;
+	border-top:1px #606060 solid;
+}
+	
+/*-------------------------TABELAS-------------------------------*/
+
 caption {
-	 	font-family: 'Titillium Web', sans-serif;
 		background: #606060;
 		color:#ffffff;
 		font-size:16pt;
 		font-style:bolder;
 		height:40px;
 		padding-top: 25px;
- }
-	
-header#cabecalho {
-	border-bottom: 1px #606060 solid;
-	height: 100px;
-	margin-top:50px;
-	text-align:center;
 }
-/*---------------------------foto---------------------------*/
-div.foto{
-height:100%;
-}
-
-figure.foto img {
-	width: 40%;
-	height: 100%;
-}
-/*figure.foto {
-	position: relative;
-	border: 8px solid white;
-	box-shadow:  1px 1px 4px blac
-}*/
-
-
-
-
-/*------------------------rodape----------------------------*/
-footer#rodape p {
-	text-align: center;
-	border-top:1px #606060 solid;
-	margin-top:30px;
-}
-	h1 { 
-	text-align: center;
-	font-family: 'Titillium Web', sans-serif;
-	text-shadow: 1px 1px 1px rgba(0,0,0,.6);
-	font-size: 30pt;
-	color: #606060;
-	padding-top:10px;
-
-	}	
-/*-------------------------TABELAS-------------------------------*/
-
 table#tabela_contato {
 	text-align: justify;
-	margin-left:800px;
-	margin-top:-400px;
 	text-align:center;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	width:500px;
+	margin-top:20px;
+	border-spacing: 0px;
 	}
 table#tabela_contato p {
 	background:#606060;
@@ -90,67 +109,75 @@ table#tabela_contato p {
 }
 table#tabela_contato td {
 	color: #ffffff;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
 	background-color:#dddddd;
 	color: rgba(0,0,0,1);
-	font-size:13pt;
+	font-size:12pt;
 }
 table#tabela_endereco {
-	margin-left:800px;
 	margin-top:20px;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	width:500px;
 	text-align:center;
+	border-spacing: 0px;
 }
 table#tabela_endereco td {
 	color: #ffffff;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
+	font-size:12pt;
 	background-color:#dddddd;
 	color: rgba(0,0,0,1);
+
 }
+
 table#tabela_formacao {
-	margin-left:800px;
 	margin-top:20px;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	width:500px;
 	text-align:center;
+	border-spacing: 0px;
+
 }
 table#tabela_formacao td {
 	color: #ffffff;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
+	font-size:12pt;
 	background-color:#dddddd;
 	color: rgba(0,0,0,1);
 }
 
 table#tabela_experiencia {
-	margin-left:800px;
 	text-align:center;
 	margin-top:20px;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	width:500px;
+	border-spacing: 0px;
+
 }
 table#tabela_experiencia td {
 	color: #ffffff;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
+	font-size:12pt;
 	background-color:#dddddd;
 	color: rgba(0,0,0,1);
 }
 table#tabela_cursos {
-	margin-left:800px;
 	text-align:center;
 	margin-top:20px;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	width:500px;
+	border-spacing: 0px;
+
 }
 table#tabela_cursos td {
 	color: #ffffff;
-	font-family: 'Titillium Web', sans-serif;
-	font-style: bolder;
+	font-family: 'Orbitron', sans-serif;
+	font-size:12pt;
+	font-style:bolder;
 	background-color:#dddddd;
 	color: rgba(0,0,0,1);
 }
-/*-------------------FINAL TABELAS--------------------------*/
