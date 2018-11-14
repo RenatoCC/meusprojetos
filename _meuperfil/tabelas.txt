@@ -1,0 +1,28 @@
+	<table id="tabela_contato" border="1">
+			<caption>CONTATO</caption>
+			<tr><td><p>Telefone</p></td></tr><tr><td>(71) 99677-2340 / 99721-1498</td></tr>
+			<tr><td><p>E-mail</p></td></tr><tr><td>renatosillvacarneiro@gmail.com</td></tr>
+			<tr><td><p>Linkedin</p></td></tr><tr><td><a href="ttps://www.linkedin.com/in/renato-da-silva-carneiro-72b4a0115" target="blanck"> https://www.linkedin.com/in/renato-da-silva-carneiro-72b4a0115</a></td></tr>
+		</table>
+		<table id="tabela_endereco" border="1" >
+			<caption>ENDEREÇO</caption>
+			<tr><td>Rua Durval farias, Fazenda Grande do Retiro, Nº-24, Salvador - BA</td></tr>
+		</table>
+
+		<table id="tabela_formacao" border="1">
+			<caption>FORMAÇÃO</caption>
+			<tr><td>Formado em analise e desenvolvimento de sistemas - AIEC</td></tr>
+		</table>
+
+		<table id="tabela_cursos" border="1">
+			<caption>CURSOS DE APERFEIÇOAMENTO</caption>
+			<tr><td>Certificação ITIL<sub>&reg;</sub> Foundation<br/>
+			<tr><td>linguagem JAVA  - IEEE UNIFACS STUDENT BRANCH</td></tr></td></tr>
+		</table>
+		<table id="tabela_experiencia" border="1">
+			<caption>EXPERIÊNCIA PROFISSIONAL</caption>
+			<tr><td>2007 - 2016 - SIAN - SISTEMAS DE ILUMINAÇÃO AUTOMOTIVA<br/>
+			Cargo: montador
+			<tr><td>SERVICE PACK <br/>
+			Cargo: Motorista</td></tr></td></tr>
+		</table>

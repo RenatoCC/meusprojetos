@@ -5,30 +5,34 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 
-
-body {
-
-	font-family: 'Orbitron', sans-serif;
+html, body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 div#interface {
 	/*background-image: url(_imagens/fundo_menor.jpg);*/
 	width: 100%;
-	background-color:#F5F5F5
 	}
 
 /*---------------------------cabecalho-------------------------*/	
 header#cabecalho {
 	position: relative;
-	border-bottom: 5px #606060 solid;
-	text-align:center;
-	/*background:#5F9EA0;*/
+	width: 100%;
+	height: 100px;
+	/*border-bottom: 5px #212121 solid;*/
+	/*background:#2196f3;*/
+	background: #FFA631;
 
 }
-header#cabecalho h1 {
+/*header#cabecalho h1 {
+	font-family: 'Orbitron', sans-serif;
 	text-align: center;
 	font-size: 30pt;
-	padding-top:10px;
-}
+	padding-top:30px;
+	padding-bottom: 20px;
+	margin: 0;
+}*/
 /*header#cabecalho h1:hover {
 	background-color:rgba(0,0,0,.1);
 }*/
@@ -41,12 +45,17 @@ header#cabecalho h1 {
 	}*/
 	
 img {
-	background-color:#ffffff;
 	margin-left:-20px;
 	border-radius:50%;
-	width: 400px;
-	height: 400px;
+	width: 350px;
+	height: 350px;
 	overflow: hidden;
+	background:#004d40;
+	border:1px solid ;
+	box-shadow: 1px 1px 4px black;
+}
+figure.foto figcaption {
+	color: #ffffff;
 }
 /*.redondo img {
 	position: absolute;
@@ -59,16 +68,19 @@ img {
 aside#lateral_esquerda {
 	display:block;
 	float:left;
-	height:100%;
+	height:900px;
+	width:500px;
+	background: black;
 	
 }
 aside#lateral_direita {
 	display: block;
 	width:600px;
 	float: right;
+	margin-right:50px;
 	margin-bottom:10px;
 	padding-left:50px;
-	border-left:1px #606060 solid;
+	/*border-left:5px #212121 solid;*/
 }
 section#corpo {
 	display: block;
@@ -76,81 +88,64 @@ section#corpo {
 	width:650px;
 }
 
-/*------------------------rodape---------------------------------*/
-footer#rodape  {
-	clear: both;
-	text-align: center;
-	border-top:1px #606060 solid;
-}
-	
 /*-------------------------TABELAS-------------------------------*/
 
-caption {
-		background: #606060;
+/*caption {
+		background: #4B77BE;
 		color:#ffffff;
+		font-family: 'Orbitron', sans-serif;
 		font-size:16pt;
 		font-style:bolder;
-		height:40px;
+		height:30px;
 		padding-top: 25px;
 }
 table#tabela_contato {
 	text-align: justify;
 	text-align:center;
-	font-family: 'Orbitron', sans-serif;
 	width:500px;
 	margin-top:20px;
 	border-spacing: 0px;
+	border-color:#4B77BE;
 	}
 table#tabela_contato p {
-	background:#606060;
+	background:#317589;
 	color:#ffffff;
 	font-size:15pt;
 	font-style: bold;
 }
 table#tabela_contato td {
-	color: #ffffff;
 	font-family: 'Orbitron', sans-serif;
-	font-style: bolder;
-	background-color:#dddddd;
-	color: rgba(0,0,0,1);
-	font-size:12pt;
+	font-style: bolder;	
 }
 table#tabela_endereco {
+	border-color:#4B77BE;
 	margin-top:20px;
-	font-family: 'Orbitron', sans-serif;
 	width:500px;
 	text-align:center;
 	border-spacing: 0px;
 }
 table#tabela_endereco td {
-	color: #ffffff;
 	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
 	font-size:12pt;
-	background-color:#dddddd;
-	color: rgba(0,0,0,1);
-
 }
-
 table#tabela_formacao {
 	margin-top:20px;
 	font-family: 'Orbitron', sans-serif;
 	width:500px;
 	text-align:center;
 	border-spacing: 0px;
-
+	border-color:#4B77BE;
 }
 table#tabela_formacao td {
-	color: #ffffff;
 	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
 	font-size:12pt;
-	background-color:#dddddd;
-	color: rgba(0,0,0,1);
 }
 
 table#tabela_experiencia {
 	text-align:center;
+	border-color:#4B77BE;
 	margin-top:20px;
 	font-family: 'Orbitron', sans-serif;
 	width:500px;
@@ -162,10 +157,11 @@ table#tabela_experiencia td {
 	font-family: 'Orbitron', sans-serif;
 	font-style: bolder;
 	font-size:12pt;
-	background-color:#dddddd;
+	/*background-color:#dddddd;
 	color: rgba(0,0,0,1);
 }
-table#tabela_cursos {
+/*table#tabela_cursos {
+	border-color:#4B77BE;
 	text-align:center;
 	margin-top:20px;
 	font-family: 'Orbitron', sans-serif;
@@ -174,10 +170,19 @@ table#tabela_cursos {
 
 }
 table#tabela_cursos td {
-	color: #ffffff;
 	font-family: 'Orbitron', sans-serif;
 	font-size:12pt;
 	font-style:bolder;
-	background-color:#dddddd;
-	color: rgba(0,0,0,1);
+	
+}*/
+/*------------------------rodape---------------------------------*/
+footer#rodape  {
+	height: 50px;
+	font-family: 'Orbitron', sans-serif;
+	clear: both;
+	text-align: center;
+	/*border-top:5px #212121 solid;*/
+	/*background-color:#2196f3;*/
+	background: #F5AB35;
+	padding-top: 5px;
 }
