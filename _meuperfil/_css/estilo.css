@@ -12,177 +12,85 @@ html, body {
 }
 div#interface {
 	/*background-image: url(_imagens/fundo_menor.jpg);*/
-	width: 100%;
+	margin-bottom: 0;
 	}
 
 /*---------------------------cabecalho-------------------------*/	
-header#cabecalho {
+/*header#cabecalho {
 	position: relative;
 	width: 100%;
 	height: 100px;
 	/*border-bottom: 5px #212121 solid;*/
-	/*background:#2196f3;*/
+	/*background:#2196f3;
 	background: #FFA631;
 
-}
-/*header#cabecalho h1 {
-	font-family: 'Orbitron', sans-serif;
-	text-align: center;
-	font-size: 30pt;
-	padding-top:30px;
-	padding-bottom: 20px;
-	margin: 0;
 }*/
-/*header#cabecalho h1:hover {
-	background-color:rgba(0,0,0,.1);
-}*/
+
 /*---------------------------foto--------------------------------*/
-/*	figure.foto {
-		width:400px;
-		position: relative;
-		border: 8px solid white;
-		box-shadow: 1px 1px 4px black;
-	}*/
 	
-img {
-	margin-left:-20px;
+.minha_foto {
+	margin-left:30px;
+	margin-top: 10px;
 	border-radius:50%;
 	width: 350px;
 	height: 350px;
 	overflow: hidden;
-	background:#004d40;
-	border:1px solid ;
-	box-shadow: 1px 1px 4px black;
+	
 }
-figure.foto figcaption {
+
+.foto_direita {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.foto_esquerda figcaption{
 	color: #ffffff;
-}
-/*.redondo img {
-	position: absolute;
-  bottom: 0;
-  width: 100%;
+	margin-left:70px;
+	margin-top: 10px;
+	font-size: 15pt;
+	font-style: bolder;
+} 
+
+/*---------------------------linkedin------------------------------*/
+/*a#botao_linkedin {
+	display: block;            
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    margin-left: 100px;
+    background-size: 100% 100%; 
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI2MHB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2MCA2MCIgd2lkdGg9IjYwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0ic29pY2FsIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgaWQ9InNvY2lhbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc3My4wMDAwMDAsIC0xMzguMDAwMDAwKSI+PGcgaWQ9InNsaWNlcyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTczLjAwMDAwMCwgMTM4LjAwMDAwMCkiLz48ZyBmaWxsPSIjMzQ2REE2IiBpZD0ic3F1YXJlLWZsYXQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3My4wMDAwMDAsIDEzOC4wMDAwMDApIj48cGF0aCBkPSJNNjAyLjk5NTkzNywwIEw2NTcuMDA0MDYzLDAgQzY1OC42NTg2NzMsMCA2NjAsMS4zMzczMDk3NCA2NjAsMi45OTU5Mzc0MyBMNjYwLDU3LjAwNDA2MjYgQzY2MCw1OC42NTg2NzMxIDY1OC42NjI2OSw2MCA2NTcuMDA0MDYzLDYwIEw2MDIuOTk1OTM3LDYwIEM2MDEuMzQxMzI3LDYwIDYwMCw1OC42NjI2OTAzIDYwMCw1Ny4wMDQwNjI2IEw2MDAsMi45OTU5Mzc0MyBDNjAwLDEuMzQxMzI2ODggNjAxLjMzNzMxLDAgNjAyLjk5NTkzNywwIFoiIGlkPSJzcXVhcmUtNyIvPjwvZz48ZyBmaWxsPSIjRkZGRkZGIiBpZD0iaWNvbiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgyLjAwMDAwMCwgMTUwLjAwMDAwMCkiPjxwYXRoIGQ9Ik02MTIuODgzMDc1LDMxLjgyMzE1MTIgTDYxMi44ODMwNzUsMTMuNTI0MzM4OSBMNjA3LjIyNzM3LDEzLjUyNDMzODkgTDYwNy4yMjczNywzMS44MjMxNTEyIEw2MTIuODgzMDc1LDMxLjgyMzE1MTIgWiBNNjEyLjg4MzA3NSw3LjAzODIxNDU1IEM2MTIuODQ5Mzg4LDUuNDAwNjU5OTYgNjExLjc1ODAxNiw0LjE1Mzg0NjE1IDYwOS45ODUwNTQsNC4xNTM4NDYxNSBDNjA4LjIxMTYzMiw0LjE1Mzg0NjE1IDYwNy4wNTI4ODUsNS40MDA2NTk5NiA2MDcuMDUyODg1LDcuMDM4MjE0NTUgQzYwNy4wNTI4ODUsOC42NDAyMDIzNCA2MDguMTc3OTQ0LDkuOTIzMDc2OTIgNjA5LjkxNzIxOSw5LjkyMzA3NjkyIEw2MDkuOTUwOTA2LDkuOTIzMDc2OTIgQzYxMS43NTgwMTYsOS45MjMwNzY5MiA2MTIuODgzMDc1LDguNjQwMjAyMzQgNjEyLjg4MzA3NSw3LjAzODIxNDU1IFogTTYyMi4xMTAwNDIsMzEuODIzMTUxNyBMNjIyLjExMDA0MiwyMS4zOTczNzI5IEM2MjIuMTEwMDQyLDIwLjgzOTQwMTQgNjIyLjE1MDM3LDIwLjI4MTQzIDYyMi4zMTQ0NDcsMTkuODgzNjY4MiBDNjIyLjc2MzAzNCwxOC43NjgyNzc4IDYyMy43ODM5NTYsMTcuNjEzNjYzNyA2MjUuNDk4MTk5LDE3LjYxMzY2MzcgQzYyNy43NDM4OTYsMTcuNjEzNjYzNyA2MjkuMTUyMjc4LDE4Ljg4ODE1ODcgNjI5LjE1MjI3OCwyMS4zOTczNzI3IEw2MjkuMTUyMjc4LDMxLjgyMzE1MTYgTDYzNC44NDYxNTQsMzEuODIzMTUxNyBMNjM0Ljg0NjE1NCwyMS4xMTgzODcyIEM2MzQuODQ2MTU0LDE1LjM4Mzk4NzggNjMxLjc4NTA0NSwxMi43MTU2NjkgNjI3LjcwMTkxLDEyLjcxNTY2OSBDNjI0LjM1NDA4MSwxMi43MTU2NjkgNjIyLjg4NDU3MiwxNC41ODczNTkzIDYyMi4wNjg2MDgsMTUuODYxMzAyIEw2MjIuMTA5NDg5LDEzLjQxMzkxMjMgTDYxNi40MjU0NjIsMTMuNDEzOTEyMyBDNjE2LjUwNzIyNCwxNS4xNjU3MjE1IDYxNi40MjU0NjIsMzEuODIzMTUxNiA2MTYuNDI1NDYyLDMxLjgyMzE1MTYgTDYyMi4xMTAwNDIsMzEuODIzMTUxNyBaIiBpZD0ibGlua2VkaW4iLz48L2c+PC9nPjwvZz48L3N2Zz4="); 
+    background-repeat: no-repeat;
+    background-position: center;
 }*/
 
 /*-------------------------texto lateral----------------------------*/
-
+.fixed-action-btn{
+	position: fixed;
+	margin-bottom: 300px;
+	margin-right: 310px;
+}
 aside#lateral_esquerda {
 	display:block;
 	float:left;
-	height:900px;
-	width:500px;
+	height:690px;
+	width:430px;
 	background: black;
 	
 }
 aside#lateral_direita {
 	display: block;
-	width:600px;
 	float: right;
-	margin-right:50px;
-	margin-bottom:10px;
-	padding-left:50px;
-	/*border-left:5px #212121 solid;*/
-}
-section#corpo {
-	display: block;
-	float: left;
-	width:650px;
+	width: 919px;
+	height: 675px
 }
 
-/*-------------------------TABELAS-------------------------------*/
-
-/*caption {
-		background: #4B77BE;
-		color:#ffffff;
-		font-family: 'Orbitron', sans-serif;
-		font-size:16pt;
-		font-style:bolder;
-		height:30px;
-		padding-top: 25px;
-}
-table#tabela_contato {
-	text-align: justify;
-	text-align:center;
-	width:500px;
-	margin-top:20px;
-	border-spacing: 0px;
-	border-color:#4B77BE;
-	}
-table#tabela_contato p {
-	background:#317589;
-	color:#ffffff;
-	font-size:15pt;
-	font-style: bold;
-}
-table#tabela_contato td {
-	font-family: 'Orbitron', sans-serif;
-	font-style: bolder;	
-}
-table#tabela_endereco {
-	border-color:#4B77BE;
-	margin-top:20px;
-	width:500px;
-	text-align:center;
-	border-spacing: 0px;
-}
-table#tabela_endereco td {
-	font-family: 'Orbitron', sans-serif;
-	font-style: bolder;
-	font-size:12pt;
-}
-table#tabela_formacao {
-	margin-top:20px;
-	font-family: 'Orbitron', sans-serif;
-	width:500px;
-	text-align:center;
-	border-spacing: 0px;
-	border-color:#4B77BE;
-}
-table#tabela_formacao td {
-	font-family: 'Orbitron', sans-serif;
-	font-style: bolder;
-	font-size:12pt;
-}
-
-table#tabela_experiencia {
-	text-align:center;
-	border-color:#4B77BE;
-	margin-top:20px;
-	font-family: 'Orbitron', sans-serif;
-	width:500px;
-	border-spacing: 0px;
-
-}
-table#tabela_experiencia td {
-	color: #ffffff;
-	font-family: 'Orbitron', sans-serif;
-	font-style: bolder;
-	font-size:12pt;
-	/*background-color:#dddddd;
-	color: rgba(0,0,0,1);
-}
-/*table#tabela_cursos {
-	border-color:#4B77BE;
-	text-align:center;
-	margin-top:20px;
-	font-family: 'Orbitron', sans-serif;
-	width:500px;
-	border-spacing: 0px;
-
-}
-table#tabela_cursos td {
-	font-family: 'Orbitron', sans-serif;
-	font-size:12pt;
-	font-style:bolder;
-	
-}*/
 /*------------------------rodape---------------------------------*/
-footer#rodape  {
+/*footer#rodape  {
 	height: 50px;
 	font-family: 'Orbitron', sans-serif;
 	clear: both;
 	text-align: center;
-	/*border-top:5px #212121 solid;*/
-	/*background-color:#2196f3;*/
 	background: #F5AB35;
 	padding-top: 5px;
-}
+}*/

@@ -26,3 +26,29 @@
 			<tr><td>SERVICE PACK <br/>
 			Cargo: Motorista</td></tr></td></tr>
 		</table>
+
+
+<footer id="rodape">
+	<p>Copyright &copy;2018 - by Renato da Silva Carneiro</p>
+</footer>	
+
+
+
+
+
+
+
+    <div class="cartao_contato" style="width: 18rem;">
+			  <div class="card-body">
+			    <h4 class="titulo">Contato:</h4>
+		    <a  href="https://www.linkedin.com/in/renato-da-silva-carneiro-72b4a0115" id="botao_linkedin" rel="nofollow" target="_blank" class="linkedin-share-button"></a>
+			    <p class="tel">Tel: (71) 99677-2340</p><p class="email">renatosillvacarneiro@gmail.com</p>
+
+			<div class="cartao_endereco" style="width: 18rem;">
+			  <div class="card-body">
+			    <h4 class="titulo">Endereço:</h4>
+			    <p class="endereco">Rua Durval farias, Fazenda Grande do Retiro, Nº-24, Salvador - BA</p>   
+			  </div>
+			</div>
+			</aside>
+		</div>
