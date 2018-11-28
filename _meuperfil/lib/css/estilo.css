@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+.conteudo {
+
+	height: 400px;
+	background-color:#37474f;
+}
+header h1 {
+	font-family: 'OpenSans-light, sans-serif';
+	margin: 0;
+	padding-top: 10px;
+	font-size: 22pt;
+	text-align: center;
+	color: #ffffff;
+}
+.foto {
+	margin-top: 20px;
+}
+
+.minha_foto {
+	margin-left:90px;
+	margin-top: 10px;
+	border-radius:50%;
+	width: 150px;
+	height: 160px;
+	overflow: hidden;
+	border:5px #ffffff solid;
+
+}
+.formacao{
+	margin-top: 164px;
+	height: 180px;
+	padding-top: 10px;
+	transition: background-color 1s;
+}
+/*.formacao:hover {
+	background-color: rgba(0,0,0,.4);
+}*/
+.formacao span h2{
+	color: #000;
+	margin-left: 10px;
+	margin-bottom: 0;
+	font-family: 'OpenSans-light, sans-serif';	
+}
+.formacao hr {
+	position: absolute;
+	margin-left: 10px;
+	border:#d50000 solid 4px;
+	width: 50px;
+	margin-top: 10px;
+}
+.formacao p {
+	margin-top: 60px;
+	color: #000;
+	font-size: 18px;
+	margin-left: 10px;
+	font-family: 'OpenSans-light, sans-serif';
+}
+
+.cursos{
+	margin-top: -0;
+	padding-top: 50px;
+	transition: background-color 1s;	
+}
+
+/*.cursos:hover {
+	background-color: rgba(0,0,0,.4);
+}*/
+.cursos span h2 {
+	color: #000;
+	margin-left: 10px;
+	margin-bottom: 0;
+	font-family: 'OpenSans-light, sans-serif';	
+}
+.cursos hr {
+	position: absolute;
+	margin-left: 10px;
+	border:#d50000 solid 4px;
+	width: 50px;
+	margin-top: 10px;
+}
+
+#cursos li {
+	color: #000;
+	font-size: 18px;
+	font-family: 'OpenSans-light, sans-serif';
+}
+#cursos ul{
+	margin-top: 60px;
+}
+#quem-sou{
+	margin-top: -15px;
+	/*transition: background-color 1s;
+	transition: color 1s;*/	
+}
+#quem-sou span h2{
+	color: #000;
+	padding-top: 50px;
+	margin-left: 10px;
+	font-family: 'OpenSans-light, sans-serif';
+
+}
+#quem-sou hr{
+	margin-left: 10px;
+	border:#d50000 solid 4px;
+	width: 50px;
+}
+#quem-sou p{
+	margin-top: 60px;
+	text-align: justify;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 18px;
+	font-family: 'OpenSans-light, sans-serif';
+
+}
+/*#quem-sou:hover{
+	background-color: rgba(0,0,0,.4);
+	color: #fff;
+}*/
+.dados{
+	height: 245px;
+	margin-top: 50px;
+	background-color: #1a237e  ;
+}
+
+.dados h2 {
+	color: #fff;
+	padding-top: 20px;
+	margin-left: 10px;
+	margin-bottom: 0;
+	font-family: 'OpenSans-light, sans-serif';	
+}
+.dados hr {
+	position: absolute;
+	margin-left: 10px;
+	border:#d50000 solid 4px;
+	width: 50px;
+	margin-top: 10px;
+}
+
+#dados address{
+	margin-top: 50px;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'OpenSans-light, sans-serif';
+
+}
+#dados address i {
+	margin-left: 10px;
+}
+#dados .end span{
+	color: #fff;
+	font-size: 18px;
+	text-align: justify;
+	font-family: 'OpenSans-light, sans-serif';	
+
+}
+#dados .tel {
+	margin-top: 50px;
+	color: #fff;
+	font-size: 18px;
+	text-align: justify;
+	margin-top: -10px;
+	font-family: 'OpenSans-light, sans-serif';	
+}
+
+#dados i{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#dados .email {
+	color: #fff;
+	font-size: 18px;
+	text-align: justify;
+	font-family: 'OpenSans-light, sans-serif';	
+}
+#dados .email i{
+	margin-left: 10px;
+}
